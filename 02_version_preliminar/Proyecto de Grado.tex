@@ -1,0 +1,248 @@
+\documentclass[12pt,oneside]{book}
+
+\usepackage{ulamonog} %proyecto de grado
+%\usepackage[cp1252]{inputenc} % escribir acentos en Windows
+%Descomentar lo siguiente (y comentar la línea anterior) para compilar en Linux:
+\usepackage[utf8]{inputenc}
+
+\usepackage[activeacute,spanish]{babel}
+
+\usepackage{color}
+\usepackage[colorlinks]{hyperref}
+
+% ***************************************************************** %
+% En el siguiente comando se pueden modificar:
+% Titulo, Autor, Palabras clave
+% ***************************************************************** %
+
+% si se va a imprimir,
+% se incluye al final despues de citecolor=blue, el comando draft=true
+% por lo cual se descomenta la última línea y se comenta la anterior.
+% Las siguientes son propiedades del pdf, más no cambian nada dentro del
+% texto de la monografía
+\hypersetup{pdftitle={Uso de Kinect para la Adquisición de Información del Entorno que permita elaborar Mapas para la Navegación de un Robot Móvil},
+pdfauthor={Carlos Eduardo Paparoni Bruzual},
+pdfsubject={Propuesta de Proyecto de Grado}, % se deja igual (se cambia para el proyecto de grado)
+pdfkeywords={Robots Móviles, Construcción de Mapas, Visión por Computador, Kinect, CARMEN}, pdfstartview=FitH,
+% bookmarks=true, citecolor=blue}
+bookmarks=true, citecolor=blue, draft=true}
+
+% ***************************************************************** %
+% FIN DE
+% Titulo, Autor, Palabras clave
+% ***************************************************************** %
+
+% Si desea que no aparezca la lista de tablas o figuras descomente las siguientes lineas
+% \nolistoftables
+\nolistoffigures
+
+\usepackage[numbers]{natbib} %Agregado numbers para compatibilidad con la bibliografía estilo IEEEtranN
+
+\sloppy
+
+\begin{document}
+
+\frontmatter
+
+% ***************************************************************** %
+% Portada y resumen
+% ***************************************************************** %
+
+% Si desea que el logo de la ULA aparezca en la parte superior,
+% descomente la siguiente línea. Por defecto aparece en la parte inferior
+%\logoarriba{}
+
+% Año en el cual se entrega el proyecto de grado o la propuesta
+\copyrightyear{2014}
+
+% Al final cuando hayan presentado, sin comentar,
+% deberia ser el número de tesis presentada y la opción, IO por ejemplo
+% (Actualmente, 11-03-08, no se está trabajando con esta metodología de llevar un
+% número de proyecto para las tesis, por lo cual debe ir comentado)
+%\numproy{23SC}
+
+% En caso de hacer la propuesta, descomente la siguiente
+% instrucción. Para el Proyecto de Grado debe comentarse. Modifica
+% tanto la categoría de la monografía, como la aparición de
+% "Presentado ante la ilustre Universidad de Los Andes
+% como requisito parcial para obtener el Título de" en la portada
+%\tipomonografia{Propuesta de Proyecto de Grado}
+
+% Título de la monografía, el cual saldrá en la portada
+\title{Uso de Kinect para la Adquisición de Información del Entorno que permita elaborar Mapas para la Navegación de un Robot Móvil}
+
+% Autor de la monografía, el cual saldrá en la portada
+\author{Carlos Eduardo Paparoni Bruzual}
+
+% La fechaentrega, presentaciondia, presentacionlugar
+% y mencionespecial, es para aquel caso en el cual se
+% vaya a utilizar la hoja del veredicto en el formato
+% que se presenta aquí. El primerjurado, segundojurado,
+% y cedula, son campos que pueden llenarse, pero sólo
+% aparecerán si se utiliza la página del veredicto
+
+% Cédula del autor de la monografía
+\cedula{16.656.734}
+
+% Tutor del Proyecto de Grado
+\tutor{Prof. Dr. Rafael Rivas Estrada}
+
+% Cualquiera de los instructores que aparecen a continuación
+% pueden comentarse o descomentarse según sea el caso:
+
+%%% Cotutor del Proyecto de Grado
+% \cotutor{Dra. propuesta}
+%%% Asesor del Proyecto de Grado
+% \asesor{Dr. Asesor}
+%%% Asesor Industrial del Proyecto de Grado
+% \asesorindustrial{Dr. Asesor Industrial}
+%%% Tutor Industrial del Proyecto de Grado
+% \tutorindustrial{Dr. Tutor Industrial}
+%%% Jurados del Proyecto de Grado
+\primerjurado{Prof. Dr. Gerard Paez M.}
+\segundojurado{Prof. Dr. Dulce M. Rivero A.}
+
+% ***************************************************************** %
+% Si sabe la fecha de presentación
+%
+% con o sin comentar
+% (Esta hoja es un formato para asentar la nota del proyecto de grado;
+% sin embargo, la hoja que se utiliza para ese fin, se busca en la escuela
+% días antes de la presentación)
+% ***************************************************************** %
+%\fechaentrega{Septiembre 2014} % Si sabe cuando se presentó
+%\presentaciondia{22 de Septiembre de 2014} % si conoce exactamente el día
+%\presentacionlugar{Salón de reuniones EISULA} % si conoce exactamente el lugar donde se presentó
+% ***************************************************************** %
+% FIN DE
+% Si sabe la fecha de presentación
+% ***************************************************************** %
+
+
+% ***************************************************************** %
+% Si tiene mencion especial
+% con o sin comentar
+% ***************************************************************** %
+%\mencionespecial{Este proyecto fue seleccionado como \textbf{mejor
+%proyecto de grado} de la Escuela de Ingeniería de Sistemas, en el
+%IC aniversario de la Facultad de Ingeniería.} % si tiene mención especial
+% (El texto puede cambiarse \mencionespecial{*********} según corresponda
+% ***************************************************************** %
+% FIN DE
+% Si tiene mencion especial
+% con o sin comentar
+% ***************************************************************** %
+
+% NO TOCAR si es Ingenieria de Sistemas
+% \grado{Ingeniero Químico} % por defecto Ingeniero de Sistemas
+
+%\signaturepage ----- NO TOCAR
+
+%%%%%OJO%%%%% Arreglen esto según su opción
+% Si es control y automatizacion se comentan las siguientes líneas. Si es de
+% Sistemas Computacionales comenta la tercera. De Investigación de Operaciones
+% comenta la segunda
+% \opcion{Control y Automatización}
+  \opcion{Sistemas Computacionales}
+% \opcion{Investigación de Operaciones}
+
+% Aquí se escribe el resumen de la monografía
+\resumen{Un reto substancial en el desarrollo y masificación de los robots móviles autónomos es el proceso de reconocimiento o modelado de su entorno.
+\\
+Existen herramientas que permiten control de bases robóticas, planificación de rutas, localización y creación de mapas.
+\\
+En este trabajo se presenta el desarrollo de un módulo que pretende sustituir o complementar el módulo de medición láser de una herramienta similar a la descrita anteriormente con el fin de soportar y utilizar el dispositivo Kinect\textregistered, desarrollado por la compañía Microsoft\textregistered, específicamente mediante el uso del módulo láser y de la cámara infrarroja del mismo, para realizar medidas del entorno, y así igualar o aumentar la funcionalidad ofrecida previamente, disminuyendo de forma drástica y beneficial los costos asociados con el uso del módulo anterior.
+\\
+Se desarrollará utilizando UML 2.0 (Unified Modeling Language) para el modelado y como guía en su desarrollo, el método PXP que forma parte de los métodos Ágiles de desarrollo.}
+
+% Aquí se escriben las palabras claves de la monografía
+\descriptores{Robots Móviles, Construcción de Mapas, Visión por Computador, Kinect, CARMEN}
+
+% Esto es para que salga la cota en la hoja del resumen. Actualmente,
+% 11-03-08, en la Escuela de Ingeniería de Sistemas no es necesario
+% buscar la cota previamente, sino que el Proyecto de Grado se entrega
+% en la Escuela sin cota.
+%\cota{IXD A01.1}
+
+% Si desea eliminar la frase "Este trabajo fue procesado en LATEX"
+% del resumen, descomente la siguiente línea
+% \sinlatex{}
+
+% ***************************************************************** %
+% FIN DE
+% Portada y resumen
+% ***************************************************************** %
+
+
+% ***************************************************************** %
+% Si tiene dedicatoria
+% con o sin comentar
+% ***************************************************************** %
+%\dedicatoria{A todos los amados seres\\ cuando son dos líneas o más}
+% ***************************************************************** %
+% FIN DE
+% Si tiene dedicatoria
+% ***************************************************************** %
+
+\beforepreface
+
+% ***************************************************************** %
+% Agradecimientos y capítulos NO numerados
+% ***************************************************************** %
+
+%\prefacesection{Agradecimientos}
+% Aún no hay agradecimientos
+
+%%% Capitulo sin numero, antes de la pagina 1
+
+%\prefacesection{Introducción}
+% Este es un ejemplo de una sección no numerada.
+
+
+% ***************************************************************** %
+% FIN DE
+% Agradecimientos y capítulos NO numerados
+% ***************************************************************** %
+
+\afterpreface
+
+\pagestyle{fancyplain}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{\textsc{\footnotesize\thechapter\ #1}}}
+\renewcommand{\sectionmark}[1]{\markright{\textsc{\footnotesize\thesection\ #1}}}
+\lhead[\fancyplain{}{\textsc{\footnotesize\thepage}}]%
+{\fancyplain{}{\rightmark}}
+\rhead[\fancyplain{}{\leftmark}]%
+{\fancyplain{}{\textsc{\footnotesize\thepage}}} \cfoot{}
+
+\mainmatter
+
+% ***************************************************************** %
+% Cuerpo
+% ***************************************************************** %
+% De aquí en adelante se desarrollan los capítulos numerados de la monografía
+
+\input{Introduccion}
+
+\input{Capitulo2}
+
+\input{Capitulo3}
+
+% Estilo de la bibliografía
+\bibliographystyle{IEEEtranNes}
+% Modificada ya que la original está en inglés.
+
+% ***************************************************************** %
+% Para agregar toda la bibliografia del archivo .bib
+% solo descomente el siguiente comando
+% ***************************************************************** %
+\nocite{*}
+% ***************************************************************** %
+% Nombre del archivo con extensión .bib en donde se almacena la bibliografía
+\bibliography{Referencias}
+
+% ***************************************************************** %
+% FIN DE
+% Cuerpo
+% ***************************************************************** %
+
+\end{document}

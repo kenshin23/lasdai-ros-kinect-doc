@@ -1,0 +1,234 @@
+\chapter{Marco Teórico}
+
+En este capítulo, se describen los fundamentos teóricos necesarios para el entendimiento y comprensión del proyecto. Se da una definición de los conceptos de robótica, robots y visión por computadora, así como del software CARMEN y sus características. Se especifican las características técnicas del hardware de telemetría láser y del sistema Kinect. Se define detalladamente el método PXP para el desarrollo de aplicaciones, así como también, el lenguaje de modelado Unificado (UML), utilizado para el desarrollo del módulo planteado en el capítulo 1, creando con esto una base teórica con la finalidad de tener una introducción del hardware y software utilizado, las herramientas de diseño y permitir al lector tener una idea de la naturaleza del contenido del resto del documento.
+2.1	Robótica
+La Robótica es aquella rama dentro de la Ingeniería que se ocupa de la aplicación de la informática  al diseño y al uso de máquinas con el objetivo que de lo que de esto resulte pueda de alguna manera sustituir a las personas en la realización de determinadas funciones o tareas.
+En palabras más simples, la robótica es la ciencia y la tecnología de los robots, porque básicamente se ocupa del diseño, manufactura y aplicaciones de los robots que crea. En la Robótica se combinan varias disciplinas al mismo tiempo, como ser la mecánica, la electrónica, la inteligencia artificial, la informática y la ingeniería de control, en tanto, también, por el quehacer que desempeña, resulta fundamental el aporte que recibe y extrae de campos tales como el álgebra, los autómatas programables y las máquinas de estados.
+
+2.1.1	Robots
+El término Robot alcanza su primera repercusión en la década del veinte del siglo pasado, a instancias de R.U.R (Robots Universal Rossum), una obra teatral de ciencia ficción escrita por el autor checo Karel Čapek, en la cual por primera vez se hace alusión al concepto de robot, extraído del término checo "robota", que significaba "trabajos forzados".
+
+A su vez, el término "robótica" es acuñado por Isaac Asimov, definiendo a la ciencia que estudia a los robots. Asimov creó también las Tres Leyes de la Robótica, definidas de esta manera:
+
+1.	Un robot no puede actuar contra un ser humano o, mediante la inacción, que un ser humano sufra daños.
+2.	Un robot debe de obedecer las órdenes dadas por los seres humanos, salvo que estén en conflictos con la primera ley.
+3.	Un robot debe proteger su propia existencia, a no ser que esté en conflicto con las dos primeras leyes.
+
+Desde sus comienzos como disciplina y como parte fundamental de la Ingeniería, la Robótica ha estado incansablemente buscando construir artefactos que materialicen el deseo humano de crear seres a su semejanza a quienes poder delegarles tareas, trabajos o actividades por demás pesadas y desagradables de llevar a cabo. Pero y aunque muchos ni se lo esperen, desde tiempos inmemoriales, muy, muy lejos de las computadoras, hubieron unas cuantas expresiones de la robótica. Porque por ejemplo, los antiguos egipcios unieron brazos mecánicos a las estatuas de sus dioses y esgrimían que el movimiento de los miembros se llevaba a cabo por obra y gracias de estos, inclusive los griegos construyeron estatuas que operaban con sistemas hidráulicos, los cuales eran utilizados para fascinar a los adoradores de los templos.
+Y también, aproximadamente entre los siglos XVII y XVIII, en Europa, se construyeron muñecos mecánicos muy ingeniosos que ostentaban algunas características  como las que presentan los robots de la actualidad. En un constante e incansable ensayo a través de los siglos y cuando ya era un hecho la entrada en el nuevo milenio (2000), la empresa Honda Motor Co. Ltda. Concretó a Asimo, el primer robot humanoide capaz de desplazarse de forma bípeda e interactuar con las personas.
+La historia de la robótica va unida a la construcción de "artefactos", que trataban de materializar el deseo humano de crear seres a su semejanza y que lo descargasen del trabajo. El ingeniero español Leonardo Torres Quevedo (que construyó el primer mando a distancia para su automóvil mediante telegrafía sin hilo, el ajedrecista automático, el primer transbordador aéreo y otros muchos ingenios) acuñó el término "automática" en relación con la teoría de la automatización de tareas tradicionalmente asociadas.
+2.1.1.1	Clasificación de los Robots
+Es el proceso mediante el cual el sistema de información toma los datos que requiere para procesar la información. Las entradas pueden ser manuales o automáticas. Las manuales son aquellas que se proporcionan en forma directa por el usuario, mientras que las automáticas son datos o información que provienen o son tomados de otros sistemas o módulos. Esto último se denomina interfases automáticas. 
+2.1.1.1.1	Según su cronología
+La que a continuación se presenta es la clasificación más común:
+
+1ª Generación.
+Manipuladores. Son sistemas mecánicos multifuncionales con un sencillo sistema de control, bien manual, de secuencia fija o de secuencia variable.
+
+2ª Generación.
+Robots de aprendizaje. Repiten una secuencia de movimientos que ha sido ejecutada previamente por un operador humano. El modo de hacerlo es a través de un dispositivo mecánico. El operador realiza los movimientos requeridos mientras el robot le sigue y los memoriza.
+
+3ª Generación.
+Robots con control sensorizado. El controlador es una computadora que ejecuta las órdenes de un programa y las envía al manipulador para que realice los movimientos necesarios.
+
+4ª Generación.
+Robots inteligentes. Son similares a los anteriores, pero además poseen sensores que envían información a la computadora de control sobre el estado del proceso. Esto permite una toma inteligente de decisiones y el control del proceso en tiempo real. 
+2.1.1.1.2	Según su arquitectura
+La arquitectura, es definida por el tipo de configuración general del Robot, puede ser metamórfica. El concepto de metamorfismo, de reciente aparición, se ha introducido para incrementar la flexibilidad funcional de un Robot a través del cambio de su configuración por el propio Robot.
+El metamorfismo admite diversos niveles, desde los más elementales (cambio de herramienta o de efecto terminal), hasta los más complejos como el cambio o alteración de algunos de sus elementos o subsistemas estructurales.
+Los dispositivos y mecanismos que pueden agruparse bajo la denominación genérica del Robot, tal como se ha indicado, son muy diversos y es por tanto difícil establecer una clasificación coherente de los mismos que resista un análisis crítico y riguroso. La subdivisión de los Robots, con base en su arquitectura, se hace en los siguientes grupos: poliarticulados, móviles, androides, zoomórficos e híbridos.
+
+1. Poliarticulados
+En este grupo se encuentran los Robots de muy diversa forma y configuración, cuya característica común es la de ser básicamente sedentarios (aunque excepcionalmente pueden ser guiados para efectuar desplazamientos limitados) y estar estructurados para mover sus elementos terminales en un determinado espacio de trabajo según uno o más sistemas de coordenadas, y con un número limitado de grados de libertad. En este grupo, se encuentran los manipuladores, los Robots industriales, los Robots cartesianos y se emplean cuando es preciso abarcar una zona de trabajo relativamente amplia o alargada, actuar sobre objetos con un plano de simetría vertical o reducir el espacio ocupado en el suelo.
+
+2. Móviles
+Son Robots basados en carros o plataformas, dotados de un sistema locomotor de tipo rodante y con gran capacidad de desplazamiento. Siguen su camino por telemando o guiándose por la información recibida de su entorno a través de sus sensores. Estos Robots aseguran el transporte de piezas de un punto a otro de una cadena de fabricación. Guiados mediante pistas materializadas a través de la radiación electromagnética de circuitos empotrados en el suelo, o a través de bandas detectadas fotoeléctricamente, pueden incluso llegar a sortear obstáculos y están dotados de un nivel relativamente elevado de inteligencia.
+
+3. Androides
+Son Robots que intentan reproducir total o parcialmente la forma y el comportamiento cinemática del ser humano. Actualmente, los androides son todavía dispositivos muy poco evolucionados y sin utilidad práctica, y destinados, fundamentalmente, al estudio y experimentación. Uno de los aspectos más complejos de estos Robots, y sobre el que se centra la mayoría de los trabajos, es el de la locomoción bípeda. En este caso, el principal problema es controlar dinámica y coordinadamente en el tiempo real el proceso y mantener simultáneamente el equilibrio del Robot.
+
+4. Zoomórficos
+Los Robots zoomórficos, que considerados en sentido no restrictivo podrían incluir también a los androides, constituyen una clase caracterizada principalmente por sus sistemas de locomoción que imitan a los diversos seres vivos. A pesar de la disparidad morfológica de sus posibles sistemas de locomoción es conveniente agrupar a los Robots zoomórficos en dos categorías principales: caminadores y no caminadores. El grupo de los Robots zoomórficos no caminadores está muy poco evolucionado. Los experimentos efectuados en Japón basados en segmentos cilíndricos biselados acoplados axialmente entre sí y dotados de un movimiento relativo de rotación. Los Robots zoomórficos caminadores multípedos son muy numerosos y están siendo objeto de experimentos en diversos laboratorios con vistas al desarrollo posterior de verdaderos vehículos terrenos, piloteados o autónomos, capaces de evolucionar en superficies muy accidentadas. Las aplicaciones de estos Robots serán interesantes en el campo de la exploración espacial y en el estudio de los volcanes.
+
+5. Híbridos
+Corresponden a aquellos de difícil clasificación, cuya estructura se sitúa en combinación con alguna de las anteriores ya expuestas, bien sea por conjunción o por yuxtaposición. Por ejemplo, un dispositivo segmentado articulado y con ruedas, es al mismo tiempo, uno de los atributos de los Robots móviles y de los Robots zoomórficos.
+2.1.1.1.3	Según su modalidad de control
+La modalidad de control se refiere a la dependencia –o no– de un operador humano que instruya órdenes al robot; por tanto, se subdivide en dos grandes grupos:
+1.	Teledirigidos
+Se define como robots teledirigidos a aquellos que necesitan la intervención de un operador humano, ya sea en forma parcial o total, por ejemplo los utilizados en la desactivación de explosivos.
+2.	Autónomos
+Llamamos autónomos a aquellos robots que son capaces de tomar sus propias decisiones basados en la comprensión del entorno en que se encuentren. Existen numerosos tipos de robots de variadas configuraciones que se encuadran en esta categoría, como es el caso de un brazo robot con visión artificial sin asistencia humana realizando tareas de clasificación de objetos, o de los robots móviles del tipo vehículo.
+2.1.1.2	Robots Autónomos
+Un robot autónomo es un robot que realiza comportamientos o tareas con un alto grado de autonomía, que es particularmente deseable en campos tales como la exploración del espacio, la limpieza de suelos, cortar el césped, y el tratamiento de aguas residuales. 
+
+Algunos robots de fábricas modernas son "autónomos" dentro de los límites estrictos de su entorno directo. Puede que no sea la existencia de todos los grados de libertad en su entorno, pero el lugar de trabajo del robot de la fábrica es un reto y, a menudo puede contener, variables caóticas e impredecibles. La orientación exacta y la posición del siguiente objeto de trabajo e incluso (en las fábricas más avanzadas) el tipo de objeto y la tarea requerida debe ser determinado. Esto puede variar de manera impredecible (por lo menos desde el punto de vista del robot). 
+
+Un área importante de la investigación robótica es permitir que el robot pueda hacer frente a su entorno ya sea en tierra, bajo el agua, en el aire, bajo tierra o en el espacio.
+
+Un robot completamente autónomo puede: 
+
+* Obtener información sobre el medio ambiente (Regla # 1) 
+* Trabajar por un período prolongado sin intervención humana (Regla # 2) 
+* Mover todo o parte de sí mismo a través de su entorno operativo sin ayuda humana (Regla # 3) 
+* Evite situaciones que son perjudiciales para las personas, los bienes, o sí mismo, si esos son parte de sus especificaciones de diseño (Regla # 4) 
+
+Un robot autónomo también puede aprender o adquirir nuevos conocimientos como ajustarse a nuevos métodos para llevar a cabo sus tareas o adaptarse a un entorno cambiante. 
+
+Al igual que otras máquinas, los robots autónomos todavía requieren de un mantenimiento regular. 
+
+Ejemplos:
+
+-- Automantenimiento 
+El primer requisito para la autonomía física completa es la capacidad de un robot para cuidar de sí mismo. Muchos de los robots que funcionan con baterías en el mercado hoy en día pueden encontrar y conectarse a una estación de carga, y algunos juguetes como Aibo de Sony son capaces de auto-acoplamiento para cargar sus baterías. 
+
+El mantenimiento realizado se basa en la "propiocepción", o la capacidad de sentir el propio estado interno. En el ejemplo de carga de la batería, el robot puede decir propioceptivamente que sus baterías están bajas y luego busca el cargador. Otro sensor propioceptivo es común para la supervisión de calor. El aumento de la propiocepción se requerirá para los robots para trabajar de forma autónoma, cerca de la gente y en ambientes hostiles. Las propiocepciones comunes incluyen sensores de detección térmica, óptica y háptica, así como el efecto Hall (eléctrica).
+
+-- Sintiendo el medio ambiente
+La exterocepción es la detección de información del medio ambiente. Los robots autónomos deben tener una gama de sensores ambientales para llevar a cabo su tarea y no meterse en problemas. 
+
+Los sensores exteroceptivos comunes incluyen el espectro electromagnético, el sonido, el tacto, química (olor, olor), la temperatura, la distancia hacia múltiples objetos, y la altitud. 
+Algunas cortadoras de césped robóticas adaptarán su programación mediante la detección de la velocidad en la que la hierba crece a medida que sea necesario para mantener un césped perfectamente cortado, y algunos robots de limpieza por aspiración toemem detectores de tierra que detectan la cantidad de suciedad que se está recogido y utilizan esta información para decirles que deben permanecer en un área durante más tiempo. 
+
+-- Desempeño de tareas 
+El siguiente paso en el comportamiento autónomo es para llevar a cabo realmente una tarea física. Una nueva área que muestra promesa comercial es robots domésticos, con una avalancha de pequeños robots aspiradora que comienzan con iRobot y Electrolux en 2002 Mientras que el nivel de inteligencia no es muy alta en estos sistemas, que navegan en zonas extensas y piloto en situaciones apretadas alrededor de los hogares utilizando sensores de contacto y sin contacto. Ambos de estos robots utilizan algoritmos propietarios para aumentar la cobertura en sencilla rebote al azar. 
+
+El siguiente nivel de ejecución de la tarea autónoma requiere que un robot pueda realizar tareas condicionales. Por ejemplo, los robots de seguridad se pueden programar para detectar intrusos y responder de una manera particular, dependiendo de donde esté ubicado el intruso.
+
+-- Navegación interior 
+Para que un robot pueda asociar comportamientos con un lugar (localización) requiere saber donde está y ser capaz de navegar de punto a punto. Tal navegación comenzó mediante guía cableada en la década de 1970 y progresó en la década de 2000 a la triangulación mediante balizas. Los robots autónomos comerciales actuales navegan basados en la detección de características naturales. Los primeros robots comerciales en lograrlo fueron el HelpMate robot hospital de Pyxus y el robot guardia CyberMotion, ambos diseñados por pioneros en robótica en la década de 1980. Estos robots utilizaban originalmente planos de piso CAD creados manualmente, de detección del sonar y variaciones en la pared siguiente para navegar edificios. La próxima generación, tales como PatrolBot y la silla de ruedas autónoma de MobileRobots, ambos introducidos en 2004, tienen la capacidad de crear sus propios mapas basados ​​en láser de un edificio y navegar por zonas abiertas, así como corredores. Su sistema de control cambia su ruta sobre la marcha si algo bloquea el camino.
+
+En un primer momento, la navegación autónoma se basa en sensores planares, como los telémetros láser, que sólo pueden realizar detecciones en un plano o nivel. Los sistemas más avanzados ahora fusionan la información de diversos sensores, tanto para la localización (posición) y la navegación. Los sistemas tales como Motivity pueden contar con diferentes sensores en diferentes áreas, dependiendo de lo que proporcione los datos más fiables en el momento, y pueden volver a generar mapas de entorno de forma autónoma. 
+
+En lugar de subir escaleras, lo que requiere hardware altamente especializado, la mayoría de los robots de interior navegan en áreas accesibles para minusválidos, controlando ascensores y puertas electrónicas. Con este tipo de interfaces de control de acceso, los robots ya pueden navegar libremente en el interior. Subir o bajar escaleras de forma autónoma y abrir puertas de forma manual, son temas actuales de investigación. 
+
+A medida que estas técnicas en interiores se siguen desarrollando, los robots aspiradora adquirirán la capacidad de limpiar una habitación específica designada por el usuario o una planta entera. Los robots de seguridad podrán rodear intrusos de forma cooperativa e incluso cortarles las salidas. Estos avances también traen protecciones asociadas: los mapas internos de los robots permiten típicamente la definición de "zonas prohibidas" para evitar que los mismoss entren de forma autónoma en ciertas regiones. 
+
+-- Navegación en exteriores
+La autonomía al aire libre se logra más fácilmente en el aire, ya que los obstáculos son raros. Los misiles de crucero son robots altamente autónomas y bastante peligrosos. Los aviones no tripulados se utilizan cada vez más para el reconocimiento. Algunos de estos vehículos aéreos no tripulados (UAV) son capaces de volar toda su misión sin ninguna interacción humana en absoluto, excepto posiblemente para el aterrizaje cuando una persona interviene mediante control remoto por radio. Sin embargo, algunos aviones son capaces de realizar aterrizajes automáticos y seguros.
+
+La autonomía al aire libre es más difícil para los vehículos de tierra, debido a: 
+
+La tridimensionalidad del terreno, 
+Grandes disparidades en la densidad de superficie 
+exigencias climáticas 
+Inestabilidad del medio ambiente detectado 
+
+En Estados Unidos, el proyecto MDARS, que definió y construyó un robot prototipo de vigilancia exterior en la década de 1990, se está llevando a producción y será implementado en 2006. El robot MDARS de General Dynamics puede navegar de forma semi-autónoma y detectar intrusos, utilizando la arquitectura de software HAMR planeada para todos los vehículos militares no tripulados. El robot Seekur fue el primer robot comercial para demostrar las capacidades MDARS-como de uso general por los aeropuertos, plantas de servicios públicos, instalaciones correccionales y Seguridad Nacional. 
+
+Los rovers MER-A y MER-B (conocidos actualmente como rovers Spirit y Opportunity) pueden encontrar la posición del sol y navegar sus propias rutas a destinos sobre la marcha a través de: 
+
+Mapeo de la superficie mediante visión en 3D 
+Cálculo de zonas seguras e inseguras en la superficie dentro de ese campo de visión 
+Cálculo de rutas óptimas en toda la zona segura hacia el destino deseado 
+Conducción a lo largo de la ruta calculada; 
+La repetición de este ciclo hasta que el destino se alcanza, o no haya ninguna ruta conocida hacia el destino
+
+El Rover de ESA en planificación, ExoMars Rover, es capaz de localización relativa basada en visión y localización absoluta para navegar de forma autónoma a trajectorias seguras y eficaces a objetivos a través de: 
+
+La reconstrucción de modelos 3D del terreno que rodea al Rover con un par de cámaras estéreo 
+La determinación de las zonas seguras e inseguras del terreno y la "dificultad" general para el Rover para navegar por el terreno 
+Cálculo de caminos eficientes a través de la zona de seguridad hacia el destino deseado 
+Conducir el Rover a lo largo del camino planeado 
+La creación de un mapa de navegación de todos los datos de navegación anterior 
+
+El DARPA Grand Challenge y DARPA Urban Challenge han alentado el desarrollo de capacidades aún más autónomas para vehículos de tierra, mientras que este ha sido el objetivo demostrado por robots aéreos desde 1990 como parte de la AUVSI Internacional Robotics Competition aéreas.
+
+2.2	Visión por Computadora
+Es el campo de la Inteligencia Artificial enfocado a que las computadoras puedan extraer información a partir de imágenes, ofreciendo soluciones a problemas del mundo real. La visión para los humanos no es ningún problema, pero para las máquinas es un campo muy complicado. Influyen texturas, luminosidad, sombras, objetos complejos, etc.
+El propósito de la visión artificial o por computadora, es programar un computador para que "entienda" una escena o las características de una imagen.
+
+Los objetivos típicos de la visión artificial incluyen:
+
+•	La detección, segmentación, localización y reconocimiento de ciertos objetos en imágenes (por ejemplo, caras humanas).
+•	La evaluación de los resultados (por ejemplo, segmentación, registro).
+•	Registro de diferentes imágenes de una misma escena u objeto, es decir, hacer concordar un mismo objeto en diversas imágenes.
+•	Seguimiento de un objeto en una secuencia de imágenes.
+•	Mapeo de una escena para generar un modelo tridimensional de la escena; este modelo podría ser usado por un robot para navegar por la escena.
+•	Estimación de las posturas tridimensionales de humanos.
+•	Búsqueda de imágenes digitales por su contenido.
+
+Estos objetivos se consiguen por medio de reconocimiento de patrones, aprendizaje estadístico, geometría de proyección, procesamiento de imágenes, teoría de grafos y otros campos. La visión artificial cognitiva está muy relacionada con la psicología cognitiva y la computación biológica.
+
+2.3	CARMEN
+CARMEN es una colección de código abierto de software para el control de robots móviles. CARMEN es un software modular diseñado para proporcionar primitivas básicas de navegación, incluyendo: control de sensores y de la base, creación de bitácoras, evasión de obstáculos, localización, planificación de rutas y cartografía.
+Las comunicaciones entre los programas CARMEN se maneja mediante un paquete separado llamado IPC, el cual se distribuye junto con CARMEN; sin embargo, es un desarrollo de software independiente.
+
+2.4	Microsoft Kinect
+Kinect para Xbox 360, o simplemente Kinect (originalmente conocido por el nombre en clave "Project Natal"), es un controlador de juego libre y entretenimiento creado por Alex Kipman, desarrollado por Microsoft para las videoconsolas Xbox 360 y Xbox One, y desde junio del 2011 para PC a través de Windows 7 y Windows 8.
+Kinect permite a los usuarios controlar e interactuar con la consola sin necesidad de tener contacto físico con un controlador de videojuegos tradicional, mediante una interfaz natural de usuario que reconoce gestos, comandos de voz, y objetos e imágenes. El dispositivo tiene como objetivo primordial aumentar el uso de la Xbox 360, más allá de la base de jugadores que posee en la actualidad.
+En sí, Kinect compite con los sistemas Wiimote con Wii MotionPlus y PlayStation Move, que también controlan el movimiento para las consolas Wii y PlayStation 3, respectivamente.
+Kinect fue lanzado en Norteamérica el 4 de noviembre de 2010 y en Europa el 10 de noviembre de 2010. Fue lanzado en Australia, Nueva Zelanda y Singapur el 18 de noviembre de 2010, y en Japón el 20 de noviembre de ese mismo año. Microsoft Research invirtió veinte años de desarrollo en la tecnología de Kinect de acuerdo con las palabras de Robert J. Bach. Kinect fue anunciado por primera vez el 1 de junio de 2009 en la Electronic Entertainment Expo 2009 como "Project Natal".
+El nombre en clave "Proyecto Natal" responde a la tradición de Microsoft de utilizar ciudades como nombres en clave. Alex Kipman, director de Microsoft, quien incubó el proyecto, decidió ponerle el nombre de la ciudad brasileña Natal como un homenaje a su país de origen y porque la palabra natal significa "de o en relación al nacimiento", lo que refleja la opinión de Microsoft en el proyecto como "el nacimiento de la próxima generación de entretenimiento en el hogar". Poco antes de la E3 2010 varios weblogs tropezaron con un anuncio que supuestamente se filtró en el sitio italiano de Microsoft de que sugirió el título "Kinect" que confirmó más tarde junto con los detalles de una nueva Xbox 360 más delgada.
+2.4.1	Características
+El sensor de Kinect es una barra horizontal de aproximadamente 23 cm (9 pulgadas) conectada a una pequeña base circular con un eje de articulación de rótula, y está diseñado para ser colocado longitudinalmente por encima o por debajo de la pantalla de vídeo.
+El dispositivo cuenta con una cámara RGB, un sensor de profundidad, un micrófono de múltiples matrices y un procesador personalizado que ejecuta el software patentado, que proporciona captura de movimiento de todo el cuerpo en 3D, reconocimiento facial y capacidades de reconocimiento de voz. El micrófono de matrices del sensor de Kinect permite a la Xbox 360 llevar a cabo la localización de la fuente acústica y la supresión del ruido ambiente, permitiendo participar en el chat de Xbox Live sin utilizar auriculares.
+El sensor contiene un mecanismo de inclinación motorizado y en caso de usar un Xbox 360 del modelo original, tiene que ser conectado a una toma de corriente, ya que la corriente que puede proveerle el cable USB es insuficiente; para el caso del modelo de Xbox 360 S esto no es necesario ya que esta consola cuenta con una toma especialmente diseñada para conectar el Kinect y esto permite proporcionar la corriente necesaria que requiere el dispositivo para funcionar correctamente.
+El sensor de profundidad es un proyector de infrarrojos combinado con un sensor CMOS monocromo que permite a Kinect ver la habitación en 3D en cualquier condición de luz ambiental. El rango de detección de la profundidad del sensor es ajustable gracias al software de Kinect capaz de calibrar automáticamente el sensor, basado en la jugabilidad y en el ambiente físico del jugador, tal como la presencia de sofás.
+2.4.2	Especificaciones Técnicas
+Sus especificaciones más relevantes son:
+•	Cámara / sensor infrarrojo: Microsoft / X853750001 / VCA379C7130 / MT9M001
+•	Rango efectivo (aproximado): 1,2m – 3,5m (puede ser menor o mayor, dependiendo de las condiciones ambientales)
+•	Resolución: 640x480 píxeles @ 30 Hz (profundidad de 11 bits: 2048 niveles de sensibilidad)
+•	Cámara RGB: VNA38209015 / MT9M112 / MT9v112
+•	Resolución: 640x480 píxeles @ 30 Hz (VGA de 8 bits)
+•	Emisor / proyector infrarrojo: OG12 / 0956 / D306 / JG05A
+•	Proyector láser de 830 nm.
+•	Potencia de salida: 60~ mW
+2.5	Personal Extreme Programming
+La programación extrema o eXtreme Programming (XP) es una metodología de desarrollo de la ingeniería de software formulada por Kent Beck, autor del primer libro sobre la materia, Extreme Programming Explained: Embrace Change (1999). Es el más destacado de los procesos ágiles de desarrollo de software. Al igual que éstos, la programación extrema se diferencia de las metodologías tradicionales principalmente en que pone más énfasis en la adaptabilidad que en la previsibilidad. Los defensores de XP consideran que los cambios de requisitos sobre la marcha son un aspecto natural, inevitable e incluso deseable del desarrollo de proyectos. Creen que ser capaz de adaptarse a los cambios de requisitos en cualquier punto de la vida del proyecto es una aproximación mejor y más realista que intentar definir todos los requisitos al comienzo del proyecto e invertir esfuerzos después en controlar los cambios en los requisitos.
+Se puede considerar la programación extrema como la adopción de las mejores metodologías de desarrollo de acuerdo a lo que se pretende llevar a cabo con el proyecto, y aplicarlo de manera dinámica durante el ciclo de vida del software.
+2.5.1	Características
+Las características fundamentales del método son:
+•	Desarrollo iterativo e incremental: pequeñas mejoras, unas tras otras.
+•	Pruebas unitarias continuas, frecuentemente repetidas y automatizadas, incluyendo pruebas de regresión. Se aconseja escribir el código de la prueba antes de la codificación. Véase, por ejemplo, las herramientas de prueba JUnit orientada a Java, DUnit orientada a Delphi, NUnit para la plataforma.NET o PHPUnit para PHP. Estas tres últimas inspiradas en JUnit, la cual, a su vez, se inspiró en SUnit, el primer framework orientado a realizar tests, realizado para el lenguaje de programación Smalltalk.
+•	Programación en parejas: se recomienda que las tareas de desarrollo se lleven a cabo por dos personas en un mismo puesto. La mayor calidad del código escrito de esta manera -el código es revisado y discutido mientras se escribe- es más importante que la posible pérdida de productividad inmediata. En este sentido, la modalidad personal difiere por razones obvias; sin embargo, las demás características son perfectamente aplicables.
+•	Frecuente integración del equipo de programación con el cliente o usuario. Se recomienda que un representante del cliente trabaje junto al equipo de desarrollo.
+•	Corrección de todos los errores antes de añadir nueva funcionalidad. Hacer entregas frecuentes.
+•	Refactorización del código, es decir, reescribir ciertas partes del código para aumentar su legibilidad y mantenibilidad pero sin modificar su comportamiento. Las pruebas han de garantizar que en la refactorización no se ha introducido ningún fallo.
+•	Propiedad del código compartida: en vez de dividir la responsabilidad en el desarrollo de cada módulo en grupos de trabajo distintos, este método promueve el que todo el personal pueda corregir y extender cualquier parte del proyecto. Las frecuentes pruebas de regresión garantizan que los posibles errores serán detectados.
+•	Simplicidad en el código: es la mejor manera de que las cosas funcionen. Cuando todo funcione se podrá añadir funcionalidad si es necesario. La programación extrema apuesta que es más sencillo hacer algo simple y tener un poco de trabajo extra para cambiarlo si se requiere, que realizar algo complicado y quizás nunca utilizarlo.
+
+La simplicidad y la comunicación son extraordinariamente complementarias. Con más comunicación resulta más fácil identificar qué se debe y qué no se debe hacer. Cuanto más simple es el sistema, menos tendrá que comunicar sobre éste, lo que lleva a una comunicación más completa, especialmente si se puede reducir el equipo de programadores.
+2.6	UML
+UML (Unified Modeling Language), es un lenguaje gráfico para el modelado de sistemas de software que permite expresar de forma gráfica un sistema de una manera fácil y versátil, para que cualquier persona, incluso las que no hayan participado en su diseño, lo pueda entender. Expresa de manera explicita y clara cuales son las características de un sistema en la etapa previa a su construcción, permite que a través de los modelos diseñados se pueda construir el sistema, además, todos los diagramas junto con sus elementos gráficos sirven como documentación y como utilidad para la revisión y evolución del sistema. UML es solamente un lenguaje, por lo que es sólo una parte de un método de desarrollo software, es independiente del proceso aunque para que sea óptimo debe usarse en un proceso dirigido por casos de uso, centrado en la arquitectura, iterativo e incremental [8].
+Entrega una forma estándar de modelar cosas conceptuales como lo son procesos de negocio y funciones de sistema, además de cosas concretas como lo son escribir clases en un lenguaje determinado, esquemas de base de datos y componentes de software reusables.
+Además de modelar sistemas de software como lo son los sistemas de información, aplicaciones distribuidas basadas en web y sistemas empotrados de tiempo real, es lo suficientemente expresivo para modelar pruebas de sistemas, sistemas de hardware, sistemas de negocios, el flujo de trabajo en una empresa, diseño de estructura de una organización, actividades de planificación de proyectos y otros sistemas no informáticos.
+UML se deriva de la unificación de tres metodologías de análisis y diseño orientada a objeto, la metodología de Grady Booch para la descripción de conjuntos de objetos y sus relaciones, la técnica de modelado orientada a objetos de James Rumbaugh (OMT: Object-Modeling Technique) y la aproximación de Ivar Jacobson (OOSE: Object Oriented Software Engineering) mediante la metodología de casos de uso. De estas tres metodologías de partida, las de Booch y Rumbaugh pueden ser descritas como centradas en objetos, ya que sus aproximaciones se enfocan hacia el modelado de los objetos que componen el sistema, su relación y colaboración. Por otro lado, la metodología de Jacobson es más centrada a usuario, ya que todo en su método se deriva de los escenarios de uso.
+Su desarrollo comenzó a finales de 1994 cuando Grady Booch y Jim Rumbaugh de Rational Software Corporation comenzaron a unificar sus métodos. A finales de 1995, Ivar Jacobson y su compañía Objectory se incorporaron a Rational en su unificación, aportando el método OOSE, luego  el lenguaje se abrió a la colaboración de otras empresas para que aportaran sus ideas, surgiendo de todo esto, la definición de la primera versión de UML. En 1997 fue aceptado por la OMG, fecha en la que fue lanzada la versión v1.1 del UML, convirtiéndose en un estandar para el análisis y diseño orientado a objetos. Desde entonces, UML atravesó varias revisiones y refinamientos hasta llegar a la versión actual: UML 2.0 [12] y [13].
+El UML provee distintos tipos de diagramas estándares, estos se utilizan para representar diferentes perspectivas de un sistema, de forma que, un determinado diagrama sea una proyección del sistema. Proporciona un amplio conjunto de diagramas que se clasifican en tres tipos [12][13] y [14]:
+2.6.1	Diagramas de estructura
+Estos destacan los elementos que deben existir en el sistema modelado, permitiendo especificar la estructura o forma de los distintos componentes del sistema, sus relaciones y dependencia, se clasifican en:
+2.6.1.1	Diagrama de clases 
+Son utilizados durante el proceso de análisis y diseño de sistemas informáticos, donde se crea el diseño conceptual de la información que se manejará en el sistema, estos diagramas son estructuras estáticas que dan una visión general del conjunto de clases existentes en el sistema modelado y las relaciones existentes entre cada una de ellas. Son estáticos porque muestra las relaciones entre las distintas clases, pero no especifica que sucede cuando ocurre alguna interacción entre ellas.
+2.6.1.2	Diagrama de componentes 
+El Diagrama de Componentes se usa para modelar la estructura del software, incluyendo las dependencias entre los componentes de software, los componentes de código binario, y los componentes ejecutables. En el Diagrama de Componentes modela componentes del sistema, a veces agrupados por paquetes, las interfaces, las dependencias, relaciones e interacciones que existen entre componentes.
+2.6.1.3	Diagrama de objetos 
+Forma parte de la vista estática del sistema. En este diagrama se modelan las instancias de las clases del diagrama de clases. Muestra a los objetos y sus relaciones, pero en un momento concreto del sistema. Además puede incorporar clases, para mostrar la clase de la que es un objeto representado.
+2.6.1.4	Diagrama de estructura compuesta 
+Representa la estructura interna de un clasificador (tal como una clase, un componente o un caso de uso), incluyendo los puntos de interacción de clasificador con otras partes del sistema.
+2.6.1.5	Diagrama de despliegue 
+Los Diagramas de Despliegue muestran la disposición física de los distintos nodos que componen un sistema y el reparto de los componentes sobre dichos nodos. La vista de despliegue representa la disposición de las instancias de componentes de ejecución en instancias de nodos conectados por enlaces de comunicación. Un nodo es un recurso de ejecución tal como un computador, un dispositivo o memoria. Los estereotipos permiten precisar la naturaleza del equipo.  Los elementos utilizados en la representación gráfica de estos diagramas son los mismos que son utilizados en los diagramas de componentes.
+2.6.1.6	Diagrama de paquetes 
+Un diagrama que presenta cómo se organizan los elementos de modelado en paquetes y las dependencias entre ellos, incluyendo importaciones y extensiones de paquetes.
+2.6.2	Diagramas de comportamiento
+Son aquellos diagramas que permiten especificar el comportamiento de los distintos componentes de un sistema, estos son:
+2.6.2.1	Diagrama de actividades 
+Se utilizan para modelar el flujo de control entre actividades que tienen lugar a lo largo del tiempo, así como las tareas concurrentes que pueden realizarse a la vez. Sirve para representar el sistema desde otra perspectiva, y de este modo complementa a los anteriores diagramas vistos. Desde un punto de vista conceptual, el diagrama de actividades muestra cómo fluye el control de unas clases a otras con la finalidad de culminar con un flujo de control total que se corresponde con la consecución de un proceso más complejo, por este motivo, en un diagrama de actividades aparecerán acciones y actividades correspondientes a distintas clases, colaborando todas ellas para conseguir un mismo fin.
+2.6.2.2	Diagrama de casos de uso 
+El diagrama de casos de uso representa la forma en como un usuario (Actor) opera con el sistema en desarrollo, además de la forma, tipo y orden en como los elementos interactúan (operaciones o casos de uso).
+Los elementos implicados en un diagrama de casos de uso son:
+-	Actores: son algo con comportamiento, como una persona (identificada por un rol), un sistema informático u organización, que realiza algún tipo de interacción con el sistema. 
+-	Casos de uso: son la descripción de la secuencia de interacciones que se producen entre un actor y el sistema. 
+-	Relaciones entre casos de uso: un caso de uso puede incluir la funcionalidad de otro como parte de su procesamiento normal. Generalmente se asume que los casos de uso incluidos se llamarán cada vez que se ejecute el camino base. Un Caso de Uso puede ser incluido por uno o más casos de uso, ayudando así a reducir la duplicación de funcionalidad al factorizar el comportamiento común en los casos de uso que se reutilizan muchas veces. Un caso de uso puede extender el comportamiento de otro caso de uso típicamente cuando ocurren situaciones excepcionales o cuando depende de ciertos criterios, entonces se realiza una interacción adicional. El caso de uso que extiende describe un comportamiento opcional del sistema a diferencia de la relación  incluye que se da siempre que se realiza la interacción descrita.
+2.6.2.3	Diagrama de estados 
+Muestra la secuencia de estados por los que pasa un caso de uso o un objeto a lo largo de su vida, indicando qué eventos hacen que se pase de un estado a otro y cuáles son las respuestas y  acciones que genera.
+2.6.3	Diagramas de Interacción
+Enfatizan sobre el flujo de control y de datos entre los elementos del sistema modelado, entre estos se encuentran:
+2.6.3.1	Diagrama de secuencia 
+Un diagrama de secuencia muestra una interacción ordenada entre objetos de un sistema, según la secuencia temporal de eventos. En particular, muestra los objetos participantes en la interacción y los mensajes que intercambian ordenados según su secuencia en el tiempo.
+2.6.3.2	Diagrama de comunicación 
+Anteriormente diagrama de colaboraciones, muestra una interacción organizada basándose en los objetos que toman parte en la interacción y los enlaces entre los mismos (en cuanto a la interacción se refiere). A diferencia de los diagramas de secuencia, los diagramas de  comunicación muestran las relaciones entre los roles de los objetos. La secuencia de los mensajes y los flujos de ejecución concurrentes deben determinarse explícitamente mediante números de secuencia.
+2.6.3.3	Diagrama de tiempos 
+El propósito primario del diagrama de tiempos es mostrar los cambios en el estado o la condición de una línea de vida (representando una Instancia de un clasificador o un rol de un clasificador) a lo largo del tiempo lineal. El uso más común es mostrar el cambio de estado de un objeto a lo largo del tiempo, en respuesta a los eventos o estímulos aceptados. Los eventos que se reciben se anotan, a medida que muestran cuándo se desea mostrar el evento que causa el cambio en la condición o en el estado.
+2.6.3.4	Diagrama de vista de interacción
+Orientan la revisión del flujo de control, donde los nodos son interacciones u ocurrencias de interacciones. Las líneas de vida y los mensajes no aparecen en este nivel de revisión.
