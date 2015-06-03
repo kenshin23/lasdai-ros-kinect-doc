@@ -1,9 +1,10 @@
 \documentclass[12pt,oneside]{book}
-
 \usepackage{ulamonog} %proyecto de grado
-%\usepackage[cp1252]{inputenc} % escribir acentos en Windows
-%Descomentar lo siguiente (y comentar la lÌnea anterior) para compilar en Linux:
-\usepackage[utf8]{inputenc}
+
+% Descomentar en Windows:
+\usepackage[cp1252]{inputenc} % escribir acentos en Windows
+% Descomentar en Linux:
+%\usepackage[utf8]{inputenc}
 
 \usepackage[activeacute,spanish]{babel}
 
@@ -17,13 +18,13 @@
 
 % si se va a imprimir,
 % se incluye al final despues de citecolor=blue, el comando draft=true
-% por lo cual se descomenta la ˙ltima lÌnea y se comenta la anterior.
-% Las siguientes son propiedades del pdf, m·s no cambian nada dentro del
-% texto de la monografÌa
-\hypersetup{pdftitle={Uso de Kinect para la AdquisiciÛn de InformaciÛn del Entorno que permita elaborar Mapas para la NavegaciÛn de un Robot MÛvil},
+% por lo cual se descomenta la √∫ltima l√≠nea y se comenta la anterior.
+% Las siguientes son propiedades del pdf, m√°s no cambian nada dentro del
+% texto de la monograf√≠a
+\hypersetup{pdftitle={Estudio e Implementaci√≥n de una Plataforma de Software que permita generar Mapas para la Navegaci√≥n de un Robot M√≥vil},
 pdfauthor={Carlos Eduardo Paparoni Bruzual},
-pdfsubject={Propuesta de Proyecto de Grado}, % se deja igual (se cambia para el proyecto de grado)
-pdfkeywords={Robots MÛviles, ConstrucciÛn de Mapas, VisiÛn por Computador, Kinect, CARMEN}, pdfstartview=FitH,
+pdfsubject={Proyecto de Grado}, % se deja igual (se cambia para el proyecto de grado)
+pdfkeywords={Robots M√≥viles, Construcci√≥n de Mapas, Visi√≥n por Computador, Kinect, ROS}, pdfstartview=FitH,
 % bookmarks=true, citecolor=blue}
 bookmarks=true, citecolor=blue, draft=true}
 
@@ -36,7 +37,7 @@ bookmarks=true, citecolor=blue, draft=true}
 % \nolistoftables
 \nolistoffigures
 
-\usepackage[numbers]{natbib} %Agregado numbers para compatibilidad con la bibliografÌa estilo IEEEtranN
+\usepackage[numbers]{natbib} %Agregado numbers para compatibilidad con la bibliograf√≠a estilo IEEEtranN
 
 \sloppy
 
@@ -49,46 +50,46 @@ bookmarks=true, citecolor=blue, draft=true}
 % ***************************************************************** %
 
 % Si desea que el logo de la ULA aparezca en la parte superior,
-% descomente la siguiente lÌnea. Por defecto aparece en la parte inferior
+% descomente la siguiente l√≠nea. Por defecto aparece en la parte inferior
 %\logoarriba{}
 
-% AÒo en el cual se entrega el proyecto de grado o la propuesta
-\copyrightyear{2014}
+% A√±o en el cual se entrega el proyecto de grado o la propuesta
+\copyrightyear{2015}
 
 % Al final cuando hayan presentado, sin comentar,
-% deberia ser el n˙mero de tesis presentada y la opciÛn, IO por ejemplo
-% (Actualmente, 11-03-08, no se est· trabajando con esta metodologÌa de llevar un
-% n˙mero de proyecto para las tesis, por lo cual debe ir comentado)
+% deberia ser el n√∫mero de tesis presentada y la opci√≥n, IO por ejemplo
+% (Actualmente, 11-03-08, no se est√° trabajando con esta metodolog√≠a de llevar un
+% n√∫mero de proyecto para las tesis, por lo cual debe ir comentado)
 %\numproy{23SC}
 
 % En caso de hacer la propuesta, descomente la siguiente
-% instrucciÛn. Para el Proyecto de Grado debe comentarse. Modifica
-% tanto la categorÌa de la monografÌa, como la apariciÛn de
+% instrucci√≥n. Para el Proyecto de Grado debe comentarse. Modifica
+% tanto la categor√≠a de la monograf√≠a, como la aparici√≥n de
 % "Presentado ante la ilustre Universidad de Los Andes
-% como requisito parcial para obtener el TÌtulo de" en la portada
+% como requisito parcial para obtener el T√≠tulo de" en la portada
 %\tipomonografia{Propuesta de Proyecto de Grado}
 
-% TÌtulo de la monografÌa, el cual saldr· en la portada
-\title{Uso de Kinect para la AdquisiciÛn de InformaciÛn del Entorno que permita elaborar Mapas para la NavegaciÛn de un Robot MÛvil}
+% T√≠tulo de la monograf√≠a, el cual saldr√° en la portada
+\title{Estudio e Implementaci√≥n de una Plataforma de Software que permita generar Mapas para la Navegaci√≥n de un Robot M√≥vil}
 
-% Autor de la monografÌa, el cual saldr· en la portada
+% Autor de la monograf√≠a, el cual saldr√° en la portada
 \author{Carlos Eduardo Paparoni Bruzual}
 
 % La fechaentrega, presentaciondia, presentacionlugar
 % y mencionespecial, es para aquel caso en el cual se
 % vaya a utilizar la hoja del veredicto en el formato
-% que se presenta aquÌ. El primerjurado, segundojurado,
-% y cedula, son campos que pueden llenarse, pero sÛlo
-% aparecer·n si se utiliza la p·gina del veredicto
+% que se presenta aqu√≠. El primerjurado, segundojurado,
+% y cedula, son campos que pueden llenarse, pero s√≥lo
+% aparecer√°n si se utiliza la p√°gina del veredicto
 
-% CÈdula del autor de la monografÌa
+% C√©dula del autor de la monograf√≠a
 \cedula{16.656.734}
 
 % Tutor del Proyecto de Grado
 \tutor{Prof. Dr. Rafael Rivas Estrada}
 
-% Cualquiera de los instructores que aparecen a continuaciÛn
-% pueden comentarse o descomentarse seg˙n sea el caso:
+% Cualquiera de los instructores que aparecen a continuaci√≥n
+% pueden comentarse o descomentarse seg√∫n sea el caso:
 
 %%% Cotutor del Proyecto de Grado
 % \cotutor{Dra. propuesta}
@@ -99,23 +100,23 @@ bookmarks=true, citecolor=blue, draft=true}
 %%% Tutor Industrial del Proyecto de Grado
 % \tutorindustrial{Dr. Tutor Industrial}
 %%% Jurados del Proyecto de Grado
-\primerjurado{Prof. Dr. Gerard Paez M.}
-\segundojurado{Prof. Dr. Dulce M. Rivero A.}
+\primerjurado{Prof. Dr. Eladio Dapena}
+\segundojurado{Prof. Dr. Gerard Paez M.}
 
 % ***************************************************************** %
-% Si sabe la fecha de presentaciÛn
+% Si sabe la fecha de presentaci√≥n
 %
 % con o sin comentar
 % (Esta hoja es un formato para asentar la nota del proyecto de grado;
 % sin embargo, la hoja que se utiliza para ese fin, se busca en la escuela
-% dÌas antes de la presentaciÛn)
+% d√≠as antes de la presentaci√≥n)
 % ***************************************************************** %
-%\fechaentrega{Septiembre 2014} % Si sabe cuando se presentÛ
-%\presentaciondia{22 de Septiembre de 2014} % si conoce exactamente el dÌa
-%\presentacionlugar{SalÛn de reuniones EISULA} % si conoce exactamente el lugar donde se presentÛ
+%\fechaentrega{Julio 2015} % Si sabe cuando se present√≥
+%\presentaciondia{3 de Julio de 2014} % si conoce exactamente el d√≠a
+%\presentacionlugar{Sal√≥n de reuniones EISULA} % si conoce exactamente el lugar donde se present√≥
 % ***************************************************************** %
 % FIN DE
-% Si sabe la fecha de presentaciÛn
+% Si sabe la fecha de presentaci√≥n
 % ***************************************************************** %
 
 
@@ -124,9 +125,9 @@ bookmarks=true, citecolor=blue, draft=true}
 % con o sin comentar
 % ***************************************************************** %
 %\mencionespecial{Este proyecto fue seleccionado como \textbf{mejor
-%proyecto de grado} de la Escuela de IngenierÌa de Sistemas, en el
-%IC aniversario de la Facultad de IngenierÌa.} % si tiene menciÛn especial
-% (El texto puede cambiarse \mencionespecial{*********} seg˙n corresponda
+%proyecto de grado} de la Escuela de Ingenier√≠a de Sistemas, en el
+%IC aniversario de la Facultad de Ingenier√≠a.} % si tiene menci√≥n especial
+% (El texto puede cambiarse \mencionespecial{*********} seg√∫n corresponda
 % ***************************************************************** %
 % FIN DE
 % Si tiene mencion especial
@@ -134,38 +135,38 @@ bookmarks=true, citecolor=blue, draft=true}
 % ***************************************************************** %
 
 % NO TOCAR si es Ingenieria de Sistemas
-% \grado{Ingeniero QuÌmico} % por defecto Ingeniero de Sistemas
+% \grado{Ingeniero Qu√≠mico} % por defecto Ingeniero de Sistemas
 
 %\signaturepage ----- NO TOCAR
 
-%%%%%OJO%%%%% Arreglen esto seg˙n su opciÛn
-% Si es control y automatizacion se comentan las siguientes lÌneas. Si es de
-% Sistemas Computacionales comenta la tercera. De InvestigaciÛn de Operaciones
+%%%%%OJO%%%%% Arreglen esto seg√∫n su opci√≥n
+% Si es control y automatizacion se comentan las siguientes l√≠neas. Si es de
+% Sistemas Computacionales comenta la tercera. De Investigaci√≥n de Operaciones
 % comenta la segunda
-% \opcion{Control y AutomatizaciÛn}
-  \opcion{Sistemas Computacionales}
-% \opcion{InvestigaciÛn de Operaciones}
+%\opcion{Control y Automatizaci√≥n}
+\opcion{Sistemas Computacionales}
+%\opcion{Investigaci√≥n de Operaciones}
 
-% AquÌ se escribe el resumen de la monografÌa
-\resumen{Un reto substancial en el desarrollo y masificaciÛn de los robots mÛviles autÛnomos es el proceso de reconocimiento o modelado de su entorno.
+% Aqu√≠ se escribe el resumen de la monograf√≠a
+\resumen{Un reto substancial en el desarrollo y masificaci√≥n de los robots m√≥viles aut√≥nomos es el proceso de reconocimiento o modelado de su entorno.
 \\
-Existen herramientas que permiten control de bases robÛticas, planificaciÛn de rutas, localizaciÛn y creaciÛn de mapas.
+Existen m√∫ltiples soluciones de software que permiten el control de bases rob√≥ticas, planificaci√≥n de rutas, localizaci√≥n y creaci√≥n de mapas de entorno para navegaci√≥n y ubicaci√≥n de uno o varios robots en √©ste.
 \\
-En este trabajo se presenta el desarrollo de un mÛdulo que pretende sustituir o complementar el mÛdulo de mediciÛn l·ser de una herramienta similar a la descrita anteriormente con el fin de soportar y utilizar el dispositivo Kinect\textregistered, desarrollado por la compaÒÌa Microsoft\textregistered, especÌficamente mediante el uso del mÛdulo l·ser y de la c·mara infrarroja del mismo, para realizar medidas del entorno, y asÌ igualar o aumentar la funcionalidad ofrecida previamente, disminuyendo de forma dr·stica y beneficial los costos asociados con el uso del mÛdulo anterior.
+En este trabajo se presenta la investigaci√≥n, documentaci√≥n e implementaci√≥n de una plataforma de software adecuada para el manejo del hardware rob√≥tico disponible en el Laboratorio de Sistemas Discretos, Automatizaci√≥n e Integraci√≥n (LaSDAI), con el fin de soportar y utilizar el dispositivo Kinect\textregistered, desarrollado por la compa√±√≠a Microsoft\textregistered, espec√≠ficamente mediante el uso del emisor l√°ser y de la c√°mara infrarroja del mismo, para realizar medidas y generar mapas del entorno que puedan ser utilizados para la localizaci√≥n y navegaci√≥n de un robot m√≥vil.
 \\
-Se desarrollar· utilizando UML 2.0 (Unified Modeling Language) para el modelado y como guÌa en su desarrollo, el mÈtodo PXP que forma parte de los mÈtodos ¡giles de desarrollo.}
+Se desarrollar√° utilizando UML 2.0 (Unified Modeling Language) para el modelado y como gu√≠a en su desarrollo, el m√©todo PXP que forma parte de los m√©todos √Ågiles de desarrollo.}
 
-% AquÌ se escriben las palabras claves de la monografÌa
-\descriptores{Robots MÛviles, ConstrucciÛn de Mapas, VisiÛn por Computador, Kinect, CARMEN}
+% Aqu√≠ se escriben las palabras claves de la monograf√≠a
+\descriptores{Robots M√≥viles, Construcci√≥n de Mapas, Visi√≥n por Computador, Kinect, ROS}
 
 % Esto es para que salga la cota en la hoja del resumen. Actualmente,
-% 11-03-08, en la Escuela de IngenierÌa de Sistemas no es necesario
+% 11-03-08, en la Escuela de Ingenier√≠a de Sistemas no es necesario
 % buscar la cota previamente, sino que el Proyecto de Grado se entrega
 % en la Escuela sin cota.
 %\cota{IXD A01.1}
 
 % Si desea eliminar la frase "Este trabajo fue procesado en LATEX"
-% del resumen, descomente la siguiente lÌnea
+% del resumen, descomente la siguiente l√≠nea
 % \sinlatex{}
 
 % ***************************************************************** %
@@ -178,7 +179,7 @@ Se desarrollar· utilizando UML 2.0 (Unified Modeling Language) para el modelado 
 % Si tiene dedicatoria
 % con o sin comentar
 % ***************************************************************** %
-%\dedicatoria{A todos los amados seres\\ cuando son dos lÌneas o m·s}
+%\dedicatoria{A todos los amados seres\\ cuando son dos l√≠neas o m√°s}
 % ***************************************************************** %
 % FIN DE
 % Si tiene dedicatoria
@@ -187,21 +188,21 @@ Se desarrollar· utilizando UML 2.0 (Unified Modeling Language) para el modelado 
 \beforepreface
 
 % ***************************************************************** %
-% Agradecimientos y capÌtulos NO numerados
+% Agradecimientos y cap√≠tulos NO numerados
 % ***************************************************************** %
 
 %\prefacesection{Agradecimientos}
-% A˙n no hay agradecimientos
+% A√∫n no hay agradecimientos
 
 %%% Capitulo sin numero, antes de la pagina 1
 
-%\prefacesection{IntroducciÛn}
-% Este es un ejemplo de una secciÛn no numerada.
+%\prefacesection{Introducci√≥n}
+% Este es un ejemplo de una secci√≥n no numerada.
 
 
 % ***************************************************************** %
 % FIN DE
-% Agradecimientos y capÌtulos NO numerados
+% Agradecimientos y cap√≠tulos NO numerados
 % ***************************************************************** %
 
 \afterpreface
@@ -219,17 +220,17 @@ Se desarrollar· utilizando UML 2.0 (Unified Modeling Language) para el modelado 
 % ***************************************************************** %
 % Cuerpo
 % ***************************************************************** %
-% De aquÌ en adelante se desarrollan los capÌtulos numerados de la monografÌa
+% De aqu√≠ en adelante se desarrollan los cap√≠tulos numerados de la monograf√≠a
 
 \input{Introduccion}
 
-\input{Capitulo2}
+%\input{Capitulo2}
 
-\input{Capitulo3}
+%\input{Capitulo3}
 
-% Estilo de la bibliografÌa
+% Estilo de la bibliograf√≠a
 \bibliographystyle{IEEEtranNes}
-% Modificada ya que la original est· en inglÈs.
+% Modificada ya que la original est√° en ingl√©s.
 
 % ***************************************************************** %
 % Para agregar toda la bibliografia del archivo .bib
@@ -237,7 +238,7 @@ Se desarrollar· utilizando UML 2.0 (Unified Modeling Language) para el modelado 
 % ***************************************************************** %
 \nocite{*}
 % ***************************************************************** %
-% Nombre del archivo con extensiÛn .bib en donde se almacena la bibliografÌa
+% Nombre del archivo con extensi√≥n .bib en donde se almacena la bibliograf√≠a
 \bibliography{Referencias}
 
 % ***************************************************************** %
