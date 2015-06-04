@@ -2,9 +2,9 @@
 \usepackage{ulamonog} %proyecto de grado
 
 % Descomentar en Windows:
-\usepackage[cp1252]{inputenc} % escribir acentos en Windows
+%\usepackage[cp1252]{inputenc} % escribir acentos en Windows
 % Descomentar en Linux:
-%\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
 
 \usepackage[activeacute,spanish]{babel}
 
@@ -35,8 +35,7 @@ bookmarks=true, citecolor=blue, draft=true}
 
 % Si desea que no aparezca la lista de tablas o figuras descomente las siguientes lineas
 % \nolistoftables
-\nolistoffigures
-
+\nolistoffigures%
 \usepackage[numbers]{natbib} %Agregado numbers para compatibilidad con la bibliografía estilo IEEEtranN
 
 \sloppy
@@ -86,7 +85,7 @@ bookmarks=true, citecolor=blue, draft=true}
 \cedula{16.656.734}
 
 % Tutor del Proyecto de Grado
-\tutor{Prof. Dr. Rafael Rivas Estrada}
+\tutor{Prof.\ Dr.\ Rafael Rivas Estrada}
 
 % Cualquiera de los instructores que aparecen a continuación
 % pueden comentarse o descomentarse según sea el caso:
@@ -100,8 +99,8 @@ bookmarks=true, citecolor=blue, draft=true}
 %%% Tutor Industrial del Proyecto de Grado
 % \tutorindustrial{Dr. Tutor Industrial}
 %%% Jurados del Proyecto de Grado
-\primerjurado{Prof. Dr. Eladio Dapena}
-\segundojurado{Prof. Dr. Gerard Paez M.}
+\primerjurado{Prof.\ Dr.\ Eladio Dapena}
+\segundojurado{Prof.\ Dr.\ Gerard Paez M.}
 
 % ***************************************************************** %
 % Si sabe la fecha de presentación
@@ -112,7 +111,7 @@ bookmarks=true, citecolor=blue, draft=true}
 % días antes de la presentación)
 % ***************************************************************** %
 %\fechaentrega{Julio 2015} % Si sabe cuando se presentó
-%\presentaciondia{3 de Julio de 2014} % si conoce exactamente el día
+%\presentaciondia{3 de Julio de 2015} % si conoce exactamente el día
 %\presentacionlugar{Salón de reuniones EISULA} % si conoce exactamente el lugar donde se presentó
 % ***************************************************************** %
 % FIN DE
@@ -185,7 +184,7 @@ Se desarrollará utilizando UML 2.0 (Unified Modeling Language) para el modelado
 % Si tiene dedicatoria
 % ***************************************************************** %
 
-\beforepreface
+\beforepreface%
 
 % ***************************************************************** %
 % Agradecimientos y capítulos NO numerados
@@ -205,7 +204,7 @@ Se desarrollará utilizando UML 2.0 (Unified Modeling Language) para el modelado
 % Agradecimientos y capítulos NO numerados
 % ***************************************************************** %
 
-\afterpreface
+\afterpreface%
 
 \pagestyle{fancyplain}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{\textsc{\footnotesize\thechapter\ #1}}}
@@ -215,7 +214,7 @@ Se desarrollará utilizando UML 2.0 (Unified Modeling Language) para el modelado
 \rhead[\fancyplain{}{\leftmark}]%
 {\fancyplain{}{\textsc{\footnotesize\thepage}}} \cfoot{}
 
-\mainmatter
+\mainmatter%
 
 % ***************************************************************** %
 % Cuerpo
@@ -224,7 +223,7 @@ Se desarrollará utilizando UML 2.0 (Unified Modeling Language) para el modelado
 
 \input{Introduccion}
 
-%\input{Capitulo2}
+\input{Capitulo2}
 
 %\input{Capitulo3}
 

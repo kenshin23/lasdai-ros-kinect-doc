@@ -1,4 +1,60 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: Proyecto de Grado.aux
-I found no \bibdata command---while reading file Proyecto de Grado.aux
-I found no \bibstyle command---while reading file Proyecto de Grado.aux
-(There were 2 error messages)
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Proyecto de Grado.aux
+The style file: IEEEtranNes.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: Referencias.bib
+-- IEEEtranN.bst version 1.13 (2008/09/30) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+** Natbib version - not for normal IEEE work.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+
+Done.
+You've used 7 entries,
+            4789 wiz_defined-function locations,
+            984 strings with 9281 characters,
+and the built_in function-call counts, 4003 in all, are:
+= -- 362
+> -- 51
+< -- 12
++ -- 34
+- -- 12
+* -- 198
+:= -- 642
+add.period$ -- 14
+call.type$ -- 7
+change.case$ -- 14
+chr.to.int$ -- 28
+cite$ -- 10
+duplicate$ -- 293
+empty$ -- 357
+format.name$ -- 17
+if$ -- 868
+int.to.chr$ -- 1
+int.to.str$ -- 8
+missing$ -- 51
+newline$ -- 55
+num.names$ -- 12
+pop$ -- 175
+preamble$ -- 1
+purify$ -- 7
+quote$ -- 2
+skip$ -- 300
+stack$ -- 0
+substring$ -- 78
+swap$ -- 165
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 6
+type$ -- 107
+warning$ -- 0
+while$ -- 12
+width$ -- 0
+write$ -- 102
