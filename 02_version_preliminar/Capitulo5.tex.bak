@@ -1,0 +1,53 @@
+\chapter{Generación de Mapas a través de RTAB-Map}
+
+En este capítulo se describe el software RTAB-Map, sus características, su proceso de funcionamiento, su instalación y uso en el entorno de desarrollo en sus presentaciones como software independiente o como módulo integrado a ROS y por último, la generación de un mapa de entorno a través del mismo.
+
+\section{Definición}
+
+Llenar.
+
+\section{Características}
+
+Llenar.
+
+\section{Funcionamiento}
+
+Llenar.
+
+\section{Instalación}
+
+Llenar.
+
+\subsection{Como software independiente}
+
+Llenar.
+
+\subsection{Como módulo de ROS}
+
+Llenar.
+
+\section{Generación de Mapas de Entorno}
+
+Llenar.
+
+\subsection{Requerimientos}
+
+Llenar.
+
+\subsection{Procedimiento}
+
+Llenar.
+
+\subsection{Pruebas}
+
+Llenar.
+
+\subsubsection{Generación de mapas 3D}
+
+Llenar.
+
+\subsubsection{Generación de mapas 2D}
+
+Llenar.
+
+\paragraph{Selección de altura mínima y máxima para generación del mapa 2D}

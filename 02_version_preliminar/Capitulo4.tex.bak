@@ -1,0 +1,27 @@
+\chapter{ROS}
+
+En este capítulo se desea profundizar en la definición de ROS (Robot Operating System) como plataforma de software seleccionada para el desarrollo de este proyecto de grado. Asimismo, se describen sus características principales, la arquitectura de software que utiliza, la instalación del mismo en el entorno de desarrollo a utilizar, y los módulos en los cuales se apoya este proyecto para llevar a cabo la generación de mapas de entorno.
+
+\section{Definición}
+
+Llenar.
+
+\section{Arquitectura}
+
+Llenar.
+
+\section{Características Principales}
+
+Llenar.
+
+\section{Requisitos de Instalación}
+
+Llenar.
+
+\section{Procedimiento de Instalación}
+
+Llenar.
+
+\section{Módulos Disponibles para SLAM}
+
+Llenar.
