@@ -289,7 +289,7 @@ Los principios producto de estos valores son:\cite{agileprinciples}
 \end{itemize}
 
 \section{Personal Extreme Programming}
-La programación extrema o eXtreme Programming (XP) es una metodología de desarrollo de la ingeniería de software formulada por Kent Beck, autor del primer libro sobre la materia, Extreme Programming Explained: Embrace Change (1999). Es el más destacado de los procesos ágiles de desarrollo de software. Al igual que éstos, la programación extrema se diferencia de las metodologías tradicionales principalmente en que pone más énfasis en la adaptabilidad que en la previsibilidad.
+La programación extrema o \textit{eXtreme Programming} (XP) es una metodología de desarrollo de la ingeniería de software formulada por Kent Beck, autor del primer libro sobre la materia, \textit{Extreme Programming Explained: Embrace Change} (1999). Es el más destacado de los procesos ágiles de desarrollo de software. Al igual que éstos, la programación extrema se diferencia de las metodologías tradicionales principalmente en que pone más énfasis en la adaptabilidad que en la previsibilidad.
 
 Los defensores de XP consideran que los cambios de requisitos sobre la marcha son un aspecto natural, inevitable e incluso deseable del desarrollo de proyectos. Creen que ser capaz de adaptarse a los cambios de requisitos en cualquier punto de la vida del proyecto es una aproximación mejor y más realista que intentar definir todos los requisitos al comienzo del proyecto e invertir esfuerzos después en controlar los cambios en los requisitos.
 
@@ -314,7 +314,7 @@ La simplicidad y la comunicación son extraordinariamente complementarias. Con m
 
 \section{Kanban}
 
-Kanban, del japonés (かんばん(看板)), que es literalmente ``letrero'' o ``cartelera'', es un sistema de programación para la producción lean y justo-a-tiempo.
+Kanban, del japonés (かんばん(看板)), que es literalmente ``letrero'' o ``cartelera'', es un sistema de programación para la producción \textit{Lean} y justo-a-tiempo.
 
 Kanban se basa en una idea muy simple: el trabajo en curso (Work In Progress, WIP) debería limitarse, y sólo deberíamos empezar con algo nuevo cuando un bloque de trabajo anterior haya sido entregado o ha pasado a otra función posterior de la cadena. El Kanban (o tarjeta señalizadora) implica que se genera una señal visual para indicar que hay nuevos bloques de trabajo que pueden ser comenzados porque el trabajo en curso actual no alcanza el máximo acordado.
 
@@ -323,4 +323,23 @@ Kanban usa un mecanismo de control visual para hacer seguimiento del trabajo con
 Las metodologías Ágiles han obtenido buenos resultados proporcionando transparencia respecto al trabajo en curso y completado, así como en el reporte de métricas como la velocidad (cantidad de trabajo realizada en una iteración). Kanban sin embargo va un paso más allá y proporciona transparencia al proceso y su flujo. Kanban expone los cuellos de botella, colas, variabilidad y desperdicios. Todas las cosas que impactan al rendimiento de la organización en términos de la cantidad de trabajo entregado y el ciclo de tiempo requerido para entregarlo. Kanban proporciona a los miembros del equipo y a las partes interesadas visibilidad sobre los efectos de sus acciones (o falta de acción). De esta forma, los casos de estudios preliminares están demostrando que Kanban cambia el comportamiento y motiva a una mayor colaboración en el trabajo. La visibilidad de los cuellos de botella, desperdicios y variabilidades y su impacto también promueve la discusión sobre la posibles mejoras, y los equipos comienzan rápidamente a implementar mejoras en su proceso.\cite{Skarin201003}
 
 \subsection{Trello}
-Llenar.
+
+Trello es una plataforma de software que utiliza el paradigma Kanban para el manejo de proyectos. Iniciado en el año 2011 por la compañía Fog Creek Software y caracterizado como software de productividad, este utiliza un sistema de tableros, listas y tarjetas para llevar el control de múltiples tipos de proyecto, sin estar limitado a proyectos de desarrollo de software, por lo cual es altamente versatil. Las tarjetas aceptan comentarios, archivos adjuntos, votos, fechas de entrega y listas de verificación.
+
+Para este proyecto, se abrió un tablero en Trello accesible desde la dirección \url{https://trello.com/b/yIMdcTCR/tesis-ros-kinect}, cuyas listas representan un híbrido entre las disponibles en PXP y Kanban, de la siguiente manera:
+
+\begin{itemize}
+	\itemsep1pt \parskip1pt \parsep1pt
+	\item Pendientes: Tareas que están por ser ejecutadas.
+	\item Actuales: Tareas que están siendo ejecutadas actualmente.
+	\item Entregadas: Tareas que están marcadas como realizadas, pero que no han sido verificadas aún.
+	\item Rechazadas: Tareas que, habiendo sido entregadas, presentan alguna falla o requieren algún cambio, por lo cual se colocan en esta lista para ser revisadas.
+	\item Listas: Tareas que han sido verificadas y aceptadas.
+	\item Ideas: Tarjetas que representan ideas aplicar, o tareas que no pueden pasar a la lista ``Pendientes'' por no haber recursos disponibles para ellas.
+\end{itemize}
+
+----Insertar imagen del tablero de Trello del proyecto de grado----
+
+\subsubsection{Uso}
+
+Cada tarea a realizar se coloca como una tarjeta en la lista correspondiente a ``Pendientes'' o ``Ideas'' según sea el caso, y una vez estén disponibles los recursos para tomarla (siendo estos recursos tiempo, o disponibilidad de la o las personas involucradas) se pasa dicha tarjeta, mediante arrastrar y colocar, a la lista de ``Actuales''. Esto permite ver el flujo de trabajo, tal como se mencionaba anteriormente, y permite saber el estado actual del proyecto si la tabla se mantiene actualizada.
