@@ -6,6 +6,9 @@
 % Descomentar en Linux:
 \usepackage[utf8]{inputenc}
 
+% Para texto en chino, japonés o coreano:
+\usepackage{CJKutf8}
+
 \usepackage[activeacute,spanish]{babel}
 
 \usepackage{color}
