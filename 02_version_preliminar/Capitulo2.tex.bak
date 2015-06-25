@@ -267,9 +267,9 @@ El manifiesto para el Desarrollo Ágil de Software, indica el enfoque a seguir p
 	\item Respuesta ante el cambio sobre seguir un plan
 \end{itemize}
 
-En las propias palabras del manifiesto: ``Esto es, aunque valoramos los elementos de la derecha, valoramos más los de la izquierda''.\cite{agilemanifesto}
+En las propias palabras del manifiesto: ``Esto es, aunque valoramos los elementos de la derecha, valoramos más los de la izquierda''.\cite{beck2001manifiesto}
 
-Los principios producto de estos valores son:\cite{agileprinciples}
+Los principios producto de estos valores son:\cite{beck2001principios}
 
 \begin{itemize}
 	\itemsep1pt \parskip1pt \parsep1pt
@@ -314,7 +314,7 @@ La simplicidad y la comunicación son extraordinariamente complementarias. Con m
 
 \section{Kanban}
 
-Kanban, del japonés (\begin{CJK*}{UTF8}{gbsn}かんばん\end{CJK*}(\begin{CJK*}{UTF8}{gbsn}看板\end{CJK*})), que es literalmente ``letrero'' o ``cartelera'', es un sistema de programación para la producción \textit{Lean} y justo-a-tiempo.
+Kanban, del japonés \begin{CJK*}{UTF8}{gbsn}かんばん\end{CJK*}(\begin{CJK*}{UTF8}{gbsn}看板\end{CJK*}), que es literalmente ``letrero'' o ``cartelera'', es un sistema de programación para la producción \textit{Lean} y justo-a-tiempo.
 
 Kanban se basa en una idea muy simple: el trabajo en curso (Work In Progress, WIP) debería limitarse, y sólo deberíamos empezar con algo nuevo cuando un bloque de trabajo anterior haya sido entregado o ha pasado a otra función posterior de la cadena. El Kanban (o tarjeta señalizadora) implica que se genera una señal visual para indicar que hay nuevos bloques de trabajo que pueden ser comenzados porque el trabajo en curso actual no alcanza el máximo acordado.
 
