@@ -4,24 +4,48 @@ En este capítulo se desea profundizar en la definición de ROS (Robot Operating
 
 \section{Definición}
 
-Llenar.
+\textit{Robot Operating System} (Sistema Operativo de/para Robot) o sencillamente ROS, es, tal como su nombre implica, un sistema operativo para robots, de forma similar a los sistemas operativos para computadores de escritorio o servidores. Desarrollado y mantenido por la empresa Willow Garage, 
 
-\section{Arquitectura}
-
-Llenar.
+ROS es Software Libre y está distribuido bajo la licencia BSD, permitiendo el desarrollo de proyectos comerciales y no-comerciales. Una característica importante en cuanto a la arquitectura (que se detallará más adelante) es que ROS funciona a través de comunicación entre procesos, sin requerir que los módulos sean enlazados dentro del mismo ejecutable, por lo que cualquier sistema construido usando ROS como base puede tener control detallado sobre las licencias de software que utilicen sus módulos, ya sean GPL, BSD o cualquier otra hasta propietaria. \cite{quigley2009ros}
 
 \section{Características Principales}
 
-Llenar.
+Se pueden comentar las siguientes:
+
+Comunicación entre pares: los sistemas robóticos complejos con múltiples enlaces podrían tener varios computadores de a bordo (para realizar tareas paralelas) conectados a través de una red. La ejecución de un maestro central podría dar lugar a la congestión severa en un enlace determinado. Usando una comunicación peer-to-peer o entre pares evitaría este problema. En ROS, una arquitectura peer-to-peer acoplado a un sistema de memoria intermedia o buffer y un sistema de búsqueda (un servicio de nombres llamado ``maestro'' en ROS), le permite a cada componente dialogar directamente con cualquier otro, de forma sincrónica o asincrónica como sea necesario.
+
+Gratuito y de código abierto: Ser una plataforma de código abierto ofrece la reutilización de funciones ya existentes proporcionadas por muchos otros usuarios de ROS. Su código se suministra en repositorios como stacks, o ``pilas''. Otras personas han desarrollado capacidades sorprendentes para los robots que han sido ``de código abierto'' y son relativamente fáciles de añadir de forma incremental utilizando el entorno de desarrollo de ROS.
+
+Delgado: Para combatir el desarrollo de algoritmos que se ``enredan'' o vinculan en un grado mayor o menor con el sistema operativo del robot y, por tanto, son difíciles de reutilizar posteriormente, los desarrolladores de ROS han planificado que los controladores y otros algoritmos sean contenidos en ejecutables independientes. Esto garantiza la máxima reutilización y, sobre todo, mantiene reducido su tamaño. Este método hace que ROS sea fácil de usar y ubica la complejidad en las bibliotecas. Esta disposición también facilita las pruebas unitarias y los sistemas desarrollados puede ser completamente independientes de otro sistema.
+
+Multi-lenguaje: ROS es independiente del lenguaje, y se puede programar en varios lenguajes. La especificación ROS trabaja en la capa de mensajería. Las conexiones peer-to-peer se negocian en XML-RPC, que existe en un gran número de lenguajes. Para soportar un nuevo lenguaje, se pueden reenvolver clases C ++ son re-envueltos (lo cual se hizo para el cliente Octave, por ejemplo) o se escriben clases permitiendo que se generen mensajes. Estos mensajes se describen en IDL (Interface Definition Language). \cite{quigley2009ros}
+
+\section{Arquitectura}
+
+ROS está implementado bajo los siguientes conceptos fundamentales:
+
+\begin{itemize}
+	\itemsep1pt \parskip1pt \parsep1pt
+	\item Nodos
+	\item Mensajes
+	\item Tópicos
+	\item Servicios
+\end{itemize} \cite{quigley2009ros}
 
 \section{Requisitos de Instalación}
 
-Llenar.
+---Llenar.---
 
 \section{Procedimiento de Instalación}
 
-Llenar.
+\subsection{Descripción de Entornos de Desarrollo}
+
+---Llenar.---
+
+\subsection{Instalación}
+
+---Llenar.---
 
 \section{Módulos Disponibles para SLAM}
 
-Llenar.
+---Llenar.---
