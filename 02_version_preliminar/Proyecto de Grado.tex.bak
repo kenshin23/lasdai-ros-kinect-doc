@@ -9,6 +9,15 @@
 % Para texto en chino, japonés o coreano:
 \usepackage{CJKutf8}
 
+% Para tablas más agradables visualmente y listas de chequeo en tablas:
+\usepackage{booktabs}%
+\usepackage{graphicx}%
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage[flushleft]{threeparttable}
+\usepackage{adjustbox}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
 \usepackage[activeacute,spanish]{babel}
 
 \usepackage{color}
