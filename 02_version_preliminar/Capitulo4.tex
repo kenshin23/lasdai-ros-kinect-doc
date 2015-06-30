@@ -4,21 +4,27 @@ En este capítulo se desea profundizar en la definición de ROS (Robot Operating
 
 \section{Definición}
 
-\textit{Robot Operating System} (Sistema Operativo de/para Robot) o sencillamente ROS, es, tal como su nombre implica, un sistema operativo para robots, de forma similar a los sistemas operativos para computadores de escritorio o servidores. Desarrollado y mantenido por la empresa Willow Garage, 
+\textit{Robot Operating System} (Sistema Operativo de/para Robot) o sencillamente ROS, es, tal como su nombre implica, un sistema operativo para robots, de forma similar a los sistemas operativos para computadores de escritorio o servidores. Desarrollado y mantenido por la empresa Willow Garage, es una colección de herramientas, librerías y convenciones que buscan simplificar la tarea de crear comportamientos de robot robustos y complejos a lo largo de una amplia variedad de plataformas robóticas.
 
-ROS es Software Libre y está distribuido bajo la licencia BSD, permitiendo el desarrollo de proyectos comerciales y no-comerciales. Una característica importante en cuanto a la arquitectura (que se detallará más adelante) es que ROS funciona a través de comunicación entre procesos, sin requerir que los módulos sean enlazados dentro del mismo ejecutable, por lo que cualquier sistema construido usando ROS como base puede tener control detallado sobre las licencias de software que utilicen sus módulos, ya sean GPL, BSD o cualquier otra hasta propietaria. \cite{quigley2009ros}
+La justificación de porqué hacer esto es porque decididamente, crear software robótico de propósito general y verdaderamente robusto es difícil, ya que si bien para un ser humano algunos problemas son triviales, no lo son en lo absoluto al momento de tomar en cuenta las grandes variaciones entre instancias de tareas y entornos. Lidiar con estas variaciones es tan complicado que ningún individuo, laboratorio o institución pudiera esperar llevarlo a cabo por su propia cuenta.
+
+Por ello, ROS fue construido desde cero con el fin de alentar el desarrollo de software robótico de forma colaborativa. Un ejemplo de esto es que, un laboratorio podría tener expertos en cartografía o mapeado de interiores y podría contribuir un sistema de excelente calidad para la producción de mapas. Otro grupo podría tener expertos en el uso de mapas para navegar, y otro grupo podría haber descubierto un enfoque de visión por computador que funciona bien para el reconocimiento de objetos pequeños entre el desorden. ROS fue diseñado específicamente para grupos como éstos para colaborar y construir sobre el trabajo del otro. \cite{aboutros}
+
+Además, ROS es Software Libre y está distribuido bajo la licencia BSD, permitiendo el desarrollo de proyectos comerciales y no-comerciales. Una característica importante en cuanto a la arquitectura (que se detallará más adelante) es que ROS funciona a través de comunicación entre procesos, sin requerir que los módulos sean enlazados dentro del mismo ejecutable, por lo que cualquier sistema construido usando ROS como base puede tener control detallado sobre las licencias de software que utilicen sus módulos, ya sean GPL, BSD o cualquier otra hasta propietaria. \cite{quigley2009ros}
 
 \section{Características Principales}
 
 Se pueden comentar las siguientes:
 
-Comunicación entre pares: los sistemas robóticos complejos con múltiples enlaces podrían tener varios computadores de a bordo (para realizar tareas paralelas) conectados a través de una red. La ejecución de un maestro central podría dar lugar a la congestión severa en un enlace determinado. Usando una comunicación peer-to-peer o entre pares evitaría este problema. En ROS, una arquitectura peer-to-peer acoplado a un sistema de memoria intermedia o buffer y un sistema de búsqueda (un servicio de nombres llamado ``maestro'' en ROS), le permite a cada componente dialogar directamente con cualquier otro, de forma sincrónica o asincrónica como sea necesario.
+\begin{description}
+	\item[Comunicación entre pares:] los sistemas robóticos complejos con múltiples enlaces podrían tener varios computadores de a bordo (para realizar tareas paralelas) conectados a través de una red. La ejecución de un maestro central podría dar lugar a la congestión severa en un enlace determinado. Usando una comunicación peer-to-peer o entre pares evitaría este problema. En ROS, una arquitectura peer-to-peer acoplado a un sistema de memoria intermedia o buffer y un sistema de búsqueda (un servicio de nombres llamado ``maestro'' en ROS), le permite a cada componente dialogar directamente con cualquier otro, de forma sincrónica o asincrónica como sea necesario.
 
-Gratuito y de código abierto: Ser una plataforma de código abierto ofrece la reutilización de funciones ya existentes proporcionadas por muchos otros usuarios de ROS. Su código se suministra en repositorios como stacks, o ``pilas''. Otras personas han desarrollado capacidades sorprendentes para los robots que han sido ``de código abierto'' y son relativamente fáciles de añadir de forma incremental utilizando el entorno de desarrollo de ROS.
+	\item[Gratuito y de código abierto:] Ser una plataforma de código abierto ofrece la reutilización de funciones ya existentes proporcionadas por muchos otros usuarios de ROS. Su código se suministra en repositorios como stacks, o ``pilas''. Otras personas han desarrollado capacidades sorprendentes para los robots que han sido ``de código abierto'' y son relativamente fáciles de añadir de forma incremental utilizando el entorno de desarrollo de ROS.
 
-Delgado: Para combatir el desarrollo de algoritmos que se ``enredan'' o vinculan en un grado mayor o menor con el sistema operativo del robot y, por tanto, son difíciles de reutilizar posteriormente, los desarrolladores de ROS han planificado que los controladores y otros algoritmos sean contenidos en ejecutables independientes. Esto garantiza la máxima reutilización y, sobre todo, mantiene reducido su tamaño. Este método hace que ROS sea fácil de usar y ubica la complejidad en las bibliotecas. Esta disposición también facilita las pruebas unitarias y los sistemas desarrollados puede ser completamente independientes de otro sistema.
+	\item[Delgado:] Para combatir el desarrollo de algoritmos que se ``enredan'' o vinculan en un grado mayor o menor con el sistema operativo del robot y, por tanto, son difíciles de reutilizar posteriormente, los desarrolladores de ROS han planificado que los controladores y otros algoritmos sean contenidos en ejecutables independientes. Esto garantiza la máxima reutilización y, sobre todo, mantiene reducido su tamaño. Este método hace que ROS sea fácil de usar y ubica la complejidad en las bibliotecas. Esta disposición también facilita las pruebas unitarias y los sistemas desarrollados puede ser completamente independientes de otro sistema.
 
-Multi-lenguaje: ROS es independiente del lenguaje, y se puede programar en varios lenguajes. La especificación ROS trabaja en la capa de mensajería. Las conexiones peer-to-peer se negocian en XML-RPC, que existe en un gran número de lenguajes. Para soportar un nuevo lenguaje, se pueden reenvolver clases C ++ son re-envueltos (lo cual se hizo para el cliente Octave, por ejemplo) o se escriben clases permitiendo que se generen mensajes. Estos mensajes se describen en IDL (Interface Definition Language). \cite{quigley2009ros}
+	\item[Multi-lenguaje:] ROS es independiente del lenguaje, y se puede programar en varios lenguajes. La especificación ROS trabaja en la capa de mensajería. Las conexiones \textit{peer-to-peer} se negocian en XML-RPC, que existe en un gran número de lenguajes. Para soportar un nuevo lenguaje, se pueden reenvolver clases C ++ son re-envueltos (lo cual se hizo para el cliente Octave, por ejemplo) o se escriben clases permitiendo que se generen mensajes. Estos mensajes se describen en IDL (\textit{Interface Definition Language}). \cite{quigley2009ros}
+\end{description}
 
 \section{Arquitectura}
 
@@ -26,11 +32,11 @@ ROS está implementado bajo los siguientes conceptos fundamentales:
 
 \begin{itemize}
 	\itemsep1pt \parskip1pt \parsep1pt
-	\item Nodos
-	\item Mensajes
-	\item Tópicos
-	\item Servicios
-\end{itemize} \cite{quigley2009ros}
+	\item Nodos: Son procesos que realizan cálculos; en el contexto de ROS, este término es intercambiable con ``módulo de software'' ya que está diseñado para ser altamente modular: un sistema está compuesto típicamente de muchos nodos.
+	\item Mensajes:	Los nodos se comunican entre si al pasar mensajes, que no es más que una estructura de datos de tipo estricto. Los tipos de datos soportados pueden ser estándar (entero, flotante, booleano, etc.), así como también arreglos de estos o constantes. Un mensaje puede estar compuesto por varios mensajes y el nivel de anidamiento al que pueden llegar es arbitrario.
+	\item Tópicos: Un nodo publica un mensaje a través de un tópico, que es sencillamente una cadena de caracteres tal como ``odometría'' o ``mapa''. Un nodo que esté interesado en un tipo de dato específico se suscribirá al tópico apropiado. En cualquier momento dado, pueden existir múltiples publicadores o suscriptores de forma concurrente para un tópico particular y un nodo puede publicar o suscribirse a múltiples tópicos. Por lo general, los publicadores y suscriptores no están al tanto de la existencia del otro.
+	\item Servicios: Si bien el modelo publicar-suscribir basado en tópicos es un paradigma de comunicaciones flexible, el esquema de enrutamiento de ``emisión'' no es apropiado para las transacciones síncronas, lo cual puede simplificar el diseño de algunos nodos. A esto se le llama ``servicio'' en ROS, definidos por un nombre y un par de mensajes tipados, uno para la petición y otro para la respuesta. Es de notar que, a diferencia de los tópicos, solo un nodo puede anunciar un servicio con un nombre particular; por ejemplo, solamente puede haber un servicio llamado ``clasificar\_imagen''. \cite{quigley2009ros}
+\end{itemize}
 
 \section{Requisitos de Instalación}
 
@@ -46,6 +52,6 @@ ROS está implementado bajo los siguientes conceptos fundamentales:
 
 ---Llenar.---
 
-\section{Módulos Disponibles para SLAM}
+\section{Módulos Disponibles para SLAM en ROS}
 
 ---Llenar.---
