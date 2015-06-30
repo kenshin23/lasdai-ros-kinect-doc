@@ -109,65 +109,92 @@ sudo apt-get update
 
 	Si está utilizando Ubuntu Trusty 14.04.2 y experimenta problemas con las dependencias durante la instalación de ROS, quizás deba instalar dependencias adicionales del sistema.
 
-/!\ No instale estos paquetes si está utilizando 14.04, ya que destruirá su servidor X (gráfico):
+	\begin{myboxii}
+	No instale estos paquetes si está utilizando 14.04, ya que destruirá su servidor X (gráfico):
+	\end{myboxii}
 	\begin{lstlisting}[language=bash]
 sudo apt-get install xserver-xorg-dev-lts-utopic mesa-common-dev-lts-utopic libxatracker-dev-lts-utopic libopenvg1-mesa-dev-lts-utopic libgles2-mesa-dev-lts-utopic libgles1-mesa-dev-lts-utopic libgl1-mesa-dev-lts-utopic libgbm-dev-lts-utopic libegl1-mesa-dev-lts-utopic
 	\end{lstlisting}
-/!\ No instale los paquetes anteriores si está utilizando 14.04, ya que destruirá su servidor X (gráfico). Alternativamente, intente instalar sólo lo siguiente para corregir problemas de dependencias:
+	\begin{myboxii}
+	No instale los paquetes anteriores si está utilizando 14.04, ya que destruirá su servidor X (gráfico). Alternativamente, intente instalar sólo lo siguiente para corregir problemas de dependencias:
+	\end{myboxii}
 	\begin{lstlisting}[language=bash]
 sudo apt-get install libgl1-mesa-dev-lts-utopic
 	\end{lstlisting}
 
 	Existen muchas librerías y herramientas en ROS. Se han provisto cuatro configuraciones por defecto para iniciar. También se pueden instalar paquetes de ROS de forma individual.
 
-	Instalación de Escritorio Completa: (Recomendada): ROS, rqt, rviz, librerías genéricas para robots, simuladores 2D/3D, navegación y percepción 2D/3D
-	Indigo usa Gazebo 2, la cual es la versión por defecto en Trusty y es la recomendada. Si desea actualizar a Gazebo 3 vea las instrucciones en \url{http://wiki.gazebosim.org/wiki/Install/Gazebo_and_ROS#Gazebo_3.x_series} acerca de cómo actualizar el simulador.
+	\begin{itemize}
+		\item Instalación de Escritorio Completa: (Recomendada): ROS, rqt, rviz, librerías genéricas para robots, simuladores 2D/3D, navegación y percepción 2D/3D
 
-	\begin{lstlisting}[language=bash]
+		Indigo usa Gazebo 2, la cual es la versión por defecto en Trusty y es la recomendada. Si desea actualizar a Gazebo 3 vea las instrucciones en \url{http://wiki.gazebosim.org/wiki/Install/Gazebo_and_ROS#Gazebo_3.x_series} acerca de cómo actualizar el simulador.
+
+		\begin{lstlisting}[language=bash]
 sudo apt-get install ros-indigo-desktop-full
-	\end{lstlisting}
+		\end{lstlisting}
 
-	Instalación de Escritorio: ROS, rqt, rviz, y librerías genéricas para robots.
+		\item Instalación de Escritorio: ROS, rqt, rviz, y librerías genéricas para robots.
 
-	\begin{lstlisting}[language=bash]
+		\begin{lstlisting}[language=bash]
 sudo apt-get install ros-indigo-desktop
-	\end{lstlisting}
+		\end{lstlisting}
 
-	ROS-Base: (Esencial) Las librerías de paquete, generación y comunicación. No incluye herramientas de entorno gráfico.
+		\item ROS-Base: (Esencial) Las librerías de paquete, generación y comunicación. No incluye herramientas de entorno gráfico.
 
 	\begin{lstlisting}[language=bash]
 sudo apt-get install ros-indigo-ros-base
 	\end{lstlisting}
 
-	Paquete Individual: También puede instalar un paquete específico de ROS package (reemplace subguiones con guiones del nombre del paquete):
+		\item Paquete Individual: También puede instalar un paquete específico de ROS package (reemplace subguiones con guiones del nombre del paquete):
 
-	\begin{lstlisting}[language=bash]
+		\begin{lstlisting}[language=bash]
 sudo apt-get install ros-indigo-PAQUETE
-	\end{lstlisting}
+		\end{lstlisting}
 	por ejemplo:
-	\begin{lstlisting}[language=bash]
+		\begin{lstlisting}[language=bash]
 sudo apt-get install ros-indigo-slam-gmapping
-	\end{lstlisting}
+		\end{lstlisting}
 
 Para listar paquetes disponibles, use:
-	\begin{lstlisting}[language=bash]
+		\begin{lstlisting}[language=bash]
 apt-cache search ros-indigo
+		\end{lstlisting}
+	\end{itemize}
+	\item Inicialice rosdep
+
+	Antes de poder utilizar ROS, se debe inicializar rosdep. rosdep permite instalar dependencias del sistema con facilidad para código fuente que desee compilar y es requerido para poder ejecutar algunos componentes centrales en ROS.
+
+	\begin{lstlisting}[language=bash]
+sudo rosdep init
+rosdep update
 	\end{lstlisting}
 
-	\item Inicialice rosdep
-	\begin{enumerate}
-		\item 4
-	\end{enumerate}
-
 	\item Configuración de entorno
-	\begin{enumerate}
-		\item 5
-	\end{enumerate}
+
+	Es conveniente si las variables de entorno de ROS son agregadas automáticamente a su sesión Bash cada vez que se invoca un nuevo terminal:
+
+	\begin{lstlisting}[language=bash]
+echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+	\end{lstlisting}
+
+	Si tiene más de una distribución de ROS instalada, ~/.bashrc sólo debe tomar como fuente el setup.bash para la versión que esté en uso actualmente.
+
+	Si simplemente desea cambiar el entorno del terminal actual, puede escribir:
+
+	\begin{lstlisting}[language=bash]
+source /opt/ros/indigo/setup.bash
+	\end{lstlisting}
 
 	\item Obtener rosinstall
-	\begin{enumerate}
-		\item 6
-	\end{enumerate}
+
+rosinstall es una herramienta de línea de comandos frecuentemente utilizada en ROS que es distribuida por separado. Le permite descargar con facilidad muchos árboles fuentes para paquetes ROS con un solo comando.
+
+Para instalar esta herramienta en Ubuntu, ejecute:
+
+	\begin{lstlisting}[language=bash]
+sudo apt-get install python-rosinstall
+	\end{lstlisting}
 \end{enumerate}
 
 \section{Módulos Disponibles para SLAM en ROS}
