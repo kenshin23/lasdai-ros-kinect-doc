@@ -60,11 +60,115 @@ Durante el proceso de instalación, se lleva a cabo la satisfacción de dependen
 
 \subsection{Descripción de Entornos de Desarrollo}
 
----Llenar.---
+Los entornos y dispositivos utilizados para llevar a cabo el proyecto, para pruebas de instalación y/o funcionamiento, son los siguientes:
+
+\begin{itemize}
+	\item Máquina Virtual: Oracle \textregistered{} VirtualBox VM\textsuperscript{TM}, 2 GB RAM, 30 GB disco duro, con Ubuntu Trusty Tahr 14.04.2 de 64 bits.
+	\item Computador Portatil: Lenovo \textregistered{} Z50-70, procesador Intel \textregistered{}  Core\textsuperscript{TM} i7-4510U, 6 GB RAM, 500 GB disco duro, con Ubuntu Trusty Tahr 14.04.2 de 64 bits.
+	\item Microsoft \textregistered{}  XBOX 360 \textregistered{}  Kinect\textsuperscript{TM}
+\end{itemize}
+
+En la máquina virtual se llevó a cabo la comprobación del procedimiento de instalación, ya que es un entorno que permite restaurar a un punto anterior con facilidad, en caso de inconvenientes tales como paquetes mal instalados, etc.
 
 \subsection{Instalación}
 
----Llenar.---
+El proceso de instalación de ROS está excelentemente documentado en su \textit{wiki} oficial accesible desde \url{http://wiki.ros.org/ROS/Installation}, por lo cual seguimos los pasos tomando nota de cualquier dependencia faltante o error.
+
+Para comenzar, en el enlace previamente mencionado, hacemos clic en ``Indigo installation instructions'', puesto que es la versión de soporte extendido y es la compatible con la versión instalada de Ubuntu.
+
+Una vez allí, bajo el apartado ``Supported'', hacemos clic en ``Ubuntu''.
+
+En adelante, solamente seguimos los siguientes pasos haciendo énfasis en la versión instalada de Ubuntu, tomados directamente del sitio:
+
+\begin{enumerate}
+\renewcommand{\labelenumii}{\theenumii}
+\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
+	\item Configure sus repositorios de Ubuntu
+
+	Configure sus repositorios de Ubuntu para activar los repositorios ``restricted'', ``universe'' y ``multiverse''. La guía de configuración de repositorios de Ubuntu, disponible en el siguiente enlace \url{https://help.ubuntu.com/community/Repositories/Ubuntu} (en inglés) detalla adecuadamente los pasos necesarios.
+	\item Configure el archivo sources.list
+
+	Configure su computador para aceptar software desde packages.ros.org. Esta distribución de ROS \textbf{sólo} soporta Saucy (Ubuntu 13.10) y Trusty (Ubuntu 14.04) para paquetes Debian.
+
+	\begin{lstlisting}[language=bash]
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+	\end{lstlisting}
+
+	\item Configure sus llaves
+
+	\begin{lstlisting}[language=bash]
+sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key\\ 0xB01FA116
+	\end{lstlisting}
+
+	\item Instalación
+	Primero debe asegurarse que su índice de paquetes Debian esté actualizado:
+
+	\begin{lstlisting}[language=bash]
+sudo apt-get update
+	\end{lstlisting}
+
+	Si está utilizando Ubuntu Trusty 14.04.2 y experimenta problemas con las dependencias durante la instalación de ROS, quizás deba instalar dependencias adicionales del sistema.
+
+/!\ No instale estos paquetes si está utilizando 14.04, ya que destruirá su servidor X (gráfico):
+	\begin{lstlisting}[language=bash]
+sudo apt-get install xserver-xorg-dev-lts-utopic mesa-common-dev-lts-utopic libxatracker-dev-lts-utopic libopenvg1-mesa-dev-lts-utopic libgles2-mesa-dev-lts-utopic libgles1-mesa-dev-lts-utopic libgl1-mesa-dev-lts-utopic libgbm-dev-lts-utopic libegl1-mesa-dev-lts-utopic
+	\end{lstlisting}
+/!\ No instale los paquetes anteriores si está utilizando 14.04, ya que destruirá su servidor X (gráfico). Alternativamente, intente instalar sólo lo siguiente para corregir problemas de dependencias:
+	\begin{lstlisting}[language=bash]
+sudo apt-get install libgl1-mesa-dev-lts-utopic
+	\end{lstlisting}
+
+	Existen muchas librerías y herramientas en ROS. Se han provisto cuatro configuraciones por defecto para iniciar. También se pueden instalar paquetes de ROS de forma individual.
+
+	Instalación de Escritorio Completa: (Recomendada): ROS, rqt, rviz, librerías genéricas para robots, simuladores 2D/3D, navegación y percepción 2D/3D
+	Indigo usa Gazebo 2, la cual es la versión por defecto en Trusty y es la recomendada. Si desea actualizar a Gazebo 3 vea las instrucciones en \url{http://wiki.gazebosim.org/wiki/Install/Gazebo_and_ROS#Gazebo_3.x_series} acerca de cómo actualizar el simulador.
+
+	\begin{lstlisting}[language=bash]
+sudo apt-get install ros-indigo-desktop-full
+	\end{lstlisting}
+
+	Instalación de Escritorio: ROS, rqt, rviz, y librerías genéricas para robots.
+
+	\begin{lstlisting}[language=bash]
+sudo apt-get install ros-indigo-desktop
+	\end{lstlisting}
+
+	ROS-Base: (Esencial) Las librerías de paquete, generación y comunicación. No incluye herramientas de entorno gráfico.
+
+	\begin{lstlisting}[language=bash]
+sudo apt-get install ros-indigo-ros-base
+	\end{lstlisting}
+
+	Paquete Individual: También puede instalar un paquete específico de ROS package (reemplace subguiones con guiones del nombre del paquete):
+
+	\begin{lstlisting}[language=bash]
+sudo apt-get install ros-indigo-PAQUETE
+	\end{lstlisting}
+	por ejemplo:
+	\begin{lstlisting}[language=bash]
+sudo apt-get install ros-indigo-slam-gmapping
+	\end{lstlisting}
+
+Para listar paquetes disponibles, use:
+	\begin{lstlisting}[language=bash]
+apt-cache search ros-indigo
+	\end{lstlisting}
+
+	\item Inicialice rosdep
+	\begin{enumerate}
+		\item 4
+	\end{enumerate}
+
+	\item Configuración de entorno
+	\begin{enumerate}
+		\item 5
+	\end{enumerate}
+
+	\item Obtener rosinstall
+	\begin{enumerate}
+		\item 6
+	\end{enumerate}
+\end{enumerate}
 
 \section{Módulos Disponibles para SLAM en ROS}
 
