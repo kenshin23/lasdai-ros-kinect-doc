@@ -4,7 +4,7 @@ En este capítulo se desea profundizar en la definición de ROS (Robot Operating
 
 \section{Definición}
 
-\textit{Robot Operating System} (Sistema Operativo de/para Robot) o sencillamente ROS, es, tal como su nombre implica, un sistema operativo para robots, de forma similar a los sistemas operativos para computadores de escritorio o servidores. Desarrollado y mantenido por la empresa Willow Garage, es una colección de herramientas, librerías y convenciones que buscan simplificar la tarea de crear comportamientos de robot robustos y complejos a lo largo de una amplia variedad de plataformas robóticas.
+\textit{Robot Operating System} (Sistema Operativo de/para Robot) o sencillamente ROS, es, tal como su nombre implica, un sistema operativo para robots, de forma similar a los sistemas operativos para computadores de escritorio o servidores. Desarrollado y mantenido por la empresa Willow Garage desde 2008 hasta 2013, siendo tomada su dirección en ese año por la Fundación de Robótica de Código Abierto, es una colección de herramientas, librerías y convenciones que buscan simplificar la tarea de crear comportamientos de robot robustos y complejos a lo largo de una amplia variedad de plataformas robóticas.
 
 La justificación de porqué hacer esto es porque decididamente, crear software robótico de propósito general y verdaderamente robusto es difícil, ya que si bien para un ser humano algunos problemas son triviales, no lo son en lo absoluto al momento de tomar en cuenta las grandes variaciones entre instancias de tareas y entornos. Lidiar con estas variaciones es tan complicado que ningún individuo, laboratorio o institución pudiera esperar llevarlo a cabo por su propia cuenta.
 
@@ -40,7 +40,21 @@ ROS está implementado bajo los siguientes conceptos fundamentales:
 
 \section{Requisitos de Instalación}
 
----Llenar.---
+ROS está organizado en distribuciones, que cuentan cada una con sus respectivos requisitos de instalación. Por consenso, cada mes de mayo se lanza una nueva distribución de ROS, y las distribuciones de años pares son de soporte extendido, con 5 años de soporte. Las distribuciones de años impares son distribuciones regulares, con soporte por 2 años. Igualmente, la plataforma soportada por defecto es Ubuntu Linux, mientras que otros sistemas operativos, tales como OS X, Android, Arch Linux, Debian y Windows están bajo soporte experimental, por parte de la comunidad.
+
+Al momento de la elaboración de este proyecto, la versión instalada es ``\textit{Indigo Igloo}'' (con soporte LTS o \textit{Long Term Support} -- Soporte de Larga Duración), con los siguientes requisitos:
+
+\begin{itemize}
+	\itemsep1pt \parskip1pt \parsep1pt
+	\item Ubuntu Saucy (13.10) o Ubuntu Trusty (14.04 LTS)
+	\item C++03
+	\item Boost 1.53
+	\item Lisp SBCL 1.0.x
+	\item Python 2.7
+	\item CMake 2.8.11 \cite{rosrequirements}
+\end{itemize}
+
+Durante el proceso de instalación, se lleva a cabo la satisfacción de dependencias.
 
 \section{Procedimiento de Instalación}
 
