@@ -22,19 +22,21 @@ Para instalar el software de forma independiente, tomaremos las instrucciones co
 	Si ya está instalado ROS en el sistema (como es el caso en el desarrollo del proyecto), ya algunas dependencias estarán instaladas:
 
 	Dependencias según versión de ROS:
-
 	Indigo:
+	\begin{myboxi}
 	\begin{lstlisting}[language=bash]
 sudo apt-get install libsqlite3-dev libpcl-1.7-all libfreenect-dev libopencv-dev
 	\end{lstlisting}
-
+	\end{myboxi}
 	Hydro:
+	\begin{myboxi}
 	\begin{lstlisting}[language=bash]
 sudo apt-get install libsqlite3-dev libpcl-1.7-all ros-hydro-libfreenect ros-hydro-opencv2
 	\end{lstlisting}
+	\end{myboxi}
 
-	Descargue el código fuente de RTAB-Map desde Git:
-
+	Descargue el código fuente de RTAB-Map desde Github:
+	\begin{myboxi}
 	\begin{lstlisting}[language=bash]
 git clone https://github.com/introlab/rtabmap.git rtabmap
 cd rtabmap/build
@@ -42,27 +44,30 @@ cmake ..
 make -j4
 make install
 	\end{lstlisting}
+	\end{myboxi}
 
 	Ya puede ejecutar la aplicación (llamada ``rtabmap'').
 
 	\item Si ROS no está instalado:
 
-	System dependencies
-
+	Dependencias del sistema:
+	\begin{myboxi}
 	\begin{lstlisting}[language=bash]
 sudo apt-get install libsqlite3-dev libpcl-1.7-all libopencv-dev
 	\end{lstlisting}
+	\end{myboxi}
 
 	Para instalar libpcl-1.7-all, es posible que deba agregar los repositorios de ROS (en este caso particular, de la distribución de ROS compatible con la distribución de Ubuntu) realizando los siguientes pasos:
-
+	\begin{myboxi}
 	\begin{lstlisting}[language=bash]
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
 sudo apt-get update
 	\end{lstlisting}
+	\end{myboxi}
 
 	Si desea habilitar las características SURF/SIFT (SURF: \textit{Speeded-Up Robust Features} -- Características Robustas Aceleradas; SIFT: \textit{Scale-Invariant Feature Transform} -- Transformación de Características Invariantes en Escala) en RTAB-Map, deberá descargar y generar OpenCV desde el código fuente para tener acceso al módulo no-libre/privativo:
-
+	\begin{myboxi}
 	\begin{lstlisting}[language=bash]
 cd opencv
 mkdir build
@@ -71,9 +76,10 @@ cmake -DCMAKE_BUILD_TYPE=Release ..
 make -j4
 sudo make install
 	\end{lstlisting}
+	\end{myboxi}
 
-	Descargue el código fuente de RTAB-Map desde Git: obtenga la última versión o el código fuente actual
-
+	Descargue el código fuente de RTAB-Map desde Github: obtenga la última versión o el código fuente actual
+	\begin{myboxi}
 	\begin{lstlisting}[language=bash]
 git clone https://github.com/introlab/rtabmap.git rtabmap
 cd rtabmap/build
@@ -81,13 +87,14 @@ cmake ..
 make -j4
 sudo make install
 	\end{lstlisting}
+	\end{myboxi}
 
 	Ya puede ejecutar la aplicación (llamada ``rtabmap'').
 
 	\item Actualizar el código fuente de RTAB-Map
 
 	Si desea incorporar los últimos cambios después de realizar el ``git clone'' puede actualizarlo de la siguiente forma:
-
+	\begin{myboxi}
 	\begin{lstlisting}[language=bash]
 cd rtabmap
 git pull origin master
@@ -96,11 +103,65 @@ cmake ..
 make -j4
 sudo make install
 	\end{lstlisting}
+	\end{myboxi}
 \end{itemize}
 
 \subsection{Como módulo de ROS}
 
-Llenar.
+Ubuntu cuenta con binarios para las versiones Hydro e Indigo; basta con ejecutar el siguiente comando, según sea la distribución de ROS:
+
+\noindent ROS Hydro:
+\begin{myboxi}
+\begin{lstlisting}[language=bash]
+sudo apt-get install ros-hydro-rtabmap-ros
+\end{lstlisting}
+\end{myboxi}
+
+\noindent ROS Indigo:
+\begin{myboxi}
+\begin{lstlisting}[language=bash]
+sudo apt-get install ros-indigo-rtabmap-ros
+\end{lstlisting}
+\end{myboxi}
+
+Si se desea instalar desde fuente, el proceso (detallado en la página \url{https://github.com/introlab/rtabmap_ros#rtabmap_ros}) conlleva tener conocimiento del espacio de trabajo (\textit{workspace}) de ROS, y la instalación desde fuente de la librería OpenCV. También se asume que se ha configurado el espacio de trabajo en el directorio \url{~/catkin_ws} y que el archivo \url{~/.bashrc} contiene lo siguiente:
+
+\noindent ROS Hydro:
+\begin{myboxi}
+\begin{lstlisting}[language=bash]
+source /opt/ros/hydro/setup.bash
+source ~/catkin_ws/devel/setup.bash
+\end{lstlisting}
+\end{myboxi}
+
+\noindent ROS Indigo:
+\begin{myboxi}
+\begin{lstlisting}[language=bash]
+source /opt/ros/indigo/setup.bash
+source ~/catkin_ws/devel/setup.bash
+\end{lstlisting}
+\end{myboxi}
+
+Luego, se procede a descargar el código fuente de RTAB-Map desde Github (\textbf{NOTA:} No descargar dentro del espacio de trabajo) e instalarlo dentro del directorio \url{devel} en el espacio de trabajo, ejecutando lo siguiente:
+\begin{myboxi}
+\begin{lstlisting}[language=bash]
+cd ~
+git clone https://github.com/introlab/rtabmap.git rtabmap
+cd rtabmap/build
+cmake -DCMAKE_INSTALL_PREFIX=~/catkin_ws/devel ..
+make -j4
+sudo make install
+\end{lstlisting}
+\end{myboxi}
+
+Ahora puede instalar el ros-pkg de RTAB-Map dentro del directorio \url{src} del espacio de trabajo Catkin:
+\begin{myboxi}
+\begin{lstlisting}[language=bash]
+cd ~/catkin_ws
+git clone https://github.com/introlab/rtabmap_ros.git src/rtabmap_ros
+catkin_make
+\end{lstlisting}
+\end{myboxi}
 
 \section{Generación de Mapas de Entorno}
 

@@ -196,7 +196,8 @@ Los objetivos típicos de la visión artificial incluyen:
 
 \begin{itemize}
 	\itemsep1pt \parskip1pt \parsep1pt
-	\item La detección, segmentación, localización y reconocimiento de ciertos objetos en imágenes (por ejemplo, caras humanas). \item La evaluación de los resultados (por ejemplo, segmentación, registro).
+	\item La detección, segmentación, localización y reconocimiento de ciertos objetos en imágenes (por ejemplo, caras humanas).
+	\item La evaluación de los resultados (por ejemplo, segmentación, registro).
 	\item Registro de diferentes imágenes de una misma escena u objeto, es decir, hacer concordar un mismo objeto en diversas imágenes.
 	\item Seguimiento de un objeto en una secuencia de imágenes.
 	\item Mapeo de una escena para generar un modelo tridimensional de la escena; este modelo podría ser usado por un robot para navegar por la escena.

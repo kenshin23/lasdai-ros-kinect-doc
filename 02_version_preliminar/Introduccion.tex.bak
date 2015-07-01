@@ -71,12 +71,12 @@ Nuestra condicion humana nos permite percibir la estructura en tres dimensiones 
 
 Si bien la descripcion del sentido de la vista es -o parece ser- sencilla, se trata de un sentido sumamente complejo y de hecho, podría decirse que es uno de los sentidos más importantes para el ser humano, así como el más perfecto y evolucionado.
 
-¿Por qué se habla de complejidad? Szeliski nos explica que, ``en parte, es porque la vision es un problema inverso, donde buscamos encontrar variables desconocidas dada informacion insuficiente para especificar totalmente la solucion. Por tanto, debemos recurrir a modelos físicos y probabilísticos para discerner entre soluciones potenciales. Sin embargo, modelar el mundo visual en toda su complejidad es mucho más difícil que, por ejemplo, modelar el tracto vocal que produce sonidos hablados.''\citep{RS:09}
+¿Por qué se habla de complejidad? Szeliski nos explica que, ``en parte, es porque la vision es un problema inverso, donde buscamos encontrar variables desconocidas dada informacion insuficiente para especificar totalmente la solucion. Por tanto, debemos recurrir a modelos físicos y probabilísticos para discerner entre soluciones potenciales. Sin embargo, modelar el mundo visual en toda su complejidad es mucho más difícil que, por ejemplo, modelar el tracto vocal que produce sonidos hablados.'' \citep{RS:09}
 
 Esta complejidad lo hace convertirse en un campo de estudio de gran importancia, cuya denominacion, a los fines de la
 emulacion mencionada anteriormente, es de la Vision Artificial, también conocida como Vision por Computador.
 
-El inicio de la vision artificial, desde el punto de vista práctico, fue marcado por Larry Roberts, el cual, en 1961 creó un programa que podía ``ver'' una estructura de bloques, analizar su contenido y reproducirla desde otra perspectiva, demostrando así a los espectadores que esa informacion visual que había sido mandada al ordenador por una cámara, había sido procesada adecuadamente por él.\citep{bb68865}
+El inicio de la vision artificial, desde el punto de vista práctico, fue marcado por Larry Roberts, el cual, en 1961 creó un programa que podía ``ver'' una estructura de bloques, analizar su contenido y reproducirla desde otra perspectiva, demostrando así a los espectadores que esa informacion visual que había sido mandada al ordenador por una cámara, había sido procesada adecuadamente por él. \citep{bb68865}
 
 \section{Definicion del Problema}
 
@@ -108,7 +108,7 @@ Investigar y desarrollar documentacion adecuada que permita establecer una plata
 
 \section{Metodología Utilizada}
 
-Con la finalidad de llevar a cabo el desarrollo del proyecto de grado de forma eficiente y a la vez incorporar metodologías actuales enfocadas al desarrollo por parte de individuos (como es normalmente el caso en cuanto a proyectos de grado), se estudió el uso del método PSP~\citep{Humphrey200503} (Personal Software Process) mejorado con prácticas tomadas de los métodos de programacion Ágiles, en particular, el método Extreme Programming, orientado a una sola persona, es decir, PXP~\citep{pxppaper} (Personal eXtreme Programming).
+Con la finalidad de llevar a cabo el desarrollo del proyecto de grado de forma eficiente y a la vez incorporar metodologías actuales enfocadas al desarrollo por parte de individuos (como es normalmente el caso en cuanto a proyectos de grado), se estudió el uso del método PSP~\citep{Humphrey200503} (Personal Software Process) mejorado con prácticas tomadas de los métodos de programacion Ágiles, en particular, el método Extreme Programming, orientado a una sola persona, es decir, PXP~\citep{pxppaper} (Personal eXtreme Programming) integrado con el método Kanban.
 
 Esto se llevó a cabo mediante las siguientes actividades realizadas:
 
@@ -120,11 +120,6 @@ Esto se llevó a cabo mediante las siguientes actividades realizadas:
 	\begin{itemize}
 		\item Diseño.
 		\item Implementacion.
-		\begin{itemize}
-			\item Pruebas unitarias (aplicacion de Desarrollo Orientado por Pruebas).
-			\item Codificacion.
-			\item Refactorizacion.
-		\end{itemize}
 		\item Pruebas de sistema.
 		\item Retrospectiva, análisis de resultados.
 	\end{itemize}
