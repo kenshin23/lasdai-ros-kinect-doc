@@ -1,101 +1,214 @@
-@Comment{*********************************************************************************}
+@Comment{*****************************************************************************************}
 @Comment{ Las plantillas de libros, articulos, articulos de congresos, reposrtes, miscelaneos se  }
-@Comment{ consiguen en Winedt en Insert/Bibtex Items/ el tipo deseado                            }
-@Comment{                                                                                        }
-@Comment{*********************************************************************************}
+@Comment{ consiguen en Winedt en Insert/Bibtex Items/ el tipo deseado                             }
+@Comment{*****************************************************************************************}
 
 @Comment{% Denotan siglas para editoriales a usar luego.}
-@STRING{sv = "Springer-Verlag"}
+@STRING{sv  = "Springer-Verlag"}
 @STRING{prh = "Prentice-Hall"}
 
 @Comment{% Referencia: LaSDAI}
 @MISC{lasdaiInicio,
-  title =        "LaSDAI",
-  url = {http://www.ing.ula.ve/lasdai/},
-  year =         "noviembre, 2013",
-  abstract =     "En este enlace se presenta la informaci\'on relevante al Laboratorio de Sistemas Discretos, Automatizaci\'on e Integraci\'on, su historia, misi\'on, visi\'on y proyectos actuales.",
-  keywords =     "LaSDAI, rob\'otica, visi\'on por computadora",
+  title         = "LaSDAI",
+  url           = "http://www.ing.ula.ve/lasdai/",
+  year          = "noviembre, 2013",
+  abstract      = "En este enlace se presenta la informaci\'on relevante al Laboratorio de Sistemas Discretos, Automatizaci\'on e Integraci\'on, su historia, misi\'on, visi\'on y proyectos actuales.",
+  keywords      = "LaSDAI, rob\'otica, visi\'on por computadora",
 }
 
 @Comment{% Referencia: Richard Szeliski}
 @MISC{RS:09,
-  author =       "R. Szeliski",
-  title =        "Computer Vision: Algorithms and Applications",
-  url = "http://mesh.brown.edu/engn1610/szeliski/01-Introduction.pdf",
-  year =         "7 septiembre, 2009",
-  abstract =     "En este enlace se presenta una breve introducci\'on a la historia de la visi\'on por computadora, as\'i como sus
-  usos en distintas aplicaciones.",
-  keywords =     "Visi\'on por computadora",
+  author        = "R. Szeliski",
+  title         = "Computer Vision: Algorithms and Applications",
+  url           = "http://mesh.brown.edu/engn1610/szeliski/01-Introduction.pdf",
+  year          = "7 septiembre, 2009",
+  abstract      = "En este enlace se presenta una breve introducci\'on a la historia de la visi\'on por computadora, as\'i como sus usos en distintas aplicaciones.",
+  keywords      = "Visi\'on por computadora",
 }
 
 @Comment{% Referencia: Larry Roberts}
 @inproceedings{bb68865,
-  AUTHOR = "Roberts, L.G.",
-  TITLE = "Machine Perception of 3-D Solids",
-  BOOKTITLE = "OE-OIP65",
-  YEAR = "1965",
-  PAGES = "159-197",
-  BIBSOURCE = "http://www.visionbib.com/bibliography/match590.html#TT66024"
+  AUTHOR        = "Roberts, L.G.",
+  TITLE         = "Machine Perception of 3-D Solids",
+  BOOKTITLE     = "OE-OIP65",
+  YEAR          = "1965",
+  PAGES         = "159-197",
+  BIBSOURCE     = "http://www.visionbib.com/bibliography/match590.html#TT66024"
 }
 
 @Comment{% Referencia: Robots in Search}
 @MISC{robotsinsearch,
-  title = "Hokuyo Laser Scanning Range Finder PBS-03JN | ROBOTS IN SEARCH",
-  url = "http://www.robotsinsearch.com/hokuyo-pbs03jn-scanning-infrared-obstacle-detection-sensor-p-882.html",
-  year =  "2013",
-  month = "octubre",
+  TITLE         = "Hokuyo Laser Scanning Range Finder PBS-03JN | ROBOTS IN SEARCH",
+  url           = "http://www.robotsinsearch.com/hokuyo-pbs03jn-scanning-infrared-obstacle-detection-sensor-p-882.html",
+  YEAR          = "2013",
+  MONTH         = "octubre"
 }
 
 @Comment{% Referencia: PLCCenter.com}
 @MISC{plccenter,
-  title = "LMS-200-30106 by SICK OPTIC ELECTRONIC",
-  url = "http://www.plccenter.com/en-US/Buy/SICK%20OPTIC%20ELECTRONIC/LMS20030106",
-  year =  "2013",
-  month = "octubre",
+  TITLE         = "LMS-200-30106 by SICK OPTIC ELECTRONIC",
+  url           = "http://www.plccenter.com/en-US/Buy/SICK%20OPTIC%20ELECTRONIC/LMS20030106",
+  YEAR          = "2013",
+  MONTH         = "Octubre"
+}
+
+@Comment{% Referencia: SLAM}
+@ARTICLE{dissanayake01solution,
+  author        = "Dissanayake, M.W.M.G. and Newman, P. and Clark, S. and Durrant-Whyte, H.F. and Csorba, M.",
+  JOURNAL       = "Robotics and Automation, IEEE Transactions on",
+  TITLE         = "A solution to the simultaneous localization and map building (SLAM) problem",
+  YEAR          = "2001",
+  MONTH         = "Jun",
+  VOLUME        = "17",
+  number        = "3",
+  PAGES         = "229-241",
+  keywords      = "covariance matrices;estimation theory;filtering theory;mobile robots;path planning;state estimation;SLAM problem;absolute accuracy;absolute vehicle location;autonomous vehicle;estimation-theoretic foundations;map management;millimeter-wave radar;outdoor environment;perfect map;relative map;simultaneous localization and map building problem;suboptimal map-building algorithms;unknown environment;unknown location;Environmental management;Helium;Mechatronics;Millimeter wave radar;Mobile robots;Motion planning;Navigation;Remotely operated vehicles;Simultaneous localization and mapping;Uncertainty",
+  doi           = "10.1109/70.938381",
+  ISSN          = "1042-296X"
+}
+
+@Comment{% Referencia: Manifiesto Agile}
+@article{beck2001manifiesto,
+  TITLE         = "Manifiesto por el Desarrollo {\'A}gil de Software",
+  author        = "Beck, Kent and Beedle, Mike and van Bennekum, Arie and Cockburn, Alistair and Cunningham, Ward and Fowler, Martin and Grenning, James and Highsmith, Jim and Hunt, Andrew and Jeffries, Ron and others",
+  JOURNAL       = "Obtenido de Agile Manifesto: http://www. agilemanifesto. org/iso/es/manifesto. html",
+  JOURNALTITLE  = "Obtenido de Agile Manifesto: http://www. agilemanifesto. org/iso/es/manifesto. html",
+  year          = "2001"
+}
+
+@Comment{% Referencia: Principios Agile}
+@misc{beck2001principios,
+  TITLE         = "Principios del Manifiesto {\'A}gil",
+  AUTHOR        = "Beck, K and others",
+  YEAR          = "2001",
+  PUBLISHER     = "Obtenido de http://agilemanifesto. org/iso/es/principles. html"
 }
 
 @Comment{% Referencia: PSP}
 @ELECTRONIC{Humphrey200503,
-	title="PSP(sm): A Self-Improvement Process for Software Engineers",
-	author="Watts S. Humphrey",
-	publisher="Addison-Wesley Professional",
-	year="2005",
-	month="3",
-	edition="1",
-	asin="B001EWOG8A",
-	url="http://amazon.com/o/ASIN/B001EWOG8A/",
-	totalpages="368",
-	timestamp="2013.11.10",
+  TITLE         = "PSP(sm): A Self-Improvement Process for Software Engineers",
+  AUTHOR        = "Watts S. Humphrey",
+  PUBLISHER     = "Addison-Wesley Professional",
+  YEAR          = "2005",
+  MONTH         = "3",
+  edition       = "1",
+  ASIN          = "B001EWOG8A",
+  url           = "http://amazon.com/o/ASIN/B001EWOG8A/",
+  totalpages    = "368",
+  timestamp     = "2013.11.10",
 }
 
 @Comment{% Referencia: PXP}
 @inproceedings{pxppaper,
-  AUTHOR = "Dzhurov, Yani and Krasteva, Iva and Ilieva, Sylvia",
-  TITLE = "Personal Extreme Programming - An Agile Process for Autonomous Developers",
-  BOOKTITLE = "Proceedings of International Conference on SOFTWARE, SERVICES \& SEMANTIC TECHNOLOGIES",
-  YEAR = 2009,
-  MONTH = "Octubre",
-  PAGES = "252",
-  BIBSOURCE = "http://hdl.handle.net/10867/28"
+  author        = "Dzhurov, Yani and Krasteva, Iva and Ilieva, Sylvia",
+  TITLE         = "Personal Extreme Programming - An Agile Process for Autonomous Developers",
+  BOOKTITLE     = "Proceedings of International Conference on SOFTWARE, SERVICES \& SEMANTIC TECHNOLOGIES",
+  YEAR          = "2009",
+  MONTH         = "Octubre",
+  PAGES         = "252",
+  BIBSOURCE     = "http://hdl.handle.net/10867/28"
+}
+
+@Comment{% Referencia: Kanban}
+@BOOK{Skarin201003,
+  TITLE         = "Kanban and Scrum - making the most of both (Enterprise Software Development)",
+  author        = "Henrik Kniberg",
+  PUBLISHER     = "lulu.com",
+  YEAR          = "2010",
+  month         = "3",
+  isbn          = "9780557138326",
+  url           = "http://amazon.com/o/ASIN/0557138329/",
+  price         = "\$22.95",
+  totalpages    = "120",
+  timestamp     = "2015.06.24"
+}
+
+@Comment{% Referencia: Plataformas de Software}
+@article{canas06programacion,
+  TITLE         = "Programaci\'on de Robots M\'oviles",
+  AUTHOR        = "Jos\'e M. Ca\~nas, Vicente Matell\'an, Rodrigo Mont\'ufar",
+  JOURNAL       = "Revista Iberoamericana de Autom{\'a}tica e Inform{\'a}tica Industrial RIAI",
+  JOURNALTITLE  = "Revista Iberoamericana de Autom{\'a}tica e Inform{\'a}tica Industrial RIAI",
+  VOLUME        = "3",
+  number        = "2",
+  PAGES         = "99--110",
+  YEAR          = "2006",
+  PUBLISHER     = "Elsevier"
+}
+
+@Comment{% Referencia: ROS - Paper principal}
+@inproceedings{quigley2009ros,
+  TITLE         = "ROS: an open-source Robot Operating System",
+  AUTHOR        = "Quigley, Morgan and Conley, Ken and Gerkey, Brian and Faust, Josh and Foote, Tully and Leibs, Jeremy and Wheeler, Rob and Ng, Andrew Y",
+  booktitle= "ICRA workshop on open source software",
+  VOLUME        = "3",
+  number        = "3.2",
+  PAGES         = "5",
+  YEAR          = "2009"
+}
+
+@Comment{% Referencia: answers.ros.org}
+@MISC{answersros,
+  title         = "Questions - ROS Answers: Open Source Q\&A Forum",
+  url           = "http://answers.ros.org/questions/",
+  year          = "junio, 2015",
+  abstract      = "En este enlace se encuentra un foro de ayuda para usuarios de ROS.",
+  keywords      = "rob\'otica, robot operating system, ROS"
+}
+
+@Comment{% Referencia: Acerca de ROS}
+@MISC{aboutros,
+  title         = "ROS.org | About ROS",
+  url           = "http://www.ros.org/about-ros/",
+  year          = "junio, 2015",
+  abstract      = "En este enlace se encuentra un explicaci\'on breve acerca de ROS.",
+  keywords      = "rob\'otica, robot operating system, ROS"
+}
+
+@Comment{% Referencia: Requerimientos de instalación de ROS por distro}
+@MISC{rosrequirements,
+  title         = "RTAB-Map",
+  url           = "http://introlab.github.io/rtabmap/",
+  year          = "junio, 2015",
+  abstract      = "En este enlace se encuentran la descripci\'on, ejemplos y descargas disponibles del software RTAB-Map.",
+  keywords      = "appearance-based mapping, mapping, kinect, stereo camera"
+}
+
+@Comment{% Referencia: Sitio web de RTAB-Map}
+@MISC{rtabmaphome,
+  title         = "ROS.org | About ROS",
+  url           = "http://www.ros.org/reps/rep-0003.html",
+  year          = "junio, 2015",
+  abstract      = "En este enlace se detallan los requerimientos de instalaci\'on de ROS seg\'un cada distribuci\'on.",
+  keywords      = "rob\'otica, robot operating system, ROS"
 }
 
 @Comment{% Referencia: RTAB-Map}
 @INPROCEEDINGS{labbe14online,
-  author = "Labbe, M. and Michaud, F.",
-  booktitle = "Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems",
-  title = "Online Global Loop Closure Detection for Large-Scale Multi-Session Graph-Based SLAM",
-  year = "2014",
-  month = "Sept",
-  pages = "2661-2666"
+  author        = "Labbe, M. and Michaud, F.",
+  booktitle     = "Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems",
+  title         = "Online Global Loop Closure Detection for Large-Scale Multi-Session Graph-Based SLAM",
+  year          = "2014",
+  month         = "Sept",
+  pages         = "2661-2666"
 }
 
 @Comment{% Referencia: Loop Closures con RTAB-Map}
 @ARTICLE{labbe13appearance,
-  author = "Labbe, M. and Michaud, F.",
-  title = "Appearance-Based Loop Closure Detection for Online Large-Scale and Long-Term Operation",
-  journal = "IEEE Transactions on Robotics",
-  year = "2013",
-  volume = "29",
-  pages = "734-745",
-  number = "3"
+  author        = "Labbe, M. and Michaud, F.",
+  title         = "Appearance-Based Loop Closure Detection for Online Large-Scale and Long-Term Operation",
+  JOURNAL       = "IEEE Transactions on Robotics",
+  year          = "2013",
+  VOLUME        = "29",
+  pages         = "734-745",
+  number        = "3"
+}
+
+@Comment{% Referencia: Formato PCD}
+@MISC{pcdformat,
+  title         = "The PCD (Point Cloud Data) file format",
+  url           = "http://pointclouds.org/documentation/tutorials/pcd_file_format.php",
+  year          = "junio, 2015",
+  abstract      = "En este enlace se detalle informaci\'on acerca del formato de archivo Dato de Nube de Puntos, o Point Cloud Data",
+  keywords      = "pcd, point cloud data"
 }

@@ -33,8 +33,11 @@ ROS está implementado bajo los siguientes conceptos fundamentales:
 \begin{itemize}
 	\itemsep1pt \parskip1pt \parsep1pt
 	\item Nodos: Son procesos que realizan cálculos; en el contexto de ROS, este término es intercambiable con ``módulo de software'' ya que está diseñado para ser altamente modular: un sistema está compuesto típicamente de muchos nodos.
+
 	\item Mensajes:	Los nodos se comunican entre si al pasar mensajes, que no es más que una estructura de datos de tipo estricto. Los tipos de datos soportados pueden ser estándar (entero, flotante, booleano, etc.), así como también arreglos de estos o constantes. Un mensaje puede estar compuesto por varios mensajes y el nivel de anidamiento al que pueden llegar es arbitrario.
+
 	\item Tópicos: Un nodo publica un mensaje a través de un tópico, que es sencillamente una cadena de caracteres tal como ``odometría'' o ``mapa''. Un nodo que esté interesado en un tipo de dato específico se suscribirá al tópico apropiado. En cualquier momento dado, pueden existir múltiples publicadores o suscriptores de forma concurrente para un tópico particular y un nodo puede publicar o suscribirse a múltiples tópicos. Por lo general, los publicadores y suscriptores no están al tanto de la existencia del otro.
+
 	\item Servicios: Si bien el modelo publicar-suscribir basado en tópicos es un paradigma de comunicaciones flexible, el esquema de enrutamiento de ``emisión'' no es apropiado para las transacciones síncronas, lo cual puede simplificar el diseño de algunos nodos. A esto se le llama ``servicio'' en ROS, definidos por un nombre y un par de mensajes tipados, uno para la petición y otro para la respuesta. Es de notar que, a diferencia de los tópicos, solo un nodo puede anunciar un servicio con un nombre particular; por ejemplo, solamente puede haber un servicio llamado ``clasificar\_imagen''. \cite{quigley2009ros}
 \end{itemize}
 
@@ -90,37 +93,48 @@ En adelante, solamente seguimos los siguientes pasos haciendo énfasis en la ver
 
 	Configure su computador para aceptar software desde packages.ros.org. Esta distribución de ROS \textbf{sólo} soporta Saucy (Ubuntu 13.10) y Trusty (Ubuntu 14.04) para paquetes Debian.
 
+	\begin{blackcodebox}
 	\begin{lstlisting}[language=bash]
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 	\end{lstlisting}
+	\end{blackcodebox}
 
 	\item Configure sus llaves
 
+
+	\begin{blackcodebox}
 	\begin{lstlisting}[language=bash]
 sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key\\ 0xB01FA116
 	\end{lstlisting}
+	\end{blackcodebox}
 
 	\item Instalación
 	Primero debe asegurarse que su índice de paquetes Debian esté actualizado:
 
+	\begin{blackcodebox}
 	\begin{lstlisting}[language=bash]
 sudo apt-get update
 	\end{lstlisting}
+	\end{blackcodebox}
 
 	Si está utilizando Ubuntu Trusty 14.04.2 y experimenta problemas con las dependencias durante la instalación de ROS, quizás deba instalar dependencias adicionales del sistema.
 
-	\begin{myboxii}
+	\begin{redwarningbox}
 	No instale estos paquetes si está utilizando 14.04, ya que destruirá su servidor X (gráfico):
-	\end{myboxii}
+	\end{redwarningbox}
+	\begin{blackcodebox}
 	\begin{lstlisting}[language=bash]
 sudo apt-get install xserver-xorg-dev-lts-utopic mesa-common-dev-lts-utopic libxatracker-dev-lts-utopic libopenvg1-mesa-dev-lts-utopic libgles2-mesa-dev-lts-utopic libgles1-mesa-dev-lts-utopic libgl1-mesa-dev-lts-utopic libgbm-dev-lts-utopic libegl1-mesa-dev-lts-utopic
 	\end{lstlisting}
-	\begin{myboxii}
+	\end{blackcodebox}
+	\begin{redwarningbox}
 	No instale los paquetes anteriores si está utilizando 14.04, ya que destruirá su servidor X (gráfico). Alternativamente, intente instalar sólo lo siguiente para corregir problemas de dependencias:
-	\end{myboxii}
+	\end{redwarningbox}
+	\begin{blackcodebox}
 	\begin{lstlisting}[language=bash]
 sudo apt-get install libgl1-mesa-dev-lts-utopic
 	\end{lstlisting}
+	\end{blackcodebox}
 
 	Existen muchas librerías y herramientas en ROS. Se han provisto cuatro configuraciones por defecto para iniciar. También se pueden instalar paquetes de ROS de forma individual.
 
@@ -129,62 +143,84 @@ sudo apt-get install libgl1-mesa-dev-lts-utopic
 
 		Indigo usa Gazebo 2, la cual es la versión por defecto en Trusty y es la recomendada. Si desea actualizar a Gazebo 3 vea las instrucciones en \url{http://wiki.gazebosim.org/wiki/Install/Gazebo_and_ROS#Gazebo_3.x_series} acerca de cómo actualizar el simulador.
 
+
+		\begin{blackcodebox}
 		\begin{lstlisting}[language=bash]
 sudo apt-get install ros-indigo-desktop-full
 		\end{lstlisting}
+		\end{blackcodebox}
 
 		\item Instalación de Escritorio: ROS, rqt, rviz, y librerías genéricas para robots.
 
+		\begin{blackcodebox}
 		\begin{lstlisting}[language=bash]
 sudo apt-get install ros-indigo-desktop
 		\end{lstlisting}
+		\end{blackcodebox}
 
 		\item ROS-Base: (Esencial) Las librerías de paquete, generación y comunicación. No incluye herramientas de entorno gráfico.
 
+
+	\begin{blackcodebox}
 	\begin{lstlisting}[language=bash]
 sudo apt-get install ros-indigo-ros-base
 	\end{lstlisting}
+	\end{blackcodebox}
 
 		\item Paquete Individual: También puede instalar un paquete específico de ROS package (reemplace subguiones con guiones del nombre del paquete):
 
+		\begin{blackcodebox}
 		\begin{lstlisting}[language=bash]
 sudo apt-get install ros-indigo-PAQUETE
 		\end{lstlisting}
+		\end{blackcodebox}
 	por ejemplo:
+
+		\begin{blackcodebox}
 		\begin{lstlisting}[language=bash]
 sudo apt-get install ros-indigo-slam-gmapping
 		\end{lstlisting}
+		\end{blackcodebox}
 
 Para listar paquetes disponibles, use:
+
+		\begin{blackcodebox}
 		\begin{lstlisting}[language=bash]
 apt-cache search ros-indigo
 		\end{lstlisting}
+		\end{blackcodebox}
 	\end{itemize}
 	\item Inicialice rosdep
 
 	Antes de poder utilizar ROS, se debe inicializar rosdep. rosdep permite instalar dependencias del sistema con facilidad para código fuente que desee compilar y es requerido para poder ejecutar algunos componentes centrales en ROS.
 
+	\begin{blackcodebox}
 	\begin{lstlisting}[language=bash]
 sudo rosdep init
 rosdep update
 	\end{lstlisting}
+	\end{blackcodebox}
 
 	\item Configuración de entorno
 
 	Es conveniente si las variables de entorno de ROS son agregadas automáticamente a su sesión Bash cada vez que se invoca un nuevo terminal:
 
+	\begin{blackcodebox}
 	\begin{lstlisting}[language=bash]
 echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 	\end{lstlisting}
+	\end{blackcodebox}
 
 	Si tiene más de una distribución de ROS instalada, ~/.bashrc sólo debe tomar como fuente el setup.bash para la versión que esté en uso actualmente.
 
 	Si simplemente desea cambiar el entorno del terminal actual, puede escribir:
 
+	\begin{blackcodebox}
 	\begin{lstlisting}[language=bash]
 source /opt/ros/indigo/setup.bash
 	\end{lstlisting}
+	\end{blackcodebox}
 
 	\item Obtener rosinstall
 
@@ -192,9 +228,11 @@ rosinstall es una herramienta de línea de comandos frecuentemente utilizada en 
 
 Para instalar esta herramienta en Ubuntu, ejecute:
 
+	\begin{blackcodebox}
 	\begin{lstlisting}[language=bash]
 sudo apt-get install python-rosinstall
 	\end{lstlisting}
+	\end{blackcodebox}
 \end{enumerate}
 
 \section{Módulos Disponibles para SLAM en ROS}
