@@ -4,23 +4,99 @@ En este capítulo se describe el software RTAB-Map, sus características, su pro
 
 \section{Definición}
 
-Llenar.
+RTAB-Map (\textit{Real-Time Appearance-Based Mapping} o Cartografía en Tiempo Real Basada en Apariencias) es una aproximación a SLAM mediante Grafo RGB-D basado en un detector de cierre de lazo Bayesiano global. El detector de cierre de lazo usa un modelo de bolsa de palabras para determinar la probabilidad de que una nueva imagen provenga de una ubicación anterior o nueva. Cuando una hipótesis de cierre de lazo es aceptada, una nueva restricción es agregada al grafo del mapa, y un optimizador de grafo minimiza los errores en el mapa.
 
-\section{Características}
-
-Llenar.
-
-\section{Funcionamiento}
-
-Llenar.
+Un enfoque de manejo de memoria es utilizado para limitar el número de ubicaciones utilizadas para la detección de cierre de lazos y la optimización del grafo, para que las restricciones de tiempo real en entornos de gran escala sean siempre respetadas. RTAB-Map puede ser utilizado por si solo con un Kinect o cámara estéreo operado a mano para obtener cartografía RGB-D de 6 grados de libertad, o en un robot equipado con un medidor de distancias láser para cartografía de 3 grados de libertad. \cite{rtabmaphome}
 
 \section{Instalación}
 
-Llenar.
+RTAB-Map soporta instalaciones en Linux, OS X y Windows y puede funcionar de dos maneras: como software independiente (no necesita otros paquetes de software aparte de él mismo y de los controladores de las cámaras a usar) o como un módulo de ROS, en cuyo caso lógicamente requiere que ROS esté instalado de antemano (y su compatibilidad se reduce a la misma de ROS).
 
 \subsection{Como software independiente}
 
-Llenar.
+Para instalar el software de forma independiente, tomaremos las instrucciones correspondientes a la instalación en Ubuntu debido a que es el entorno de desarrollo utilizado. Estas instrucciones son tomadas del repositorio del proyecto en Github, a través de la dirección \url{https://github.com/introlab/rtabmap/wiki/Installation}:
+
+\begin{itemize}
+	\item Con ROS ya instalado en el sistema:
+
+	Si ya está instalado ROS en el sistema (como es el caso en el desarrollo del proyecto), ya algunas dependencias estarán instaladas:
+
+	Dependencias según versión de ROS:
+
+	Indigo:
+	\begin{lstlisting}[language=bash]
+sudo apt-get install libsqlite3-dev libpcl-1.7-all libfreenect-dev libopencv-dev
+	\end{lstlisting}
+
+	Hydro:
+	\begin{lstlisting}[language=bash]
+sudo apt-get install libsqlite3-dev libpcl-1.7-all ros-hydro-libfreenect ros-hydro-opencv2
+	\end{lstlisting}
+
+	Descargue el código fuente de RTAB-Map desde Git:
+
+	\begin{lstlisting}[language=bash]
+git clone https://github.com/introlab/rtabmap.git rtabmap
+cd rtabmap/build
+cmake ..
+make -j4
+make install
+	\end{lstlisting}
+
+	Ya puede ejecutar la aplicación (llamada ``rtabmap'').
+
+	\item Si ROS no está instalado:
+
+	System dependencies
+
+	\begin{lstlisting}[language=bash]
+sudo apt-get install libsqlite3-dev libpcl-1.7-all libopencv-dev
+	\end{lstlisting}
+
+	Para instalar libpcl-1.7-all, es posible que deba agregar los repositorios de ROS (en este caso particular, de la distribución de ROS compatible con la distribución de Ubuntu) realizando los siguientes pasos:
+
+	\begin{lstlisting}[language=bash]
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+sudo apt-get update
+	\end{lstlisting}
+
+	Si desea habilitar las características SURF/SIFT (SURF: \textit{Speeded-Up Robust Features} -- Características Robustas Aceleradas; SIFT: \textit{Scale-Invariant Feature Transform} -- Transformación de Características Invariantes en Escala) en RTAB-Map, deberá descargar y generar OpenCV desde el código fuente para tener acceso al módulo no-libre/privativo:
+
+	\begin{lstlisting}[language=bash]
+cd opencv
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j4
+sudo make install
+	\end{lstlisting}
+
+	Descargue el código fuente de RTAB-Map desde Git: obtenga la última versión o el código fuente actual
+
+	\begin{lstlisting}[language=bash]
+git clone https://github.com/introlab/rtabmap.git rtabmap
+cd rtabmap/build
+cmake ..
+make -j4
+sudo make install
+	\end{lstlisting}
+
+	Ya puede ejecutar la aplicación (llamada ``rtabmap'').
+
+	\item Actualizar el código fuente de RTAB-Map
+
+	Si desea incorporar los últimos cambios después de realizar el ``git clone'' puede actualizarlo de la siguiente forma:
+
+	\begin{lstlisting}[language=bash]
+cd rtabmap
+git pull origin master
+cd build
+cmake ..
+make -j4
+sudo make install
+	\end{lstlisting}
+\end{itemize}
 
 \subsection{Como módulo de ROS}
 
