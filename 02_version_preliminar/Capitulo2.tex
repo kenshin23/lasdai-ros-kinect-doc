@@ -233,12 +233,12 @@ El dispositivo cuenta con una cámara RGB, un sensor de profundidad, un micrófo
 \caption{Componentes del Kinect}
 \end{figure}
 
-El sensor contiene un mecanismo de inclinación motorizado y en caso de usar una PC o un modelo original de Xbox 360, tiene que ser conectado a una toma de corriente, ya que la corriente que puede proveerle el cable USB es insuficiente; para el caso del modelo de Xbox 360 S esto no es necesario ya que esta consola cuenta con una toma especialmente diseñada para conectar el Kinect y esto permite proporcionar la corriente necesaria que requiere el dispositivo para funcionar correctamente.
+El sensor contiene un mecanismo de inclinación motorizado y en caso de usar una PC o un modelo original de Xbox 360, tiene que ser conectado a una toma de corriente a través de un adaptador, ya que la corriente que puede proveerle el cable USB es insuficiente; para el caso del modelo de Xbox 360 S esto no es necesario ya que esta consola cuenta con una toma especialmente diseñada para conectar el Kinect y esto permite proporcionar la corriente necesaria que requiere el dispositivo para funcionar correctamente.
 
 El sensor de profundidad es un proyector de infrarrojos combinado con un sensor CMOS monocromo que permite a Kinect ver la habitación en 3D en cualquier condición de luz ambiental. El rango de detección de la profundidad del sensor es ajustable gracias al software de Kinect capaz de calibrar automáticamente el sensor.
 
 \subsection{Especificaciones Técnicas}
-Sus especificaciones más relevantes son:
+Sus especificaciones \cite{openkinecthardware} \cite{ifixitkinect} más relevantes son:
 
 \begin{itemize}
 	\itemsep1pt \parskip1pt \parsep1pt
@@ -254,7 +254,9 @@ Sus especificaciones más relevantes son:
 
 \subsection{Requerimientos para uso en Robótica}
 
----Llenar.---
+El Kinect requiere 12 voltios \cite{openkinecthardware} para su funcionamiento (8 V como mínimo); es por ello que, tal como se mencionó anteriormente, la versión para PC cuenta con un adaptador de voltaje adicional, ya que el voltaje proporcionado por la conexión USB es por especificación de 5 voltios.
+
+Es posible encontrar diversos tutoriales en línea \cite{batterypoweredkinect} sobre cómo alimentar al Kinect con la energía necesaria para manejarlo desde un robot autónomo y eliminar la necesidad de utilizar una extensión, asistiendo en su transportabilidad.
 
 \section{Desarrollo Ágil de Proyectos}
 
