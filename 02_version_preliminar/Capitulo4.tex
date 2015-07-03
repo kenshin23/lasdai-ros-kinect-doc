@@ -239,6 +239,17 @@ sudo apt-get install python-rosinstall
 
 Debido a la naturaleza propia del software, es improbable, para no decir imposible, poder realizar un listado exhaustivo de todos los módulos disponibles. Sin embargo, se listan acá los más populares, con el fin de brindar alternativas para elaborar mapas de entorno con distintos tipos de sensores.
 
----Llenar acá.---
+Es de notar que algunos paquetes requieren obtener datos de un sensor láser, por lo cual el Kinect no cumpliría con ese requerimiento; sin embargo, hay un paquete o nodo de ROS que permite convertir las imágenes con datos de profundidad capturadas por un sensor RGB-D (tal como el Kinect) y emular un sensor láser. Este puede encontrarse acá: \url{http://wiki.ros.org/depthimage_to_laserscan}
+
+\begin{itemize}
+	\itemsep1pt \parskip1pt \parsep1pt
+	\item gmapping (\url{http://wiki.ros.org/gmapping})
+	\item hector\_slam (\url{http://wiki.ros.org/hector_slam})
+	\item RTAB-Map (\url{http://wiki.ros.org/rtabmap})
+	\item rgbdslam (\url{http://wiki.ros.org/rgbdslam})
+	\item rgbdslam V2 (versión actualizada) (\url{http://felixendres.github.io/rgbdslam_v2/})
+\end{itemize}
+
+Tras evaluar documentación disponible, ejemplos de código y funcionamiento y versiones soportadas de cada módulo en ROS, se decidió utilizar RTAB-Map (descrito en el siguiente capítulo).
 
 Es de destacar, que RTAB-Map cuenta con soporte directo por parte del desarrollador del mismo, por lo cual será utilizado en este proyecto para la generación de mapas.
