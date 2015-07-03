@@ -8,6 +8,10 @@ RTAB-Map (\textit{Real-Time Appearance-Based Mapping} o Cartografía en Tiempo R
 
 Un enfoque de manejo de memoria es utilizado para limitar el número de ubicaciones utilizadas para la detección de cierre de lazos y la optimización del grafo, para que las restricciones de tiempo real en entornos de gran escala sean siempre respetadas. RTAB-Map puede ser utilizado por si solo con un Kinect o cámara estéreo operado a mano para obtener cartografía RGB-D de 6 grados de libertad, o en un robot equipado con un medidor de distancias láser para cartografía de 3 grados de libertad. \cite{rtabmaphome}
 
+La aplicación soporta distintos sensores, tales como el Kinect, el ASUS Xtion Pro / Pro Live \cite{xtionpro} \cite{xtionprolive}, cámaras soportadas por la librería libdc1394 \cite{libdc1394} y cámaras soportadas por la librería FlyCapture2. \cite{libflycapture2}
+
+Como detalle adicional, RTAB-Map permite su uso directamente desde código C++, tanto para detección de cierre de lazos únicamente, como para generar mapas RGB-D.
+
 \section{Instalación}
 
 RTAB-Map soporta instalaciones en Linux, OS X y Windows y puede funcionar de dos maneras: como software independiente (no necesita otros paquetes de software aparte de él mismo y de los controladores de las cámaras a usar) o como un módulo de ROS, en cuyo caso lógicamente requiere que ROS esté instalado de antemano (y su compatibilidad se reduce a la misma de ROS).
@@ -171,13 +175,11 @@ RTAB-Map comenzará a capturar una nube de puntos en 3D mientras detecta cierres
 
 \subsection{Requerimientos}
 
----Llenar.---
+Para funcionar de forma adecuada, RTAB-Map requiere el uso de las librerías PCL y OpenCV, así como también de los controladores correspondientes al dispositivo que desee usarse, ya sea el Kinect, el Xtion o las múltiples opciones de cámaras estéreo. Asimismo, dependiendo de la configuración del robot y de los sensores disponibles, tendremos múltiples opciones para realizar la cartografía del entorno, todas estas detalladas en la documentación disponible de RTAB-Map, accesible desde el sitio web \url{http://wiki.ros.org/rtabmap_ros/Tutorials/SetupOnYourRobot} (en inglés).
 
-\subsection{Procedimiento}
+\subsection{Procedimiento y Pruebas}
 
----Llenar.---
-
-\subsection{Pruebas}
+Con el fin de probar el funcionamiento de RTAB-Map como aplicación independiente e integrada a ROS, seguiremos los tutoriales disponibles en la documentación, primero generando una nube de puntos desde la aplicación independiente, y luego generándola y visualizándola desde ROS.
 
 ---Llenar.---
 

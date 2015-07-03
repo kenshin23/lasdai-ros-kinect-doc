@@ -9,9 +9,10 @@
 % Para texto en chino, japonés o coreano:
 \usepackage{CJKutf8}
 
-% Para tablas más agradables visualmente y listas de chequeo en tablas:
+% Para imágenes, tablas más agradables visualmente y listas de chequeo en tablas:
 \usepackage{booktabs}%
 \usepackage{graphicx}%
+\graphicspath{ {img/} }
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \usepackage[flushleft]{threeparttable}
 \usepackage{adjustbox}
@@ -114,6 +115,9 @@ showstringspaces=false
   },
 }
 
+% Corrige problemas de fuentes:
+\usepackage[T1]{fontenc}
+
 \usepackage[activeacute,spanish]{babel}
 
 \usepackage{color}
@@ -133,8 +137,8 @@ showstringspaces=false
 pdfauthor={Carlos Eduardo Paparoni Bruzual},
 pdfsubject={Proyecto de Grado}, % se deja igual (se cambia para el proyecto de grado)
 pdfkeywords={Robots Móviles, Construcción de Mapas, Visión por Computador, Kinect, ROS}, pdfstartview=FitH,
-% bookmarks=true, citecolor=blue}
-bookmarks=true, citecolor=blue, draft=true}
+bookmarks=true, citecolor=blue}
+% bookmarks=true, citecolor=blue, draft=true}
 
 % ***************************************************************** %
 % FIN DE
@@ -261,7 +265,7 @@ Existen múltiples soluciones de software que permiten el control de bases robó
 \\
 En este trabajo se presenta la investigación, documentación e implementación de una plataforma de software adecuada para el manejo del hardware robótico disponible en el Laboratorio de Sistemas Discretos, Automatización e Integración (LaSDAI), con el fin de soportar y utilizar el dispositivo Kinect\textregistered, desarrollado por la compañía Microsoft\textregistered, específicamente mediante el uso del emisor láser y de la cámara infrarroja del mismo, para realizar medidas y generar mapas del entorno que puedan ser utilizados para la localización y navegación de un robot móvil.
 \\
-Se desarrollará utilizando UML 2.0 (Unified Modeling Language) para el modelado y como guía en su desarrollo, el método PXP que forma parte de los métodos Ágiles de desarrollo.}
+Se desarrollará utilizando como guía el método PXP que forma parte de los métodos Ágiles de desarrollo, junto con el método Kanban.}
 
 % Aquí se escriben las palabras claves de la monografía
 \descriptores{Robots Móviles, Construcción de Mapas, Visión por Computador, Kinect, ROS}
@@ -299,7 +303,9 @@ Se desarrollará utilizando UML 2.0 (Unified Modeling Language) para el modelado
 % ***************************************************************** %
 
 %\prefacesection{Agradecimientos}
-% Aún no hay agradecimientos
+% Aún no hay agradecimientos, descomentar lo siguiente cuando los haya:
+% Por cada \input{}, debe existir un archivo .tex con el nombre entre corchetes:
+% \input{Agradecimientos}
 
 %%% Capitulo sin numero, antes de la pagina 1
 
