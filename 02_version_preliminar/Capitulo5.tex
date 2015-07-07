@@ -247,7 +247,50 @@ En el mapa 3D generado, se puede observar una serie de puntos en cian conectados
 
 La generación de un mapa 2D no es sino la proyección en el plano de la nube de puntos capturada en el paso anterior. Para esto, utilizaremos la versión de RTAB-Map integrada a ROS, ya que por inconvenientes al momento de instalar la versión independiente, no se reconoce de forma adecuada la librería PCL, necesaria para generar la ``rejilla de ocupación'' (en inglés, ``\textit{occupancy grid}'') que sería el mapa en 2D de los obstáculos detectados durante la generación del mapa.
 
-Para ello, procedemos de la siguiente forma:
+Procedemos de la siguiente forma:
+
+En primer lugar, requeriremos el uso del software de control para el Turtlebot \cite{turtlebot}, que es un kit robótico de bajo costo. Este software permite simular un robot y provee de archivos de lanzamiento adecuados para nuestro caso de uso. Se instala mediante el siguiente comando:
+
+\begin{blackcodebox}
+\begin{lstlisting}[language=bash]
+sudo apt-get install ros-indigo-turtlebot ros-indigo-turtlebot-apps ros-indigo-turtlebot-interactions ros-indigo-turtlebot-simulator ros-indigo-kobuki-ftdi ros-indigo-rocon-remocon ros-indigo-rocon-qt-library ros-indigo-ar-track-alvar-msgs
+\end{lstlisting}
+\end{blackcodebox}
+
+Una vez instalado, debemos agregar dos archivos de lanzamiento particulares al directorio de instalación de Turtlebot en ROS, disponibles en el repositorio en Github del proyecto de RTAB-Map en la dirección \url{https://github.com/introlab/rtabmap_ros/}, ejecutando los siguientes comandos en una terminal:
+
+\begin{blackcodebox}
+\begin{lstlisting}[language=bash]
+sudo wget -P /opt/ros/indigo/share/rtabmap_ros/launch/demo/ https://raw.githubusercontent.com/introlab/rtabmap_ros/master/launch/demo/demo_turtlebot_mapping.launch
+sudo wget -P /opt/ros/indigo/share/rtabmap_ros/launch/demo/ https://raw.githubusercontent.com/introlab/rtabmap_ros/master/launch/demo/demo_turtlebot_rviz.launch
+\end{lstlisting}
+\end{blackcodebox}
+
+Una vez terminadas las descargas, debemos ejecutar cada uno de estos comandos en una terminal independiente:
+
+\begin{blackcodebox}
+\begin{lstlisting}[language=bash]
+
+\end{lstlisting}
+\end{blackcodebox}
+
+\begin{blackcodebox}
+\begin{lstlisting}[language=bash]
+
+\end{lstlisting}
+\end{blackcodebox}
+
+\begin{blackcodebox}
+\begin{lstlisting}[language=bash]
+
+\end{lstlisting}
+\end{blackcodebox}
+
+Este último comando inicia la herramienta RViz, o Visualizador de ROS, el cual permite obtener datos de distintos nodos y tópicos disponibles.
+
+---Insertar imagen de RViz---
+
+
 
 ---Llenar.---
 
