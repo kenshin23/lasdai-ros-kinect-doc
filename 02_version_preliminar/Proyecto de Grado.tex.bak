@@ -115,6 +115,9 @@ showstringspaces=false
   },
 }
 
+% Agrega apéndices:
+\usepackage[titletoc]{appendix}
+
 % Corrige problemas de fuentes:
 \usepackage[T1]{fontenc}
 
@@ -346,6 +349,16 @@ Se desarrollará utilizando como guía el método PXP que forma parte de los mé
 \input{Capitulo5} % RTAB-Map y Generación de Mapas
 
 \input{Conclusion}
+
+\clearpage
+\appendix
+\renewcommand{\appendixname}{Apéndice}
+\renewcommand{\appendixtocname}{Apéndices}
+\renewcommand{\appendixpagename}{Apéndices}
+\appendixpage
+\noappendicestocpagenum
+\addappheadtotoc
+\input{Apendice}
 
 % Estilo de la bibliografía
 \bibliographystyle{IEEEtranNes}
