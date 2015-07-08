@@ -1,10 +1,10 @@
 \chapter{ROS}
 
-En este capítulo se desea profundizar en la definición de ROS (Robot Operating System) como plataforma de software seleccionada para el desarrollo de este proyecto de grado. Asimismo, se describen sus características principales, la arquitectura de software que utiliza, la instalación del mismo en el entorno de desarrollo a utilizar, y los módulos en los cuales se apoya este proyecto para llevar a cabo la generación de mapas de entorno.
+En este capítulo se desea profundizar en la definición de ROS (\textit{Robot Operating System}) como plataforma de software seleccionada para el desarrollo de este proyecto de grado. Asimismo, se describen sus características principales, la arquitectura de software que utiliza, la instalación del mismo en el entorno de desarrollo a utilizar, y los módulos en los cuales se apoya este proyecto para llevar a cabo la generación de mapas de entorno.
 
 \section{Definición}
 
-\textit{Robot Operating System} (Sistema Operativo de/para Robot) o sencillamente ROS, es, tal como su nombre implica, un sistema operativo para robots, de forma similar a los sistemas operativos para computadores de escritorio o servidores. Desarrollado y mantenido por la empresa Willow Garage desde 2008 hasta 2013, siendo tomada su dirección en ese año por la Fundación de Robótica de Código Abierto, es una colección de herramientas, librerías y convenciones que buscan simplificar la tarea de crear comportamientos de robot robustos y complejos a lo largo de una amplia variedad de plataformas robóticas.
+\textit{Robot Operating System} (Sistema Operativo de/para Robot) o sencillamente ROS es, tal como su nombre implica, un sistema operativo para robots, de forma similar a los sistemas operativos para computadores de escritorio o servidores. Desarrollado y mantenido por la empresa Willow Garage desde 2008 hasta 2013, siendo tomada su dirección en ese año por la Fundación de Robótica de Código Abierto, es una colección de herramientas, bibliotecas y convenciones que buscan simplificar la tarea de crear comportamientos de robot robustos y complejos a lo largo de una amplia variedad de plataformas robóticas.
 
 La justificación de porqué hacer esto es porque decididamente, crear software robótico de propósito general y verdaderamente robusto es difícil, ya que si bien para un ser humano algunos problemas son triviales, no lo son en lo absoluto al momento de tomar en cuenta las grandes variaciones entre instancias de tareas y entornos. Lidiar con estas variaciones es tan complicado que ningún individuo, laboratorio o institución pudiera esperar llevarlo a cabo por su propia cuenta.
 
@@ -17,13 +17,13 @@ Además, ROS es Software Libre y está distribuido bajo la licencia BSD, permiti
 Se pueden comentar las siguientes:
 
 \begin{description}
-	\item[Comunicación entre pares:] los sistemas robóticos complejos con múltiples enlaces podrían tener varios computadores de a bordo (para realizar tareas paralelas) conectados a través de una red. La ejecución de un maestro central podría dar lugar a la congestión severa en un enlace determinado. Usando una comunicación peer-to-peer o entre pares evitaría este problema. En ROS, una arquitectura peer-to-peer acoplado a un sistema de memoria intermedia o buffer y un sistema de búsqueda (un servicio de nombres llamado ``maestro'' en ROS), le permite a cada componente dialogar directamente con cualquier otro, de forma sincrónica o asincrónica como sea necesario.
+	\item[Comunicación entre pares:] los sistemas robóticos complejos con múltiples enlaces podrían tener varios computadores de a bordo (para realizar tareas paralelas) conectados a través de una red. La ejecución de un maestro central podría dar lugar a la congestión severa en un enlace determinado. Usando una comunicación peer-to-peer o entre pares evitaría este problema. En ROS, una arquitectura peer-to-peer acoplado a un sistema de memoria intermedia o \textit{buffer} y un sistema de búsqueda (un servicio de nombres llamado ``maestro'' en ROS), le permite a cada componente dialogar directamente con cualquier otro, de forma sincrónica o asincrónica como sea necesario.
 
-	\item[Gratuito y de código abierto:] Ser una plataforma de código abierto ofrece la reutilización de funciones ya existentes proporcionadas por muchos otros usuarios de ROS. Su código se suministra en repositorios como stacks, o ``pilas''. Otras personas han desarrollado capacidades sorprendentes para los robots que han sido ``de código abierto'' y son relativamente fáciles de añadir de forma incremental utilizando el entorno de desarrollo de ROS.
+	\item[Gratuito y de código abierto:] Ser una plataforma de código abierto ofrece la reutilización de funciones ya existentes proporcionadas por muchos otros usuarios de ROS. Su código se suministra en repositorios como \textit{stacks}, o ``pilas''. Otras personas han desarrollado capacidades sorprendentes para los robots que han sido ``de código abierto'' y son relativamente fáciles de añadir de forma incremental utilizando el entorno de desarrollo de ROS.
 
 	\item[Delgado:] Para combatir el desarrollo de algoritmos que se ``enredan'' o vinculan en un grado mayor o menor con el sistema operativo del robot y, por tanto, son difíciles de reutilizar posteriormente, los desarrolladores de ROS han planificado que los controladores y otros algoritmos sean contenidos en ejecutables independientes. Esto garantiza la máxima reutilización y, sobre todo, mantiene reducido su tamaño. Este método hace que ROS sea fácil de usar y ubica la complejidad en las bibliotecas. Esta disposición también facilita las pruebas unitarias y los sistemas desarrollados puede ser completamente independientes de otro sistema.
 
-	\item[Multi-lenguaje:] ROS es independiente del lenguaje, y se puede programar en varios lenguajes. La especificación ROS trabaja en la capa de mensajería. Las conexiones \textit{peer-to-peer} se negocian en XML-RPC, que existe en un gran número de lenguajes. Para soportar un nuevo lenguaje, se pueden reenvolver clases C ++ son re-envueltos (lo cual se hizo para el cliente Octave, por ejemplo) o se escriben clases permitiendo que se generen mensajes. Estos mensajes se describen en IDL (\textit{Interface Definition Language}). \cite{quigley2009ros}
+	\item[Multi-lenguaje:] ROS es independiente del lenguaje, y se puede programar en varios lenguajes. La especificación ROS trabaja en la capa de mensajería. Las conexiones \textit{peer-to-peer} se negocian en XML-RPC, que existe en un gran número de lenguajes. Para soportar un nuevo lenguaje, se pueden reenvolver clases C ++ (lo cual se hizo para el cliente Octave, por ejemplo) o se escriben clases permitiendo que se generen mensajes. Estos mensajes se describen en IDL (\textit{Interface Definition Language}). \cite{quigley2009ros}
 \end{description}
 
 \section{Arquitectura}
@@ -101,7 +101,6 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 
 	\item Configure sus llaves
 
-
 	\begin{blackcodebox}
 	\begin{lstlisting}[language=bash]
 sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key\\ 0xB01FA116
@@ -136,10 +135,10 @@ sudo apt-get install libgl1-mesa-dev-lts-utopic
 	\end{lstlisting}
 	\end{blackcodebox}
 
-	Existen muchas librerías y herramientas en ROS. Se han provisto cuatro configuraciones por defecto para iniciar. También se pueden instalar paquetes de ROS de forma individual.
+	Existen muchas bibliotecas y herramientas en ROS. Se han provisto cuatro configuraciones por defecto para iniciar. También se pueden instalar paquetes de ROS de forma individual.
 
 	\begin{itemize}
-		\item Instalación de Escritorio Completa: (Recomendada): ROS, rqt, rviz, librerías genéricas para robots, simuladores 2D/3D, navegación y percepción 2D/3D
+		\item Instalación de Escritorio Completa: (Recomendada): ROS, rqt, rviz, bibliotecas genéricas para robots, simuladores 2D/3D, navegación y percepción 2D/3D
 
 		Indigo usa Gazebo 2, la cual es la versión por defecto en Trusty y es la recomendada. Si desea actualizar a Gazebo 3 vea las instrucciones en \url{http://wiki.gazebosim.org/wiki/Install/Gazebo_and_ROS#Gazebo_3.x_series} acerca de cómo actualizar el simulador.
 
@@ -150,7 +149,7 @@ sudo apt-get install ros-indigo-desktop-full
 		\end{lstlisting}
 		\end{blackcodebox}
 
-		\item Instalación de Escritorio: ROS, rqt, rviz, y librerías genéricas para robots.
+		\item Instalación de Escritorio: ROS, rqt, rviz, y bibliotecas genéricas para robots.
 
 		\begin{blackcodebox}
 		\begin{lstlisting}[language=bash]
@@ -158,14 +157,13 @@ sudo apt-get install ros-indigo-desktop
 		\end{lstlisting}
 		\end{blackcodebox}
 
-		\item ROS-Base: (Esencial) Las librerías de paquete, generación y comunicación. No incluye herramientas de entorno gráfico.
+		\item ROS-Base: (Esencial) Las bibliotecas de paquete, generación y comunicación. No incluye herramientas de entorno gráfico.
 
-
-	\begin{blackcodebox}
-	\begin{lstlisting}[language=bash]
+		\begin{blackcodebox}
+		\begin{lstlisting}[language=bash]
 sudo apt-get install ros-indigo-ros-base
-	\end{lstlisting}
-	\end{blackcodebox}
+		\end{lstlisting}
+		\end{blackcodebox}
 
 		\item Paquete Individual: También puede instalar un paquete específico de ROS package (reemplace subguiones con guiones del nombre del paquete):
 
@@ -174,7 +172,7 @@ sudo apt-get install ros-indigo-ros-base
 sudo apt-get install ros-indigo-PAQUETE
 		\end{lstlisting}
 		\end{blackcodebox}
-	por ejemplo:
+		por ejemplo:
 
 		\begin{blackcodebox}
 		\begin{lstlisting}[language=bash]
@@ -182,7 +180,7 @@ sudo apt-get install ros-indigo-slam-gmapping
 		\end{lstlisting}
 		\end{blackcodebox}
 
-Para listar paquetes disponibles, use:
+		Para listar paquetes disponibles, use:
 
 		\begin{blackcodebox}
 		\begin{lstlisting}[language=bash]
@@ -212,7 +210,7 @@ source ~/.bashrc
 	\end{lstlisting}
 	\end{blackcodebox}
 
-	Si tiene más de una distribución de ROS instalada, ~/.bashrc sólo debe tomar como fuente el setup.bash para la versión que esté en uso actualmente.
+	Si tiene más de una distribución de ROS instalada, \url{~/.bashrc} sólo debe tomar como fuente el \url{setup.bash} para la versión que esté en uso actualmente.
 
 	Si simplemente desea cambiar el entorno del terminal actual, puede escribir:
 

@@ -8,7 +8,7 @@ RTAB-Map (\textit{Real-Time Appearance-Based Mapping} o Cartografía en Tiempo R
 
 Un enfoque de manejo de memoria es utilizado para limitar el número de ubicaciones utilizadas para la detección de cierre de lazos y la optimización del grafo \cite{labbe13appearance}, para que las restricciones de tiempo real en entornos de gran escala sean siempre respetadas. RTAB-Map puede ser utilizado por si solo con un Kinect o cámara estéreo operado a mano para obtener cartografía RGB-D de 6 grados de libertad, o en un robot equipado con un medidor de distancias láser para cartografía de 3 grados de libertad. \cite{rtabmaphome}
 
-La aplicación soporta distintos sensores, tales como el Kinect, el ASUS Xtion Pro / Pro Live \cite{xtionpro} \cite{xtionprolive}, cámaras soportadas por la librería libdc1394 \cite{libdc1394} y cámaras soportadas por la librería FlyCapture2. \cite{libflycapture2}
+La aplicación soporta distintos sensores, tales como el Kinect, el ASUS Xtion Pro / Pro Live \cite{xtionpro} \cite{xtionprolive}, cámaras soportadas por la biblioteca libdc1394 \cite{libdc1394} y cámaras soportadas por la biblioteca FlyCapture2. \cite{libflycapture2}
 
 Como detalle adicional, RTAB-Map permite su uso directamente desde código C++, tanto para detección de cierre de lazos únicamente, como para generar mapas RGB-D.
 
@@ -128,7 +128,7 @@ sudo apt-get install ros-indigo-rtabmap-ros
 \end{lstlisting}
 \end{blackcodebox}
 
-Si se desea instalar desde fuente, el proceso (detallado en la página \url{https://github.com/introlab/rtabmap_ros#rtabmap_ros}) conlleva tener conocimiento del espacio de trabajo (\textit{workspace}) de ROS, y la instalación desde fuente de la librería OpenCV. También se asume que se ha configurado el espacio de trabajo en el directorio \url{~/catkin_ws} y que el archivo \url{~/.bashrc} contiene lo siguiente:
+Si se desea instalar desde fuente, el proceso (detallado en la página \url{https://github.com/introlab/rtabmap_ros#rtabmap_ros}) conlleva tener conocimiento del espacio de trabajo (\textit{workspace}) de ROS, y la instalación desde fuente de la biblioteca OpenCV. También se asume que se ha configurado el espacio de trabajo en el directorio \url{~/catkin_ws} y que el archivo \url{~/.bashrc} contiene lo siguiente:
 
 \noindent ROS Hydro:
 \begin{blackcodebox}
@@ -175,7 +175,7 @@ RTAB-Map comenzará a capturar una nube de puntos en 3D mientras detecta cierres
 
 \subsection{Requerimientos}
 
-Para funcionar de forma adecuada, RTAB-Map requiere el uso de las librerías PCL y OpenCV, así como también de los controladores correspondientes al dispositivo que desee usarse, ya sea el Kinect, el Xtion o las múltiples opciones de cámaras estéreo. Asimismo, dependiendo de la configuración del robot y de los sensores disponibles, tendremos múltiples opciones para realizar la cartografía del entorno, todas estas detalladas en la documentación disponible de RTAB-Map, accesible desde el sitio web \url{http://wiki.ros.org/rtabmap_ros/Tutorials/SetupOnYourRobot} (en inglés).
+Para funcionar de forma adecuada, RTAB-Map requiere el uso de las bibliotecas PCL y OpenCV, así como también de los controladores correspondientes al dispositivo que desee usarse, ya sea el Kinect, el Xtion o las múltiples opciones de cámaras estéreo. Asimismo, dependiendo de la configuración del robot y de los sensores disponibles, tendremos múltiples opciones para realizar la cartografía del entorno, todas estas detalladas en la documentación disponible de RTAB-Map, accesible desde el sitio web \url{http://wiki.ros.org/rtabmap_ros/Tutorials/SetupOnYourRobot} (en inglés).
 
 \subsection{Procedimiento y Pruebas}
 
@@ -245,7 +245,7 @@ En el mapa 3D generado, se puede observar una serie de puntos en cian conectados
 
 \subsubsection{Generación de mapas 2D}
 
-La generación de un mapa 2D no es sino la proyección en el plano de la nube de puntos capturada en el paso anterior. Para esto, utilizaremos la versión de RTAB-Map integrada a ROS, ya que por inconvenientes al momento de instalar la versión independiente, no se reconoce de forma adecuada la librería PCL, necesaria para generar la ``rejilla de ocupación'' (en inglés, ``\textit{occupancy grid}'') que sería el mapa en 2D de los obstáculos detectados durante la generación del mapa.
+La generación de un mapa 2D no es sino la proyección en el plano de la nube de puntos capturada en el paso anterior. Para esto, utilizaremos la versión de RTAB-Map integrada a ROS, ya que por inconvenientes al momento de instalar la versión independiente, no se reconoce de forma adecuada la biblioteca PCL, necesaria para generar la ``rejilla de ocupación'' (en inglés, ``\textit{occupancy grid}'') que sería el mapa en 2D de los obstáculos detectados durante la generación del mapa.
 
 Procedemos de la siguiente forma:
 
