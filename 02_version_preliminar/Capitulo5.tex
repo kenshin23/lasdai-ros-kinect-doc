@@ -198,7 +198,7 @@ freenect-glview
 \end{lstlisting}
 \end{blackcodebox}
 
-el cual muestra las imágenes provenientes de ambas cámaras, como se muestra en la figura \ref{figure:freenecttest}
+\noindent el cual muestra las imágenes provenientes de ambas cámaras, como se muestra en la figura \ref{figure:freenecttest}
 
 Una vez realizada esta comprobación, podemos continuar con la generación de un mapa de entorno 3D.
 
@@ -212,7 +212,7 @@ rtabmap
 \end{lstlisting}
 \end{blackcodebox}
 
-cuyo binario está instalado en \url{/usr/local/bin/rtabmap}. Este procedimiento ejecuta el programa, el cual nos pregunta en la primera inicialización, dónde deseamos guardar los datos de configuración, así como los de la captura de datos (por defecto, esto se realiza en las carpetas \url{/home/<usuario>/.rtabmap/} y \url{/home/<usuario>/Documents/RTAB-Map}, respectivamente).
+\noindent cuyo binario está instalado en \url{/usr/local/bin/rtabmap}. Este procedimiento ejecuta el programa, el cual nos pregunta en la primera inicialización, dónde deseamos guardar los datos de configuración, así como los de la captura de datos (por defecto, esto se realiza en las carpetas \url{/home/<usuario>/.rtabmap/} y \url{/home/<usuario>/Documents/RTAB-Map}, respectivamente).
 
 \begin{figure}[hb]
 \centering
@@ -368,15 +368,9 @@ Rviz nos indica que reconstruirá la nube de puntos y que podría tomar un momen
 \label{figure:rvizmappingmapcloud}
 \end{figure}
 
-Como último paso, una vez finalizada la exploración del entorno, es necesario guardar el mapa obtenido. Para ellos, se ejecuta el siguiente comando en otra consola:
+A diferencia de la versión individual de RTAB-Map, la integración con ROS guarda automáticamente los datos obtenidos (los mapas 3D y 2D) en la ruta \url{~/.ros/rtabmap.db}, por lo cual no es necesario levantar otro nodo para realizar la exportación del mapa.
 
-\begin{blackcodebox}
-\begin{lstlisting}[language=bash]
-rosrun map_server map_saver [-f /ruta/al/mapa]
-\end{lstlisting}
-\end{blackcodebox}
-
-el cual guardará el mapa en la ruta especificada, de ser el caso, o en el directorio actual donde se ejecute el comando, en el archivo ``map''. Esto da por terminado el proceso y hace disponible el mapa para localización y navegación, o si se quiere, para generar mapas de otros entornos adyacentes al ya recorrido y generado.
+Esto da por terminado el proceso y hace disponible el mapa para localización y navegación (lo cual se efectua borrando del todo el parámetro ``args'' -o eliminando el valor ``--delete\_db\_on\_start''- y pasando como nuevo parámetro ``localization:=true'' al momento de ejecutar ``demo\_turtlebot\_mapping.launch''), o si se quiere, para generar mapas de otros entornos adyacentes al ya recorrido y generado (borrando del todo el parámetro ``args'' en el paso anterior).
 
 \paragraph{Selección de altura máxima para generación del mapa 2D}
 
