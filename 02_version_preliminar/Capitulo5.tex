@@ -169,9 +169,9 @@ catkin_make
 
 \section{Generación de Mapas de Entorno}
 
----Llenar preámbulo---
+Una vez instalado y ejecutado el software, podremos seleccionar un dispositivo entre la lista previamente mencionada, generar una base de datos y comenzar a reconocer el entorno.
 
-RTAB-Map comenzará a capturar una nube de puntos en 3D mientras detecta cierres de lazo -- es decir, se lleva a cabo la detección en las ``imágenes'' (ya que no se captura una imagen en sí) de lugares ya visitados previamente, tras lo cual se realizan correcciones en las estimaciones pasadas. Una vez terminado, se puede exportar la nube de puntos capturada a distintos formatos (PCD, que es un formato que contiene datos de nube de puntos \cite{pcdformat} y PLY, que es un formato de polígonos, que guardan datos tridimensionales), para ser procesada posteriormente de ser necesario.
+RTAB-Map comenzará a capturar una nube de puntos en 3D mientras detecta cierres de lazo -- es decir, se lleva a cabo la detección en las ``imágenes'' (ya que no se captura una imagen en sí, sino puntos con datos de profundidad y color) de lugares ya visitados previamente, tras lo cual se realizan correcciones en las estimaciones pasadas. Una vez terminado, se puede exportar la nube de puntos capturada a distintos formatos (PCD, que es un formato que contiene datos de nube de puntos \cite{pcdformat} y PLY, que es un formato de polígonos, que guardan datos tridimensionales), para ser procesada posteriormente de ser necesario.
 
 \subsection{Requerimientos}
 
@@ -212,32 +212,51 @@ rtabmap
 \end{lstlisting}
 \end{blackcodebox}
 
-cuyo binario está instalado en \url{/usr/local/bin/rtabmap}. Este procedimiento ejecuta el programa, el cual nos pregunta en la primera inicialización, dónde deseamos guardar los datos de la captura (por defecto, esto se realiza en la carpeta \url{/home/<usuario>/Documents/RTAB-Map}).
-
----Insertar imagen de pregunta---
-
-Tras iniciar, se nos presenta la siguiente pantalla:
-
----Insertar imagen de pantalla inicial---
-
-Para comenzar la captura de datos de entorno, inicializamos una nueva base de datos haciendo clic en el botón ``New database'':
-
-el cual genera las estructuras de datos necesarias y tras su culminación, estamos listos para realizar la captura. Hacemos clic en el botón Iniciar:
-
----Insertar imagen de botón iniciar---
-
-Ya podemos comenzar a explorar el entorno. Simplemente basta con dirigir el Kinect haciendo un recorrido del área a obtener, mientras se supervisa la interfaz gráfica de RTAB-Map.
-
----Insertar imagen de proceso intermedio---
-
-Si en algún momento de la exploración, la pantalla de ``\textit{odometry}'' (odometría) muestra un fondo rojo junto con una imagen estática del entorno, quiere decir que no se tienen suficientes características distintivas en la zona capturada para poder realizar una medición adecuada. Para arreglarlo, tal como se nos indica en el tutorial correspondiente, debemos colocar la cámara de nuevo en la zona que se muestra en la imagen y esperar a que la aplicación retome la generación del mapa desde ese punto.
-
-Una vez explorado el área, hacemos clic en el botón ``Stop'', tras lo cual podemos examinar los resultados, presentados en la figura \ref{figure:bedroommap}.
+cuyo binario está instalado en \url{/usr/local/bin/rtabmap}. Este procedimiento ejecuta el programa, el cual nos pregunta en la primera inicialización, dónde deseamos guardar los datos de configuración, así como los de la captura de datos (por defecto, esto se realiza en las carpetas \url{/home/<usuario>/.rtabmap/} y \url{/home/<usuario>/Documents/RTAB-Map}, respectivamente).
 
 \begin{figure}[hb]
 \centering
-\includegraphics[width=1.00\textwidth]{bedroommap}
-\caption{Generación de nube de puntos de una habitación}
+\raisebox{-0.5\height}{\includegraphics[width=0.40\textwidth]{rtabmapinit}}\hspace{1em}%
+\raisebox{-0.5\height}{\includegraphics[width=0.40\textwidth]{rtabmapinitdb}}
+\caption{Inicialización de RTAB-Map}
+\label{figure:rtabmapinit}
+\end{figure}
+
+Tras iniciar, se nos presenta la siguiente pantalla:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.70\textwidth,height=4.4cm]{rtabmapmain}
+\caption{Ventana principal de RTAB-Map}
+\label{figure:rtabmapmain}
+\end{figure}
+
+Para comenzar la captura de datos de entorno, inicializamos una nueva base de datos haciendo clic en el botón ``New database'':
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.40\textwidth]{rtabmapstartdb}
+\caption{Barra de menú principal de RTAB-Map}
+\label{figure:rtabmapstartdb}
+\end{figure}
+
+\noindent el cual genera las estructuras de datos necesarias y tras su culminación, estamos listos para realizar la captura: hacemos clic en el botón Iniciar (botón ``Reproducir'' en la figura \ref{figure:rtabmapstartdb}) y ya podemos comenzar a explorar el entorno. Simplemente basta con dirigir el Kinect haciendo un recorrido del área a obtener, mientras se supervisa la interfaz gráfica de RTAB-Map.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.70\textwidth]{rtabmapstandalonebedroommap}
+\caption{Generación de un mapa de una habitación}
+\label{figure:rtabmapstandalonebedroommap}
+\end{figure}
+
+Si en algún momento de la exploración, la pantalla de ``\textit{odometry}'' (odometría) muestra un fondo rojo junto con una imagen estática del entorno, quiere decir que no se tienen suficientes características distintivas en la zona capturada para poder realizar una medición adecuada. Para arreglarlo, tal como se nos indica en el tutorial correspondiente, debemos colocar la cámara (el Kinect) de nuevo en la zona que se muestra en la imagen y esperar a que la aplicación retome la generación del mapa desde ese punto.
+
+Una vez explorado el área, hacemos clic en el botón ``Stop'', tras lo cual podemos examinar los resultados, presentados en la figura \ref{figure:bedroommap}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.80\textwidth]{bedroommap}
+\caption{Generación de nube de puntos de una habitación con RTAB-Map}
 \label{figure:bedroommap}
 \end{figure}
 
@@ -270,30 +289,106 @@ Una vez terminadas las descargas, debemos ejecutar cada uno de estos comandos en
 
 \begin{blackcodebox}
 \begin{lstlisting}[language=bash]
-
+roslaunch turtlebot_bringup minimal.launch
 \end{lstlisting}
 \end{blackcodebox}
 
 \begin{blackcodebox}
 \begin{lstlisting}[language=bash]
-
+roslaunch rtabmap_ros demo_turtlebot_mapping.launch rgbd_odometry:=true args:="--delete_db_on_start"
 \end{lstlisting}
 \end{blackcodebox}
 
 \begin{blackcodebox}
 \begin{lstlisting}[language=bash]
-
+rosrun rviz rviz -d turtlebot_navigation.rviz
 \end{lstlisting}
 \end{blackcodebox}
 
-Este último comando inicia la herramienta RViz, o Visualizador de ROS, el cual permite obtener datos de distintos nodos y tópicos disponibles.
+Este último comando inicia la herramienta rviz, o Visualizador (en 3D) de ROS, el cual permite obtener datos de distintos nodos y tópicos disponibles.
 
----Insertar imagen de RViz---
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.00\textwidth]{rvizmain}
+\caption{Ventana principal de rviz}
+\label{figure:rvizmain}
+\end{figure}
 
+Al iniciar rviz, por defecto se tendrá una base de datos nueva para comenzar a generar el mapa. En el panel izquierdo (en adelante el panel de visualizaciones), en la parte inferior, se hace clic en ``Add'' (Agregar Visualización), desplegando la ventana visible en la figura \ref{figure:rvizaddvisualization}. Desplazándose en los tipos de visualizaciones disponibles, se debe agregar \url{Map}, disponible bajo la categoría ``rviz''. Puede dejarse el nombre por defecto.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.50\textwidth]{rvizaddvisualization}
+\caption{Ventana de visualizaciones}
+\label{figure:rvizaddvisualization}
+\end{figure}
 
----Llenar.---
+Una vez hecho esto, se debe desplegar el menú de opciones (con la flecha ubicada en el extremo derecho del título ``Map'') y luego seleccionar el \textit{topic} (tópico) ``\url{/rtabmap/proj_map}''.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.40\textwidth]{rviztopic}
+\caption{Selección de tópico}
+\label{figure:rviztopic}
+\end{figure}
+
+La visualización mostrará la proyección horizontal del mapa, generado a medida que se recorre el entorno. Esto es visible en la figura \ref{figure:rvizmappingprojection}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.80\textwidth]{rvizmappingprojection}
+\caption{Mapa generado (proyección horizontal)}
+\label{figure:rvizmappingprojection}
+\end{figure}
+
+Adicionalmente, se puede visualizar la nube de puntos capturada, con el fin de corroborar que se esté realizando adecuadamente la generación del mapa. Para ello, se agrega una nueva visualización de la misma forma como se agregó la del mapa (Figura \ref{figure:rvizaddvisualization}), seleccionando esta vez el tipo ``MapCloud'' bajo la categoría ``rtabmap\_ros''.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.40\textwidth]{rvizmapping}
+\caption{Visualización de mapa de puntos agregada}
+\label{figure:rvizmapping}
+\end{figure}
+
+Una vez agregada, se selecciona (o se corrobora que esté seleccionado) el tópico ``\url{/rtabmap/mapData}'' y se hace clic en la casilla de selección bajo el título ``Download map''.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.40\textwidth]{rvizmappingpremap}
+\caption{Obtener nube de puntos optimizada}
+\label{figure:rvizmappingpremap}
+\end{figure}
+
+Rviz nos indica que reconstruirá la nube de puntos y que podría tomar un momento, tras lo cual se mostrará en la ventana principal la nube de puntos optimizada correspondiente al recorrido realizado.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.80\textwidth]{rvizmappingmapcloud}
+\caption{Nube de puntos capturada}
+\label{figure:rvizmappingmapcloud}
+\end{figure}
+
+Como último paso, una vez finalizada la exploración del entorno, es necesario guardar el mapa obtenido. Para ellos, se ejecuta el siguiente comando en otra consola:
+
+\begin{blackcodebox}
+\begin{lstlisting}[language=bash]
+rosrun map_server map_saver [-f /ruta/al/mapa]
+\end{lstlisting}
+\end{blackcodebox}
+
+el cual guardará el mapa en la ruta especificada, de ser el caso, o en el directorio actual donde se ejecute el comando, en el archivo ``map''. Esto da por terminado el proceso y hace disponible el mapa para localización y navegación, o si se quiere, para generar mapas de otros entornos adyacentes al ya recorrido y generado.
 
 \paragraph{Selección de altura máxima para generación del mapa 2D}
 
----Llenar.---
+Por defecto, el archivo de lanzamiento establece una altura de 2,0 metros como altura máxima para realizar la proyección del mapa 2D. Para cambiarlo, debe editarse el atributo ``value'' del parámetro ``proj\_max\_height'' bajo el nodo ``rtabmap'' del archivo de lanzamiento \url{/opt/ros/indigo/share/rtabmap_ros/launch/demo/demo_turtlebot_mapping.launch} como se muestra a continuación:
+
+\begin{blackcodebox}
+\begin{lstlisting}[escapechar=@, language=xml]
+<node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="$(arg args)">
+    ...
+    <param name="proj_max_height" type="double" @\colorbox{electricyellow}{value=``2.0''}@ />
+</node>
+\end{lstlisting}
+\end{blackcodebox}
+
+Cabe destacar que el nodo no permite la selección de una altura mínima para obstáculos; lo que sí está disponible es el parámetro ``proj\_max\_ground\_angle'' (tipo de dato: doble, por defecto: 45) que es el máximo ángulo en grados entre la normal del punto a la normal del suelo, para ser etiquetado como suelo. Los puntos que tengan una mayor diferencia angular son considerados como obstáculos.
