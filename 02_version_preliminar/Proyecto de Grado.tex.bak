@@ -1,9 +1,5 @@
 \documentclass[12pt,oneside]{book}
 \usepackage{ulamonog} %proyecto de grado
-
-% Descomentar en Windows:
-%\usepackage[cp1252]{inputenc} % escribir acentos en Windows
-% Descomentar en Linux:
 \usepackage[utf8]{inputenc}
 
 % Para texto en chino, japonés o coreano:
@@ -151,8 +147,8 @@ bookmarks=true, citecolor=blue}
 % ***************************************************************** %
 
 % Si desea que no aparezca la lista de tablas o figuras descomente las siguientes lineas
-% \nolistoftables
-\nolistoffigures%
+% \nolistoftables%
+% \nolistoffigures%
 \usepackage[numbers]{natbib} %Agregado numbers para compatibilidad con la bibliografía estilo IEEEtranN
 
 \sloppy
