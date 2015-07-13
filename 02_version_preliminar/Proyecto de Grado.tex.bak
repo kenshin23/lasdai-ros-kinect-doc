@@ -138,8 +138,8 @@ showstringspaces=false
 pdfauthor={Carlos Eduardo Paparoni Bruzual},
 pdfsubject={Proyecto de Grado}, % se deja igual (se cambia para el proyecto de grado)
 pdfkeywords={Robots Móviles, Construcción de Mapas, Visión por Computador, Kinect, ROS}, pdfstartview=FitH,
-bookmarks=true, citecolor=blue}
-% bookmarks=true, citecolor=blue, draft=true}
+% bookmarks=true, citecolor=blue}
+bookmarks=true, citecolor=blue, draft=true}
 
 % ***************************************************************** %
 % FIN DE
@@ -224,7 +224,7 @@ bookmarks=true, citecolor=blue}
 % días antes de la presentación)
 % ***************************************************************** %
 %\fechaentrega{Julio 2015} % Si sabe cuando se presentó
-%\presentaciondia{10 de Julio de 2015} % si conoce exactamente el día
+%\presentaciondia{20 de Julio de 2015} % si conoce exactamente el día
 %\presentacionlugar{Salón de reuniones EISULA} % si conoce exactamente el lugar donde se presentó
 % ***************************************************************** %
 % FIN DE
@@ -266,7 +266,10 @@ Existen múltiples soluciones de software que permiten el control de bases robó
 \\
 En este trabajo se presenta la investigación, documentación e implementación de una plataforma de software adecuada para el manejo del hardware robótico disponible en el Laboratorio de Sistemas Discretos, Automatización e Integración (LaSDAI), con el fin de soportar y utilizar el dispositivo Kinect\textregistered, desarrollado por la compañía Microsoft\textregistered, específicamente mediante el uso del emisor láser y de la cámara infrarroja del mismo, para realizar medidas y generar mapas del entorno que puedan ser utilizados para la localización y navegación de un robot móvil.
 \\
-Se desarrollará utilizando como guía el método PXP que forma parte de los métodos Ágiles de desarrollo, junto con el método Kanban.}
+Se desarrollará utilizando como guía el método PXP que forma parte de los métodos Ágiles de desarrollo, junto con el método Kanban.
+\\
+Dentro de las plataformas de software consideradas, se determina que Robot Operating System (ROS) es la mejor opción por la popularidad que cuenta en la comunidad de investigación y desarrollo robótico.
+}
 
 % Aquí se escriben las palabras claves de la monografía
 \descriptores{Robots Móviles, Construcción de Mapas, Visión por Computador, Kinect, ROS}
@@ -291,7 +294,7 @@ Se desarrollará utilizando como guía el método PXP que forma parte de los mé
 % Si tiene dedicatoria
 % con o sin comentar
 % ***************************************************************** %
-%\dedicatoria{A todos los amados seres\\ cuando son dos líneas o más}
+%\dedicatoria{A mi Padre Celestial\\ mis padres, mi familia y mi luz}
 % ***************************************************************** %
 % FIN DE
 % Si tiene dedicatoria
