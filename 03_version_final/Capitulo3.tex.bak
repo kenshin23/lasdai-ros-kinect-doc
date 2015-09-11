@@ -1,0 +1,167 @@
+\chapter{Software de Control Robótico}
+
+Este capítulo pretende ahondar en las características de las plataformas o software de control robótico, comenzando por su definición, la exposición de las características más comúnes, los criterios bajo los cuales se selecciona una lista de posibles plataformas para el desarrollo del proyecto y finalmente, la justificación de la plataforma de software escogida.
+
+\section{Definición}
+
+Por lo general, cuando se piensa en robótica el enfoque se realiza sobre los componentes de hardware: actuadores, motores, sensores, etc., y se piensa muy poco sobre el software de control que se utilizará.
+
+Podemos comenzar por definir dicho software como el conjunto de módulos o programas que se encarga indicarle al hardware del robot qué tareas o funciones debe realizar. Dichas funciones son altamente variadas y van desde el control de los actuadores o sensores hasta el manejo de algoritmos de navegación autónoma o reconocimiento del terreno.
+
+Definir una plataforma común de software para múltiples robots es un reto porque, a menos que sean robots construidos en masa y con un propósito igualmente común, normalmente no hay dos robots iguales, o con la misma estructura y/o componentes. No obstante, la forma de crear una aplicación para un robot no es distinta de la empleada para crear cualquier otro tipo de aplicación: un desarrollador escribe la aplicación en determinado lenguaje, lo compila enlazado con las librerías adecuadas para ser ejecutado en determinado sistema operativo y por último, ejecutarlo en el computador que controla al robot.
+
+\subsection{Software de Robots}
+
+Si bien el proceso de desarrollo de software para robots posee muchas características comúnes con el desarrollo de una aplicación común, éstos cuentan con requerimientos específicos que deben ser tomados en cuenta. Desarrollar software para robots móviles es una tarea compleja, ya que un robot es un sistema complejo en si mismo y además este proceso suele ser más exigente que la creación de una aplicación ``estándar'' como manejadores de bases de datos, \textit{suites} ofimáticas, etc. Los siguientes son algunos condicionantes propios, que diferencian el desarrollo de software robótico de otros ámbitos:
+
+\begin{enumerate}
+	\itemsep1pt \parskip1pt \parsep1pt
+	\item A diferencia de una aplicación estándar, una aplicación robótica está directamente enlazada a la realidad física, donde dicho enlace es llevado a cabo a través de sensores y actuadores, donde los primeros obtienen información del entorno y los segundos la modifican. Por tanto, el programa debe poder responder a cualquier cambio en el entorno de forma ágil, para así poder enviar ajustes a los actuadores rápidamente. Esto obliga a que la actuación del software entre en la categoría de tiempo real, como mínimo \textit{soft} o blando, si no estricto.
+
+	\item Por lo general, un robot debe realizar múltiples tareas a la vez: monitorear sensores, actualizar la interfaz gráfica con el usuario, enviar órdenes a los actuadores, comúnicar datos a otros procesos, procesar datos, etc., por lo cual se requiere concurrencia y esto añade complejidad, en mayor o menor grado.
+
+	\item Si bien esto no es imprescindible (en especial en robots autónomos), el software que es ejecutado en el robot debe actualizar constantemente la interfaz gráfica con el usuario, ya que es una herramienta muy útil para realizar depuración de datos y comportamiento y para visualizar en tiempo de ejecución, las estructuras y variables internas, tales como representaciones del mundo, mapas, estados, etc.
+
+	\item Siguiendo los actuales esquemas de desarrollo de software, el software de robots es cada vez más distribuido. Es usual que las aplicaciones de robots tengan que establecer alguna comúnicación con otros procesos ejecutándose en la misma máquina o en una diferente. La distribución ofrece posibilidades ventajosas como ubicar la carga computacional en nodos con mayor capacidad o la visualización remota; y en sistemas multirrobot, hace posible la integración sensorial, la centralización y la coordinación.
+
+	\item La diversidad que existe, tanto en hardware como software, hace más compleja la tarea de programación. En cuanto al hardware, cada día se hace mayor la gran diversidad de dispositivos sensoriales y de actuación, y por lo tanto de interfaces; esto obliga al programador a dominarlos para acceder a ellos desde las aplicaciones. Por otro lado, mientras que en muchos campos de la informática sí hay bibliotecas que un programador puede emplear para construir su propio programa, en el software de robots no hay un marco homogéneo ni hay estándares que propicien la reutilización de código y la integración. En robótica cada aplicación prácticamente ha de construirse desde cero para cada robot concreto.
+
+	\item Ya que el campo que estudia el comportamiento de robots, para dividirlo en unidades básicas sigue siendo materia de investigación, no existe una guía universalmente admitida sobre la forma de organizar el código de las aplicaciones de robots para que sean escalables y reutilizables. Cada desarrollador escribe su aplicación combinando ad hoc los bloques de código que puedan existir en su entorno.
+\end{enumerate}
+
+\subsection{Plataformas de Software}
+
+De la misma forma como los dispositivos electromecánicos -mejor conocidos como robots- que pretenden controlar, el software escrito para ellos presenta, con el pasar del tiempo, cada vez más complejidad y ofrecen mayor funcionalidad. Para ayudar con ambos aspectos, se ha ido implantando \textit{middleware} que simplifica el desarrollo de nuevas aplicaciones en esas áreas, proporcionando contextos nítidos, estructuras de datos predefinidas, bloques muy depurados de código de uso frecuente, protocolos estándar de comúnicaciones, mecanismos de sincronización, etc. De forma paralela, a medida que el desarrollo de software para robots móviles ha ido madurando también han ido apareciendo diferentes plataformas \textit{middleware}.
+
+Actualmente, los fabricantes más avanzados incluyen plataformas de desarrollo para simplificar a los usuarios la programación de sus robots. Por ejemplo, ActivMedia ofrece la plataforma ARIA para sus robots Pioneer, PeopleBot, etc.; iRobot ofrecía Mobility para sus B14 y B21; Evolution Robotics vende su plataforma ERSP; y Sony ofrece OPEN-R para sus Aibo.
+
+De igual forma, muchos grupos de investigación han creado sus propias plataformas de desarrollo. Varios ejemplos son la suite de navegación CARMEN de Carnegie Mellon University, OROCOS, Player/Stage/Gazebo (PSG), Miro, JDE, MARIE, etc..
+
+El objetivo fundamental de estas plataformas es hacer más sencilla la creación de aplicaciones para robots, a través de las siguientes características comúnes: uniformar y simplificar el acceso al hardware, ofrecer una arquitectura de software concreta y proporcionar un conjunto de bibliotecas o módulos con funciones de uso común en robótica que el cliente puede reutilizar para programar sus propias aplicaciones.
+
+Este objetivo se intenta lograr mediante las siguientes acciones:
+
+\begin{itemize}
+	\itemsep1pt \parskip1pt \parsep1pt
+	\item Abstracción del Hardware
+	El sistema operativo provee acceso a sensores y actuadores, aunque lo hace de forma más definida y compleja, totalmente opuesto a como lo hacen las plataformas. Un ejemplo de esto es el siguiente: si se dispone de un robot Pioneer equipado con un sensor láser SICK, la aplicación puede acceder a sus medidas a través de las funciones de la plataforma ARIA o pedirlas y recogerlas directamente a través del puerto serie. Utilizando ARIA basta invocar un método sobre cierto objeto de una clase y la plataforma se encargará de mantener actualizadas las variables con las lecturas. Utilizando sólo el sistema operativo, la aplicación debe solicitar y recoger periódicamente las lecturas al sensor láser a través del puerto serie, y debe conocer el protocolo del dispositivo para componer y analizar correctamente esos mensajes de bajo nivel.
+
+	De la misma forma se ofrece el acceso abstracto para los actuadores. Por ejemplo, en vez de ofrecer comandos de velocidad para cada una de las dos ruedas motrices de un robot Pioneer, la plataforma Miro ofrece una sencilla interfaz de V-W (velocidad de tracción y de giro) para la actuación motriz, la cual se encarga de hacer las transformaciones oportunas, de enviar a cada rueda las consignas necesarias para que el robot consiga esas velocidades comandadas de tracción y de giro.
+
+	En virtud que hay gran heterogeneidad en cuanto al hardware dentro de la robótica, un primer paso bastante importante para llevar a cabo la reutilización de software es la de homogeneizar el acceso al hardware; esta característica está presente en varias plataformas, aunque cada una lo hace a su manera. En la plataforma ERSP de Evolution Robotics el acceso al bajo nivel recibe el nombre de Hardware Abstraction Layer (HAL), y en Miro, Service Layer. En OPEN-R, en Mobility y en ARIA la API de acceso a los sensores y actuadores viene dada por los métodos de un conjunto objetos. En JDE y en PSG el acceso abstracto al hardware lo marca un protocolo entre las aplicaciones y los servidores.
+
+---parafrasear desde---
+	\item Arquitectura de software
+
+	La arquitectura software de la plataforma de desarrollo fija la manera concreta en la que el código de la aplicación debe acceder a las medidas de los sensores, ordenar a los motores, o utilizar una funcionalidad ya desarrollada.
+
+	Existen muchas alternativas de software para ello: llamar a funciones de biblioteca, leer variables, invocar métodos de objetos, enviar mensajes por la red a servidores, etc. Por ejemplo, la plataforma CARMEN presenta interfaces funcionales, Miro usa la invocación de métodos de objetos distribuidos, TCA requiere del paso de mensajes entre distintos módulos, JDE requiere la activación de procesos y la lectura o escritura de variables. Esta apariencia de las interfaces depende de cómo se encapsule en cada plataforma la funcionalidad ya desarrollada.
+
+	Al escribirse dentro de la arquitectura software de la plataforma, el programa de la aplicación adopta una organización concreta y usualmente un lenguaje determinado. Así, se puede plantear como una colección de objetos (p.e. en OPEN-R), como un conjunto de módulos dialogando a través de la red (p.e. en TCA), como un proceso iterativo llamando a funciones, etc.. Hay plataformas muy cerradas, que obligan estrictamente a cierto modelo. Por ejemplo, en la plataforma RAI (RWI, 1999) los clientes han de escribirse forzosamente como un conjunto de módulos RAI (hebras sin desalojo), con ejecución basada en iteraciones. Otras arquitecturas software son deliberadamente abiertas, restringen lo mínimo, como PSG o CARMEN.
+
+	Las arquitecturas software de las plataformas más avanzadas establecen mecanismos concretos para que la aplicación se pueda distribuir en varias unidades concurrentes. El mecanismo multitarea que ofrece la plataforma envuelve y simplifica la interfaz del kernel subyacente para la multiprogramación, en la cual se apoyan siempre. Al igual que ocurre con la interfaz abstracta de acceso al hardware, la interfaz abstracta de multitarea facilita la portabilidad.
+
+	\item Funcionalidades de uso común
+	Además de las librerías sencillas de apoyo, como filtros de color y demás, estas funcionalidades engloban técnicas relativamente maduras, ya sea de percepción o de algoritmos de control: localización, navegación local segura, navegación global, seguimiento de personas, habilidades sociales, construcción de mapas, etc.
+
+	La ventaja de integrarlas en la plataforma es que el usuario puede reutilizarlas, enteras o por partes, lo cual permite acortar los tiempos de desarrollo y reducir el esfuerzo de programación necesario para tener una aplicación. Al incluir funcionalidad común, el desarrollador no tiene que repetir ese trabajo y puede construir su programa reutilizándolas, concentrándose en específicos de su aplicación. Adem muy probada, lo cual disminuye el numero de errores en el programa final.
+	La forma concreta en que se reutilizan las funcionalidades depende nuevamente de la arquitectura de software y de cómo se encapsulen en ella: módulos, objetos distribuidos, objetos locales, funciones, etc.
+	Los fabricantes suelen vender esas funcionalidades por separado o incluirlas como valor añadido de su propia plataforma. Por ejemplo, la plataforma ERSP incluye tres paquetes en su arquitectura básica: uno de interacción, navegación y otro de visión. En el módulo de interacción se incluye el reconocimiento del habla y la síntesis de voz, para interactuar de modo verbal con su robot. En el módulo de navegación se incluye la construcción automática de mapas, la localización en ellos y su utilización para planificar trayectorias.
+
+	\item Arquitectura cognitiva
+	Se denomina arquitectura cognitiva de un robot a la organización de sus capacidades sensoriales y de actuación para generar un repertorio de comportamientos. Para comportamientos simples casi cualquier organización resulta válida, pero para comportamientos complejos se hace patente la necesidad de una buena organización cognitiva. De hecho, puede llegar a ser un factor crítico: con una buena organización sí se pueden generar ciertos comportamientos y con una mala no, porque la complejidad se vuelve inmanejable. A lo largo de la historia de la robótica han surgido escuelas cognitivas o paradigmas para orientar la organización del
+
+	La división del comportamiento artificial en unidades reutilizables es una cuestión muy complicada. Sin embargo, es considerado que aún es demasiado pronto para buscar estándares ahí y recomiendan cenir por ahora la estandarización exclusivamente al acceso a los sensores y actuadores.
+
+	La relación entre las arquitecturas cognitivas y las de software es multiple. Las arquitecturas cognitivas se materializan en alguna arquitectura software, de manera que los comportamientos generados siguiendo cierto paradigma acaban implementándose con algun programa concreto.
+
+	Las propuestas cognitivas más fiables cuentan con implementaciones prácticas relevantes en arquitecturas software concretas: deliberativas (e.g. SOAR), híbridas (e.g. TCA (Simmons and Apfelbaum, 1998), Saphira, etc.), basadas en comportamientos (subsunción, JDE, etc.), etc. Una buena arquitectura cognitiva favorece la escalabilidad de la plataforma.
+
+	Hay plataformas software debajo de las cuales subyace un modelo cognitivo, pero también hay otras en las que no. No obstante, unas arquitecturas software cuadran mejor con ciertas escuelas cognitivas que con otras. Los sistemas deliberativos clásicos cuadran con la programación lógica, con una descomposición funcional en bibliotecas (módulos especialistas) y con las aplicaciones monohilo con un sólo flujo iterativo de control (sensar-modelar-planificar-actuar). Por el contrario, los sistemas basados en comportamientos cuadran mejor con la programación concurrente, donde se tienen varios procesos funcionando en paralelo y que colaboran al funcionamiento global. Resulta natural asimilar cada unidad de comportamiento al concepto software de proceso, o incluso al de objeto activo.
+
+	\item Plataformas de software libre
+	Un gran numero de las plataformas de desarrollo, principalmente las creadas por grupos de investigación, se publican con licencia de software libre, con la idea de contribuir al libre intercambio de conocimiento en el area y con ello al avance de la disciplina robótica.
+
+	Player/Stage/Gazebo (PSG) La plataforma PSG fue creada inicialmente en la Universidad de South California. Está formada por los simuladores Stage y Gazebo, y por el servidor Player al que se conecta el programa de la aplicación para recoger los datos sensoriales o comandar las ordenes a los actuadores. El soporte a robots variados y los simuladores que incorpora la convierten en una plataforma muy completa. Además, cuenta con una creciente comúnidad de desarrolladores, muy activa, que continuamente anade nuevas capacidades y amplía el hardware soportado.
+
+	En PSG los sensores y actuadores se contemplan como si fueran ficheros, dispositivos de modo carácter al estilo de Unix, que se manipulan con cinco operaciones básicas: abrir, cerrar, leer, escribir y configurar. Para usar un sensor, las aplicaciones tienen que abrir el dispositivo, configurarlo y leer de él, cerrándolo al final. De manera análoga se utilizan los actuadores. Cada tipo de dispositivo se define en PSG con una interfaz, de manera que los sensores sónar de algún robot en particular son instancias de la misma interfaz. El conjunto de posibles interfaces presenta una máquina virtual, con toda suerte de sensores y actuadores. El robot concreto instancia las interfaces relativas a los dispositivos realmente existentes.
+
+	PSG tiene un diseño cliente/servidor: las aplicaciones establecen un diálogo por TCP/IP con el servidor Player, que es el responsable de proporcionar las lecturas sensoriales y materializar los comandos de actuación. Además de permitir acceso remoto, este diseno proporciona a las aplicaciones construidas sobre PSG gran independencia de lenguaje y mínimas imposiciones de arquitectura. La aplicación puede escribirse en cualquier lenguaje, y con cualquier estilo, simplemente respetando el protocolo de comúnicaciones con el servidor.
+
+	PSG se orienta principalmente a ofrecer una interfaz abstracta del hardware de robots y no a la identificación de bloques comúnes de funcionalidad. No obstante, se puede incorporar cierta funcionalidad adicional con nuevos mensajes del protocolo, y servicios anadidos a Player. Por ejemplo, la localización probabilística se ha añadido una interfaz más, localization, que proporciona multiples hipótesis de localización. Esta nueva interfaz supera a la tradicional, position, que acarrea la posición estimada desde la odometría.
+
+	ARIA: Otra plataforma de software libre muy utilizada es ARIA (ActivMedia Robotics Interface for Applications). ARIA está impulsada y mantenida por la empresa Active Media Robotics como interfaz de acceso al hardware de sus robots, pero se distribuye con licencia GPL y por tanto su código fuente está accessible. ARIA ofrece un entorno de programación orientado a objetos, que incluye soporte para la programación multitarea y para las comúnicaciones a través de la red. Las aplicaciones han de escribirse forzosamente en C++. ARIA está soportada e Linux y en Win32 OS, por lo que una misma aplicación escrita sobre su API puede funcionar en robots con uno u otro sistema operativo. Es un claro ejemplo de portabilidad.
+
+	En el bajo nivel, ARIA tiene un diseno de cliente/servidor: el robot está gobernado por un controlador que hace las veces de servidor. Ese servidor establece un diálogo a través del puerto serie con la aplicación, escrita utilizando ARIA, que actua como cliente. En ese diálogo al cliente las medidas de ultrasonido, odometría, etc. y se reciben las ordenes de actuación a los motores.
+
+	En cuanto al acceso al hardware, ARIA ofrece una colección de clases, que configuran una API articulada. La clase principal ArRobot contiene varios métodos y objetos relevantes asociados. Packet Receiver y Packet Sender están relacionados con el envío y recepción de paquetes por el puerto serie con el servidor. Dentro de la clase ArRangeDevices, se tienen clases más concretas como ArSonarDevice o ArSick cuyos objetos contienen métodos que permiten a la aplicación acceder a las lecturas de los sensores de proximidad (sónares o escáner láser, respectivamente).
+
+	A diferencia de otras plataformas orientadas a objetos, los objetos de ARIA no son distribuidos, están ubicados en la máquina que se conecta físicamente al robot. No obstante, ARIA permite programar aplicaciones distribuidas utilizando ArNetworking para manejar comúnicaciones remotas, que es un recubrimiento de los sockets del sistema operativo subyacente.
+
+	En cuanto a la multitarea, las aplicaciones sobre ARIA pueden programarse en monohilo o multihilo. En este ultimo caso ARIA ofrece infraestructura tanto para hebras de usuario (ArPeriodicTask) como para hebras kernel (ArThreads). Las ArThreads son un recubrimiento de las Linux-pthreads o Win32-threads. Para resolver los problemas de sincronización y concurrencia, ofrece mecanismos como los ArMutex, y las ArCondition.
+
+	ARIA contiene comportamientos básicos como la navegación segura, sin chocar contra los obstáculos. Pero no incluye funcionalidad común como la construcción de mapas o la localización, que se venden por separado. Por ejemplo, ActivMedia vende el paquete MAPPER para la construcción de mapas, ARNL (Robot Navigation and Localization) para la navegación y localización, y ACTS (ColorTracking Software) para la identificación de objetos por color y su seguimiento. 
+
+	Miro: Miro es una plataforma basada en objetos distribuidos para la creación de aplicaciones para robots, desarrollada en la Universidad de Ulm y publicada bajo licencia GPL. En cuanto a la distribución de objetos, Miro sigue el estándard CORBA, empleando la implementación TAO de CORBA, así como la librería ACE.
+
+	Miro consta de tres niveles: una capa de dispositivos, una capa de servicios y el entorno de clases. La capa de dispositivos (Miro Device Layer ) proporciona interfaces en forma de objetos para todos los dispositivos del robot. Es decir, sus sensores y actuadores se acceden a través de los métodos de ciertos objetos, que dependen de la plataforma física. Por ejemplo, la clase RangeSensor define una interfaz para sensores como los sónares, infrarrojos o láser. La clase contiene métodos para desplazar un robot con tracción diferencial. La capa de servicios (Miro Services Layer ) proporciona descripciones de los sensores y actuadores como servicios especificados en forma de CORBA IDL (Interface Definition Language). De esta manera su funcionalidad se hace accesible remotamente desde objetos que residen en otras máquinas interconectadas a la red, independientemente de su sistema operativo subyacente. El entorno de clases (Miro Class Framework) contiene herramientas para la visualización y la generación de históricos, así como módulos con funcionalidad de uso común en aplicaciones robóticas, como la construcción de mapas, la planificación de caminos o la generación de comportamientos.
+
+	Dentro de Miro la aplicación robótica tiene la forma de una colección de objetos, remotos o locales. Cada uno ejecuta en su máquina y se comúnican entre sí a través de la infraestructura de la plataforma. Los objetos se pueden escribir en cualquier lenguaje que soporte el estándar CORBA, ya que Miro no impone ninguno en concreto, aunque ha sido enteramente escrita en C++.
+---parafrasear hasta---
+\end{itemize}
+
+Por lo visto anteriormente, y dadas sus ventajas, podemos considerar que la mejor opción para unificar el desarrollo de plataformas robóticas en el aspecto de software es hacerlo a través de (\textit{frameworks}) o plataformas de software.
+
+\section{Criterios de Selección}
+
+Antes de mencionar las plataformas consideradas para el desarrollo de este proyecto, es muy importante destacar la forma éstas como serán discriminadas con la finalidad de seleccionar la más adecuada para el uso futuro en LaSDAI.
+
+En primer lugar, y atendiendo a las diversas ventajas que esto implica, se enfoca como uno de los principales requisitos indispensables que la plataforma de software esté desarrollada o posea licencias de Software Libre, ya que esto facilita cualquier desarrollo futuro que desee realizarse en él. La existencia o ausencia de licencias de Software Libre basta como criterio en si mismo.
+
+Después, se espera que dicha plataforma cuente con soporte actual de la comúnidad: es decir, que existan grupos de usuarios en foros y/o listas de correo que estén activas y que respondan a dudas de los usuarios. También se toma en cuenta que exista soporte por parte del equipo de desarrolladores a cargo de la plataforma y que ésta sea actualizada regularmente. Esto es sumamente importante ya que hace más factible que nuevos desarrolladores puedan obtener respuesta a sus consultas o inconvenientes y que en caso de existir estos últimos, se pueda llegar a corregirlos. Para evaluar este criterio, se toman en cuenta la cantidad de grupos disponibles para consulta, de preferencia a través de foros de ayuda y la última fecha de actualización de la plataforma de software como tal; mientras más reciente, mejor.
+
+Luego, se tiene como requerimiento altamente deseable (mas no excluyente), que dicha plataforma soporte los lenguajes de programación en uso actualmente por LaSDAI, o cuyo uso pueda ser deseable en un futuro no muy lejano. Este criterio se da por existente si la plataforma soporta al menos uno de los lenguajes mencionados.
+
+Además, en virtud que este proyecto está basado en el uso del Kinect como sensor para generación de mapas de entorno, no es de extrañar que este sea un requerimiento con alto peso, ya que al contar con soporte ya existente, hace más sencilla la tarea de llevar a cabo la generación de mapas en un robot móvil. Si la plataforma cuenta con al menos un módulo soportado actualmente por algún desarrollador o grupo de desarrolladores, se coloca este criterio como afirmativo.
+
+Por último, aunque vinculado al segundo requisito, se desea que la plataforma de software a escoger, posea documentación amplia y frecuentemente actualizada, porque sólo un programador sabe cuán difícil es desarrollar en un nuevo entorno sin poder contar con documentación o referencias adecuadas. Este criterio basa su existencia o ausencia en una evaluación propia y por tanto, subjetiva de la documentación, ya que establecer una serie de reglas para la evaluación de este criterio, es una materia de estudio en si mismo.
+
+\subsection{Evaluación de Criterios}
+
+Para llevar a cabo la evaluación de cada plataforma, se procedió de la siguiente forma:
+
+Por cada uno de los elementos en la lista de plataformas (Tabla \ref{table:platcons}), se realizó una búsqueda no-exhaustiva en los motores de búsqueda correspondientes a Google Web (\url{https://google.com/}) y Google Académico (\url{https://scholar.google.co.ve/}), buscando a su vez características en la lista de criterios para cada uno, evaluándose en cuanto a existencia o ausencia de cada parámetro, o en el caso de criterios que podían ser parciales, colocando la simbología correspondiente, tal como se detalló en la sección pasada.
+
+\section{Plataformas de Software Consideradas}
+
+\begin{table}[h]
+\begin{adjustbox}{max width=\textwidth}
+\begin{threeparttable}
+\centering
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+\multicolumn{1}{c}{{\bf \begin{tabular}[c]{@{}c@{}}Plataforma de\\ Software\end{tabular}}} & {\bf \begin{tabular}[c]{@{}c@{}}Software\\ Libre\end{tabular}} & {\bf \begin{tabular}[c]{@{}c@{}}Soportado por\\ la Comunidad\end{tabular}} & {\bf \begin{tabular}[c]{@{}c@{}}Soporte\\ C / C++ / Python\end{tabular}} & {\bf \begin{tabular}[c]{@{}c@{}}Soporte\\ Kinect\end{tabular}} & {\bf \begin{tabular}[c]{@{}c@{}}Documentación\\ Actualizada\end{tabular}} \\ \midrule
+CARMEN                                           & \cmark                             & \xmark                                   & \cmark                                  & \xmark                             & O                                     \\
+Microsoft Robotics Developer Studio                            & \xmark                             & \xmark                                   & \xmark                                  & \cmark                             & \cmark                                  \\
+MOOS                                            & \cmark                             & \text{\sffamily O}                             & \cmark                                  & \xmark                             & \text{\sffamily O}                            \\
+OpenRDK                                          & \cmark                             & \text{\sffamily O}                             & \cmark                                  & \xmark                             & \cmark                                  \\
+OpenRTM-aist                                        & \cmark                             & \cmark                                   & \cmark                                  & \cmark                             & \cmark                                  \\
+ORCA                                            & \cmark                             & \xmark                                   & \cmark                                  & \xmark                             & \cmark                                  \\
+Player                                           & \cmark                             & \text{\sffamily O}                             & \cmark                                  & \cmark                             & \cmark                                  \\
+Robot Construction Kit (RoCK)                               & \cmark                             & \text{\sffamily O}                             & \text{\sffamily O}                            & \cmark                             & \cmark                                  \\
+Robot Operating System (ROS)                                & \cmark                             & \cmark                                   & \cmark                                  & \cmark                             & \cmark                                  \\
+Yet Another Robot Platform (YARP)                             & \cmark                             & \text{\sffamily O}                             & \cmark                                  & \text{\sffamily O}                       & \cmark                                  \\ \bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item Leyenda: \cmark = sí, \text{\sffamily O} = parcial, \xmark = no
+\end{tablenotes}
+\end{threeparttable}
+\end{adjustbox}
+\caption{Plataformas de Software consideradas}\label{table:platcons}
+\end{table}
+
+\section{Plataforma de Software Seleccionada}
+
+Dada la popularidad, la facilidad de uso e independencia de lenguajes del sistema de comúnicación interprocesos, la fácil integración de una amplia gama de herramientas como las de visualización de los datos de movimiento y sensores del robot, implementación de los algoritmos de planificación de ruta y de percepción y controladores de bajo nivel para sensores comúnmente utilizados y las herramientas de administración que permiten el monitoreo y la inspección de mensajes, hacen que ROS sea el candidato perfecto para el uso en proyectos en el área de robótica móvil.
+
+Por último pero no por ello menos importante, ROS cuenta con amplia documentación \cite{answersros} para cualquier nivel de usuario, desde principiante hasta experto, por lo que cualquier nuevo desarrollo puede efectuarse con una curva de aprendizaje leve, desde el punto de vista coloquial de esta frase. De igual forma, también cuenta con múltiples foros activos donde los mismos usuarios interactúan para consultar y resolver dudas.
